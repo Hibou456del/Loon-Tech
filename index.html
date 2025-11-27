@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoonTech </title>
+    <meta
+      name="description"
+      content="LoonTech – agence digitale : développement, conseil et solutions numériques modernes."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-loontech fixed-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#hero">
+          <img src="logo.jpg" alt="Logo LoonTech" class="logo-img" />
+          <span>LoonTech</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Basculer la navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-lg-center gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#hero">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#faq">FAQ</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a
+                href="mailto:akoueteyannel662@gmail.com?subject=Contact%20LoonTech%20-%20Parler%20%C3%A0%20un%20expert"
+                class="btn btn-loontech"
+              >
+                Parler à un expert
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero / Accueil -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6">
+            <span class="badge badge-soft-green mb-3">Agence digitale &amp; studio d'innovation</span>
+            <h1 class="hero-title">
+              LoonTech façonne des solutions
+              <span class="text-accent">numériques utiles</span> et durables.
+            </h1>
+            <p class="hero-subtitle">
+              LoonTech accompagne les entreprises, indépendants et organisations dans la conception
+              d’expériences digitales exigeantes : analyse de données, machine learning, sites web
+              et applications déployables, sécurité, contenus et formation sur-mesure.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="#services" class="btn btn-loontech btn-lg">
+                Découvrir nos services
+              </a>
+              <a href="#faq" class="btn btn-outline-loontech btn-lg">
+                Questions fréquentes
+              </a>
+            </div>
+            <div class="hero-meta mt-4 d-flex flex-wrap gap-4">
+              <div>
+                <div class="hero-meta-number">+30</div>
+                <div class="hero-meta-label">projets et parcours formés</div>
+              </div>
+              <div>
+                <div class="hero-meta-number">100%</div>
+                <div class="hero-meta-label">expériences pensées multi-écrans</div>
+              </div>
+              <div>
+                <div class="hero-meta-number">0</div>
+                <div class="hero-meta-label">complexité inutile pour nos clients</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <!-- Pinterest-like Masonry Grid -->
+            <div class="masonry-wrapper">
+              <div class="masonry-column">
+                <div class="masonry-card">
+                  <h3>Créer un site vitrine</h3>
+                  <p>Comprendre les bases d’un site clair et professionnel.</p>
+                  <span class="badge-pill">Compétence web</span>
+                </div>
+                <div class="masonry-card">
+                  <h3>Automatiser simplement</h3>
+                  <p>Découvrir comment éviter les tâches répétitives.</p>
+                  <span class="badge-pill">Gain de temps</span>
+                </div>
+              </div>
+              <div class="masonry-column">
+                <div class="masonry-card highlight">
+                  <h3>Maîtriser un front moderne</h3>
+                  <p>Prendre en main une interface inspirée de Pinterest.</p>
+                  <span class="badge-pill">Expérience UI/UX</span>
+                </div>
+                <div class="masonry-card">
+                  <h3>Structurer un projet</h3>
+                  <p>Voir comment passer d’une idée à un plan simple.</p>
+                  <span class="badge-pill">Vision projet</span>
+                </div>
+              </div>
+              <div class="masonry-column d-none d-md-block">
+                <div class="masonry-card">
+                  <h3>Soigner son identité</h3>
+                  <p>Jouer avec la palette beige, blanc, vert.</p>
+                  <span class="badge-pill">Design</span>
+                </div>
+                <div class="masonry-card">
+                  <h3>Déployer son site</h3>
+                  <p>Comprendre l’hébergement simple et durable.</p>
+                  <span class="badge-pill">Déploiement</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section-padding bg-section">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">Nos services</h2>
+          <p class="section-subtitle">
+            De la donnée au déploiement : LoonTech propose des formations en machine learning,
+            création d’applications, maintenance de systèmes, marketing, portée de clientèle et sécurité.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <span class="service-badge">01</span>
+              <div class="service-icon">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <h3>Machine learning & data science</h3>
+              <p>
+                Exploitez vos données pour prendre de meilleures décisions : analyse, modèles
+                prédictifs et automatisation intelligente.
+              </p>
+              <ul class="service-list">
+                <li>Exploration et préparation de jeux de données</li>
+                <li>Modèles de machine learning adaptés à vos besoins</li>
+                <li>Aide à la mise en production ou à l’intégration des modèles</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <span class="service-badge">02</span>
+              <div class="service-icon">
+                <i class="bi bi-window-sidebar"></i>
+              </div>
+              <h3>Sites web, applications & maintenance</h3>
+              <p>
+                Conception et développement de sites web modernes, d’applications sur mesure,
+                avec une attention particulière à la stabilité et à la maintenance de vos systèmes.
+              </p>
+              <ul class="service-list">
+                <li>Création de sites vitrine et de pages d’atterrissage</li>
+                <li>Développement d’applications web et outils internes dédiés</li>
+                <li>Maintenance évolutive et corrective de vos systèmes existants</li>
+                <li>Conseil sur l’hébergement et la stratégie de déploiement</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <span class="service-badge">03</span>
+              <div class="service-icon">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h3>Sécurité, marketing & IA générative</h3>
+              <p>
+                Des formations complètes autour du hacking &amp; de la sécurité, du marketing digital,
+                de la portée de clientèle, des systèmes d’ads et de la maîtrise des prompts IA.
+              </p>
+              <ul class="service-list">
+                <li>Formations pratiques en cybersécurité et bonnes pratiques</li>
+                <li>Formations en montage vidéo, marketing et mise en valeur de vos services</li>
+                <li>Formations aux systèmes d’ads et à la portée de clientèle</li>
+                <li>Ateliers sur la conception de prompts efficaces pour vos problèmes métiers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-padding">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-5">
+            <div class="section-header mb-4">
+              <h2 class="section-title">FAQ</h2>
+              <p class="section-subtitle">
+                Ici, on répond uniquement aux questions les plus fréquentes sur les
+                formations proposées par LoonTech.
+              </p>
+            </div>
+            <div class="faq-highlight">
+              <h3>À qui s’adressent nos formations&nbsp;?</h3>
+              <p>
+                À toute personne motivée à monter en compétences : étudiants, salariés,
+                indépendants ou personnes en reconversion, même avec un niveau technique
+                débutant ou intermédiaire.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-one-heading">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq-one"
+                    aria-expanded="true"
+                    aria-controls="faq-one"
+                  >
+                    Quelles thématiques de formation propose LoonTech&nbsp;?
+                  </button>
+                </h2>
+                <div
+                  id="faq-one"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="faq-one-heading"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Nous proposons des formations autour du <strong>machine learning</strong> et de la
+                    <strong>data science</strong>, de la <strong>création de sites web et d’applications</strong>,
+                    du <strong>hacking éthique et de la cybersécurité</strong>, du
+                    <strong>montage vidéo</strong>, du <strong>marketing digital</strong> et de la
+                    <strong>maîtrise des prompts</strong> pour l’IA générative.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-two-heading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq-two"
+                    aria-expanded="false"
+                    aria-controls="faq-two"
+                  >
+                    Faut-il déjà savoir coder pour suivre les formations&nbsp;?
+                  </button>
+                </h2>
+                <div
+                  id="faq-two"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq-two-heading"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Pas forcément. Certaines formations sont accessibles aux vrais débutants et
+                    d’autres sont conçues pour des profils plus avancés. Lors de la prise de
+                    contact, nous clarifions ensemble votre niveau et vos objectifs pour vous
+                    orienter vers le bon parcours.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-three-heading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq-three"
+                    aria-expanded="false"
+                    aria-controls="faq-three"
+                  >
+                    Comment se déroulent les sessions de formation&nbsp;?
+                  </button>
+                </h2>
+                <div
+                  id="faq-three"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq-three-heading"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Les sessions peuvent se faire <strong>en ligne</strong> (visioconférence) ou
+                    <strong>en présentiel</strong> selon le contexte. Elles alternent théorie,
+                    démonstrations, exercices pratiques et cas réels en lien avec vos projets.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-four-heading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq-four"
+                    aria-expanded="false"
+                    aria-controls="faq-four"
+                  >
+                    Comment s’inscrire ou demander un programme sur mesure&nbsp;?
+                  </button>
+                </h2>
+                <div
+                  id="faq-four"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq-four-heading"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Il suffit de nous écrire via le bouton <strong>«&nbsp;Parler à un expert&nbsp;»</strong>
+                    ou via le <strong>formulaire de contact</strong> en précisant la ou les
+                    thématiques qui vous intéressent. Nous revenons vers vous par email ou
+                    téléphone pour construire la formation la plus adaptée à votre profil.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact (simple call-to-action sans back-end) -->
+    <section id="contact" class="section-padding bg-section-light">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="section-title mb-3">Discutons de votre projet</h2>
+            <p class="section-subtitle mb-4">
+              Décrivez-nous rapidement votre besoin, et nous vous proposerons une première piste
+              d’accompagnement.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <strong>Email :</strong>
+                <a href="mailto:akoueteyannel662@gmail.com">akoueteyannel662@gmail.com</a>
+              </li>
+              <li>
+                <strong>Téléphone :</strong>
+                <a href="tel:+22997546521">+229 97 54 65 21</a> /
+                <a href="tel:+22505078214662">+225 05 07 82 14 662</a>
+              </li>
+              <li><strong>Disponibilités :</strong> du lundi au vendredi</li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-card">
+              <form id="contact-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nom / Structure</label>
+                  <input type="text" class="form-control" id="name" placeholder="Votre nom" />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="vous@exemple.com"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="project" class="form-label">Parlez-nous de votre projet</label>
+                  <textarea
+                    class="form-control"
+                    id="project"
+                    rows="4"
+                    placeholder="Quelques lignes sur vos objectifs, votre contexte, vos délais…"
+                  ></textarea>
+                </div>
+                <p class="small text-muted mb-3">
+                Merci de remplir ce formulaire pour que nous puissions vous contacter.
+                </p>
+                <button type="submit" class="btn btn-loontech w-100">
+                  Envoyer 
+                </button>
+                <div id="contact-feedback" class="form-text mt-2"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top row gy-4">
+          <div class="col-md-4">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="brand-mark small"><a class="nav-link active" aria-current="page" href="#hero">LT</a></span>
+              <span class="fw-semibold">LoonTech</span>
+            </div>
+            <p class="footer-text">
+              Formations et solutions numériques pour apprendre à créer, sécuriser et déployer
+              vos projets digitaux.
+            </p>
+          </div>
+
+          <div class="col-6 col-md-2">
+            <h3 class="footer-title">Découvrir</h3>
+            <ul class="footer-links-list">
+              <li><a href="#hero">Accueil</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="apropos.html">À propos</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <h3 class="footer-title">Formation</h3>
+            <ul class="footer-links-list">
+              <li><a href="#services">ML &amp; data science</a></li>
+              <li><a href="#services">Web &amp; applications</a></li>
+              <li><a href="#faq">Hacking &amp; sécurité</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <h3 class="footer-title">Contact</h3>
+            <ul class="footer-links-list">
+              <li>
+                <a href="mailto:akoueteyannel662@gmail.com">
+                  <i class="bi bi-envelope me-1"></i>akoueteyannel662@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+22997546521">
+                  <i class="bi bi-telephone me-1"></i>+229 97 54 65 21
+                </a>
+              </li>
+              <li>
+                <a href="tel:+22505078214662">
+                  <i class="bi bi-telephone me-1"></i>+225 05 07 82 14 662
+                </a>
+              </li>
+              <li>
+                <a href="confidentialite.html">
+                  <i class="bi bi-shield-check me-1"></i>Confidentialité
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 mt-4">
+          <div class="text-muted small">
+            © <span id="year"></span> LoonTech. Tous droits réservés.
+          </div>
+          <div class="footer-social d-flex gap-3">
+            <a href="#hero" aria-label="Retour en haut">
+              <i class="bi bi-arrow-up-circle"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
+
