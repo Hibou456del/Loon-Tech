@@ -1,4 +1,4 @@
-// Smooth scroll for internal links (navbar)
+// smooth scroll for internal links (navbar)
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const targetId = this.getAttribute("href");
@@ -19,7 +19,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Contact form: open email client with pre-filled message (same logique que "Parler à un expert")
+// contact form: open email client with pre-filled message (same logique que "Parler à un expert")
 const contactForm = document.getElementById("contact-form");
 const feedbackEl = document.getElementById("contact-feedback");
 
@@ -43,20 +43,11 @@ if (contactForm && feedbackEl) {
       "Projet :",
       project,
       "",
-      "Envoyé depuis le site vitrine LoonTech.",
-      "",
-      "Vous pouvez aussi nous joindre au +229 97 54 65 21."
+      "Envoyé depuis le site vitrine LoonTech."
     ];
 
-    const body = encodeURIComponent(bodyLines.join("\n"));
-    const mailtoLink = `mailto:akoueteyannel662@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${body}`;
-
-    window.location.href = mailtoLink;
-
     feedbackEl.textContent =
-      "Votre logiciel de messagerie va s’ouvrir avec un email pré-rempli vers LoonTech.";
+      "Merci pour votre message. Nous vous contacterons bientôt.";
   });
 }
 
@@ -64,6 +55,65 @@ if (contactForm && feedbackEl) {
 const yearSpan = document.getElementById("year");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
+}
+
+// Masonry card click animation
+document.querySelectorAll('.masonry-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.add('clicked');
+    setTimeout(() => {
+      card.classList.remove('clicked');
+    }, 400); // Match animation duration
+  });
+});
+
+// Theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.querySelector('.theme-icon');
+
+if (themeToggle && themeIcon) {
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  // Update icon based on current theme
+  if (currentTheme === 'dark') {
+    themeIcon.classList.remove('bi-moon-stars');
+    themeIcon.classList.add('bi-sun');
+  } else {
+    themeIcon.classList.remove('bi-sun');
+    themeIcon.classList.add('bi-moon-stars');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Update icon
+    if (newTheme === 'dark') {
+      themeIcon.classList.remove('bi-moon-stars');
+      themeIcon.classList.add('bi-sun');
+    } else {
+      themeIcon.classList.remove('bi-sun');
+      themeIcon.classList.add('bi-moon-stars');
+    }
+  });
+}
+
+// Footer fade-in animation on scroll
+const footerTop = document.querySelector('.footer-top');
+if (footerTop) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footerTop.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.1 });
+  observer.observe(footerTop);
 }
 
 
