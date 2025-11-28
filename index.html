@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+c <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -55,19 +55,30 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav align-items-lg-center gap-lg-2">
+          <ul class="navbar-nav align-items-lg-center gap-lg-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#hero">Accueil</a>
+              <a class="nav-link active" aria-current="page" href="#hero">
+                <i class="bi bi-house me-1"></i>Accueil
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#services">Services</a>
+              <a class="nav-link" href="#services">
+                <i class="bi bi-gear me-1"></i>Services
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#faq">FAQ</a>
+              <a class="nav-link" href="#faq">
+                <i class="bi bi-question-circle me-1"></i>FAQ
+              </a>
             </li>
-            <li class="nav-item ms-lg-3">
+            <li class="nav-item">
+              <button id="theme-toggle" class="btn btn-outline-secondary border-0" aria-label="Basculer le thème">
+                <i class="bi bi-moon-stars theme-icon"></i>
+              </button>
+            </li>
+            <li class="nav-item ms-lg-4">
               <a
-                href="mailto:akoueteyannel662@gmail.com?subject=Contact%20LoonTech%20-%20Parler%20%C3%A0%20un%20expert"
+                href="#contact"
                 class="btn btn-loontech"
               >
                 Parler à un expert
@@ -121,45 +132,46 @@
             <!-- Pinterest-like Masonry Grid -->
             <div class="masonry-wrapper">
               <div class="masonry-column">
-                <div class="masonry-card">
+                <a href="#services" class="masonry-card">
                   <h3>Créer un site vitrine</h3>
                   <p>Comprendre les bases d’un site clair et professionnel.</p>
                   <span class="badge-pill">Compétence web</span>
-                </div>
-                <div class="masonry-card">
+                </a>
+                <a href="#services" class="masonry-card">
                   <h3>Automatiser simplement</h3>
                   <p>Découvrir comment éviter les tâches répétitives.</p>
                   <span class="badge-pill">Gain de temps</span>
-                </div>
+                </a>
               </div>
               <div class="masonry-column">
-                <div class="masonry-card highlight">
+                <a href="#services" class="masonry-card highlight">
                   <h3>Maîtriser un front moderne</h3>
                   <p>Prendre en main une interface inspirée de Pinterest.</p>
                   <span class="badge-pill">Expérience UI/UX</span>
-                </div>
-                <div class="masonry-card">
+                </a>
+                <a href="#services" class="masonry-card">
                   <h3>Structurer un projet</h3>
                   <p>Voir comment passer d’une idée à un plan simple.</p>
                   <span class="badge-pill">Vision projet</span>
-                </div>
+                </a>
               </div>
               <div class="masonry-column d-none d-md-block">
-                <div class="masonry-card">
+                <a href="#services" class="masonry-card">
                   <h3>Soigner son identité</h3>
                   <p>Jouer avec la palette beige, blanc, vert.</p>
                   <span class="badge-pill">Design</span>
-                </div>
-                <div class="masonry-card">
+                </a>
+                <a href="#services" class="masonry-card">
                   <h3>Déployer son site</h3>
                   <p>Comprendre l’hébergement simple et durable.</p>
                   <span class="badge-pill">Déploiement</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     </section>
 
     <!-- Services -->
@@ -175,60 +187,55 @@
 
         <div class="row g-4">
           <div class="col-md-6 col-lg-4">
-            <div class="service-card">
+            <div class="service-card animate-fade-in">
               <span class="service-badge">01</span>
               <div class="service-icon">
                 <i class="bi bi-cpu"></i>
               </div>
               <h3>Machine learning & data science</h3>
               <p>
-                Exploitez vos données pour prendre de meilleures décisions : analyse, modèles
-                prédictifs et automatisation intelligente.
+                Exploitez vos données : analyse, modèles prédictifs et automatisation.
               </p>
               <ul class="service-list">
-                <li>Exploration et préparation de jeux de données</li>
-                <li>Modèles de machine learning adaptés à vos besoins</li>
-                <li>Aide à la mise en production ou à l’intégration des modèles</li>
+                <li>Exploration et préparation de données</li>
+                <li>Modèles ML adaptés</li>
+                <li>Mise en production</li>
               </ul>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4">
-            <div class="service-card">
+            <div class="service-card animate-fade-in">
               <span class="service-badge">02</span>
               <div class="service-icon">
                 <i class="bi bi-window-sidebar"></i>
               </div>
               <h3>Sites web, applications & maintenance</h3>
               <p>
-                Conception et développement de sites web modernes, d’applications sur mesure,
-                avec une attention particulière à la stabilité et à la maintenance de vos systèmes.
+                Conception de sites modernes et applications sur mesure, avec maintenance.
               </p>
               <ul class="service-list">
-                <li>Création de sites vitrine et de pages d’atterrissage</li>
-                <li>Développement d’applications web et outils internes dédiés</li>
-                <li>Maintenance évolutive et corrective de vos systèmes existants</li>
-                <li>Conseil sur l’hébergement et la stratégie de déploiement</li>
+                <li>Sites vitrine et landing pages</li>
+                <li>Apps web et outils internes</li>
+                <li>Maintenance et déploiement</li>
               </ul>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4">
-            <div class="service-card">
+            <div class="service-card animate-fade-in">
               <span class="service-badge">03</span>
               <div class="service-icon">
                 <i class="bi bi-shield-lock"></i>
               </div>
               <h3>Sécurité, marketing & IA générative</h3>
               <p>
-                Des formations complètes autour du hacking &amp; de la sécurité, du marketing digital,
-                de la portée de clientèle, des systèmes d’ads et de la maîtrise des prompts IA.
+                Formations en cybersécurité, marketing digital et maîtrise des IA.
               </p>
               <ul class="service-list">
-                <li>Formations pratiques en cybersécurité et bonnes pratiques</li>
-                <li>Formations en montage vidéo, marketing et mise en valeur de vos services</li>
-                <li>Formations aux systèmes d’ads et à la portée de clientèle</li>
-                <li>Ateliers sur la conception de prompts efficaces pour vos problèmes métiers</li>
+                <li>Cybersécurité et bonnes pratiques</li>
+                <li>Montage vidéo et marketing</li>
+                <li>Systèmes d’ads et prompts IA</li>
               </ul>
             </div>
           </div>
@@ -389,14 +396,9 @@
             <ul class="contact-list">
               <li>
                 <strong>Email :</strong>
-                <a href="mailto:akoueteyannel662@gmail.com">akoueteyannel662@gmail.com</a>
+                <a href="#hero">akoueteyannel662@gmail.com</a>
               </li>
-              <li>
-                <strong>Téléphone :</strong>
-                <a href="tel:+22997546521">+229 97 54 65 21</a> /
-                <a href="tel:+22505078214662">+225 05 07 82 14 662</a>
-              </li>
-              <li><strong>Disponibilités :</strong> du lundi au vendredi</li>
+              <li class="availability"><i class="bi bi-clock me-1"></i><strong>Disponibilités :</strong> du lundi au vendredi</li>
             </ul>
           </div>
           <div class="col-lg-6">
@@ -441,9 +443,9 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <div class="footer-top row gy-4">
-          <div class="col-md-4">
-            <div class="d-flex align-items-center gap-2 mb-2">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <div class="d-flex align-items-center gap-2 mb-3">
               <span class="brand-mark small"><a class="nav-link active" aria-current="page" href="#hero">LT</a></span>
               <span class="fw-semibold">LoonTech</span>
             </div>
@@ -451,48 +453,52 @@
               Formations et solutions numériques pour apprendre à créer, sécuriser et déployer
               vos projets digitaux.
             </p>
+            <div class="footer-social d-flex gap-3 mt-3">
+              <a href="#hero" aria-label="Accueil" class="social-google">
+                <i class="bi bi-google"></i>
+              </a>
+              <a href="#hero" aria-label="Accueil" class="social-facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#hero" aria-label="Accueil" class="social-twitter">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              <a href="#hero" aria-label="Accueil" class="social-instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#hero" aria-label="Accueil" class="social-tiktok">
+                <i class="bi bi-tiktok"></i>
+              </a>
+            </div>
           </div>
 
-          <div class="col-6 col-md-2">
+          <div class="footer-column">
             <h3 class="footer-title">Découvrir</h3>
             <ul class="footer-links-list">
-              <li><a href="#hero">Accueil</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="apropos.html">À propos</a></li>
+              <li><a href="#hero"><i class="bi bi-house me-2"></i>Accueil</a></li>
+              <li><a href="#services"><i class="bi bi-gear me-2"></i>Services</a></li>
+              <li><a href="#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+              <li><a href="apropos.html"><i class="bi bi-info-circle me-2"></i>À propos</a></li>
             </ul>
           </div>
 
-          <div class="col-6 col-md-3">
+          <div class="footer-column">
             <h3 class="footer-title">Formation</h3>
             <ul class="footer-links-list">
-              <li><a href="#services">ML &amp; data science</a></li>
-              <li><a href="#services">Web &amp; applications</a></li>
-              <li><a href="#faq">Hacking &amp; sécurité</a></li>
+              <li><a href="#services"><i class="bi bi-cpu me-2"></i>ML &amp; data science</a></li>
+              <li><a href="#services"><i class="bi bi-window-sidebar me-2"></i>Web &amp; applications</a></li>
+              <li><a href="#faq"><i class="bi bi-shield-lock me-2"></i>Hacking &amp; sécurité</a></li>
             </ul>
           </div>
 
-          <div class="col-12 col-md-3">
+          <div class="footer-column">
             <h3 class="footer-title">Contact</h3>
             <ul class="footer-links-list">
               <li>
-                <a href="mailto:akoueteyannel662@gmail.com">
-                  <i class="bi bi-envelope me-1"></i>akoueteyannel662@gmail.com
-                </a>
+                <a href="mailto:akoueteyannel662@gmail.com"><i class="bi bi-envelope me-2"></i>akoueteyannel662@gmail.com</a>
               </li>
               <li>
-                  <a href="https://wa.me/22997546521" target="_blank" class="bi bi-telephone me-1">+229 97 54 65 21
-                </a>
-              </li>
-              <li>
-                <a href="tel:+22505078214662">
-                  <i class="bi bi-telephone me-1"></i>+225 05 07 82 14 662
-                </a>
-              </li>
-              <li>
-                <a href="confidentialite.html">
-                  <i class="bi bi-shield-check me-1"></i>Confidentialité
-                </a>
+                <a href="confidentialite.html"><i class="bi bi-file-earmark-lock me-2"></i>Confidentialité</a>
               </li>
             </ul>
           </div>
@@ -500,11 +506,23 @@
 
         <div class="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 mt-4">
           <div class="text-muted small">
-            © <span id="year"></span> LoonTech. Tous droits réservés.
+            © <span id="year"></span> LoonTech. Tous droits réservés. | Visiteurs: <span id="visitor-count">0</span>
           </div>
           <div class="footer-social d-flex gap-3">
-            <a href="#hero" aria-label="Retour en haut">
-              <i class="bi bi-arrow-up-circle"></i>
+            <a href="#services" aria-label="Services" class="social-google">
+              <i class="bi bi-google"></i>
+            </a>
+            <a href="#services" aria-label="Services" class="social-facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#services" aria-label="Services" class="social-twitter">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="#services" aria-label="Services" class="social-instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#services" aria-label="Services" class="social-tiktok">
+              <i class="bi bi-tiktok"></i>
             </a>
           </div>
         </div>
@@ -520,7 +538,13 @@
 
     <!-- Custom JS -->
     <script src="script.js"></script>
+    <script>
+      // Visitor counter using localStorage
+      let visitorCount = localStorage.getItem('visitorCount') || 0;
+      visitorCount = parseInt(visitorCount) + 1;
+      localStorage.setItem('visitorCount', visitorCount);
+      document.getElementById('visitor-count').textContent = visitorCount;
+    </script>
   </body>
 </html>
-
 
