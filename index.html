@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LoonTech – Agence digitale &amp; formations</title>
+    <title>LoonTech – Agence digitale & formations</title>
     <meta name="description" content="LoonTech : développement, conseil et solutions numériques modernes." />
 
     <!-- Bootstrap 5 -->
@@ -20,77 +20,191 @@
 
     <style>
         :root {
-            --bleu-ciel: #87CEEB;
-            --bleu-ciel-fonce: #5DADE2;
-            --bleu-tres-clair: #E8F4FD;
-            --blanc: #ffffff;
-            --gris-fond: #f8fafc;
-            --texte: #1e293b;
-            --texte-clair: #475569;
-            --ombre: 0 4px 20px rgba(0, 0, 0, 0.04);
-            --ombre-hover: 0 12px 30px rgba(0, 0, 0, 0.08);
+            /* Mode clair – Blanc & Bleu ciel */
+            --bg-body: #ffffff;
+            --bg-section: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-nav: rgba(255, 255, 255, 0.92);
+            --bg-highlight: #E8F4FD;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --accent: #5DADE2;
+            --accent-light: #87CEEB;
+            --accent-bg: #E8F4FD;
+            --border: #e2e8f0;
+            --border-card: #f1f5f9;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.08);
+            --badge-bg: #E8F4FD;
+            --badge-text: #5DADE2;
+            --footer-bg: #ffffff;
+            --footer-border: #eef2f6;
+            --hero-gradient: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%);
+            --btn-gradient: linear-gradient(135deg, #87CEEB, #5DADE2);
+            --btn-shadow: rgba(93, 173, 226, 0.3);
+            --btn-hover-shadow: rgba(93, 173, 226, 0.4);
+            --accordion-active-bg: #E8F4FD;
+            --accordion-active-text: #5DADE2;
+            --service-icon-bg: #E8F4FD;
+            --service-icon-color: #5DADE2;
+            --social-bg: #E8F4FD;
+            --social-color: #5DADE2;
+            --social-hover-bg: #87CEEB;
+            --social-hover-color: #ffffff;
+            --brand-bg: #87CEEB;
+            --brand-color: #ffffff;
+            --masonry-highlight-bg: linear-gradient(135deg, #ffffff, #E8F4FD);
+            --masonry-highlight-border: #87CEEB;
+            --text-muted-color: #6b7280;
+            --btn-outline-border: #87CEEB;
+            --btn-outline-color: #5DADE2;
+            --btn-outline-hover-bg: #E8F4FD;
+            --btn-outline-hover-color: #5DADE2;
             --rayon: 1.2rem;
             --transition: 0.25s ease;
             --hauteur-nav: 76px;
         }
 
+        /* Mode sombre – Noir, vert cendre, marron */
+        body.dark {
+            --bg-body: #121212;
+            --bg-section: #1a1a1a;
+            --bg-card: #1e1e1e;
+            --bg-nav: rgba(18, 18, 18, 0.94);
+            --bg-highlight: #2a2a2a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --accent: #9CAF88;
+            --accent-light: #A3B899;
+            --accent-bg: #2a2e26;
+            --border: #333333;
+            --border-card: #2c2c2c;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.5);
+            --badge-bg: #2a2e26;
+            --badge-text: #9CAF88;
+            --footer-bg: #121212;
+            --footer-border: #2a2a2a;
+            --hero-gradient: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
+            --btn-gradient: linear-gradient(135deg, #8B5E3C, #6B3F2A);
+            --btn-shadow: rgba(139, 94, 60, 0.3);
+            --btn-hover-shadow: rgba(139, 94, 60, 0.5);
+            --accordion-active-bg: #2a2e26;
+            --accordion-active-text: #9CAF88;
+            --service-icon-bg: #2a2e26;
+            --service-icon-color: #9CAF88;
+            --social-bg: #2a2e26;
+            --social-color: #9CAF88;
+            --social-hover-bg: #8B5E3C;
+            --social-hover-color: #ffffff;
+            --brand-bg: #8B5E3C;
+            --brand-color: #ffffff;
+            --masonry-highlight-bg: linear-gradient(135deg, #1e1e1e, #2a2e26);
+            --masonry-highlight-border: #9CAF88;
+            --text-muted-color: #888888;
+            --btn-outline-border: #8B5E3C;
+            --btn-outline-color: #C49A6C;
+            --btn-outline-hover-bg: #2a2018;
+            --btn-outline-hover-color: #D4A574;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--texte);
-            background-color: var(--blanc);
+            color: var(--text-primary);
+            background-color: var(--bg-body);
             padding-top: var(--hauteur-nav);
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         /* Navbar */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.92);
+            background-color: var(--bg-nav);
             backdrop-filter: blur(10px);
             min-height: var(--hauteur-nav);
+            transition: background-color 0.4s ease;
         }
         .navbar-brand {
-            color: var(--bleu-ciel-fonce) !important;
+            color: var(--accent) !important;
             font-size: 1.5rem;
             letter-spacing: -0.5px;
+            transition: color 0.3s;
         }
         .navbar-brand img.logo-img {
             width: 42px;
             height: 42px;
             border-radius: 12px;
             object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .navbar-brand:hover img.logo-img {
+            transform: rotate(-8deg) scale(1.08);
         }
         .navbar-nav .nav-link {
-            color: var(--texte-clair) !important;
+            color: var(--text-secondary) !important;
             font-weight: 500;
             padding: 0.5rem 1rem !important;
             border-radius: 2rem;
             transition: var(--transition);
         }
+        .navbar-nav .nav-link i {
+            transition: transform 0.3s, color 0.3s;
+        }
+        .navbar-nav .nav-link:hover i,
+        .navbar-nav .nav-link.active i {
+            transform: scale(1.25);
+            color: var(--accent);
+        }
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: var(--bleu-ciel-fonce) !important;
-            background-color: var(--bleu-tres-clair);
+            color: var(--accent) !important;
+            background-color: var(--accent-bg);
+        }
+
+        /* Bouton thème */
+        #theme-toggle {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        #theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background-color: var(--accent-bg);
+            transform: rotate(20deg);
+        }
+        #theme-toggle i {
+            transition: transform 0.4s, color 0.3s;
         }
 
         .btn-loontech {
-            background: linear-gradient(135deg, var(--bleu-ciel), var(--bleu-ciel-fonce));
+            background: var(--btn-gradient);
             color: white !important;
             border: none;
             border-radius: 2.5rem;
             padding: 0.65rem 1.8rem;
             font-weight: 600;
             transition: var(--transition);
-            box-shadow: 0 6px 18px rgba(93, 173, 226, 0.3);
+            box-shadow: 0 6px 18px var(--btn-shadow);
             white-space: nowrap;
         }
         .btn-loontech:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(93, 173, 226, 0.4);
+            box-shadow: 0 10px 24px var(--btn-hover-shadow);
             color: white;
         }
         .btn-outline-loontech {
-            border: 1.5px solid var(--bleu-ciel);
-            color: var(--bleu-ciel-fonce);
+            border: 1.5px solid var(--btn-outline-border);
+            color: var(--btn-outline-color);
             background: transparent;
             border-radius: 2.5rem;
             padding: 0.65rem 1.8rem;
@@ -98,18 +212,19 @@
             transition: var(--transition);
         }
         .btn-outline-loontech:hover {
-            background-color: var(--bleu-tres-clair);
-            color: var(--bleu-ciel-fonce);
+            background-color: var(--btn-outline-hover-bg);
+            color: var(--btn-outline-hover-color);
         }
 
         /* Hero */
         .hero-section {
             padding: 4rem 0 3rem;
-            background: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%);
+            background: var(--hero-gradient);
+            transition: background 0.4s ease;
         }
         .badge-soft-green {
-            background: var(--bleu-tres-clair);
-            color: var(--bleu-ciel-fonce);
+            background: var(--badge-bg);
+            color: var(--badge-text);
             font-weight: 600;
             padding: 0.4rem 1rem;
             border-radius: 2rem;
@@ -120,23 +235,24 @@
             font-weight: 700;
             line-height: 1.2;
             margin: 1rem 0;
+            color: var(--text-primary);
         }
         .text-accent {
-            color: var(--bleu-ciel-fonce);
+            color: var(--accent);
         }
         .hero-subtitle {
-            color: var(--texte-clair);
+            color: var(--text-secondary);
             font-size: 1.1rem;
             line-height: 1.7;
         }
         .hero-meta-number {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--bleu-ciel-fonce);
+            color: var(--accent);
         }
         .hero-meta-label {
             font-size: 0.85rem;
-            color: var(--texte-clair);
+            color: var(--text-secondary);
         }
 
         /* Masonry */
@@ -151,24 +267,24 @@
             gap: 1rem;
         }
         .masonry-card {
-            background: var(--blanc);
+            background: var(--bg-card);
             border-radius: var(--rayon);
             padding: 1.4rem;
             text-decoration: none;
-            color: var(--texte);
-            box-shadow: var(--ombre);
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
             transition: var(--transition);
             display: block;
-            border: 1px solid #f1f5f9;
+            border: 1px solid var(--border-card);
         }
         .masonry-card:hover {
             transform: translateY(-4px);
-            box-shadow: var(--ombre-hover);
-            border-color: var(--bleu-ciel);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-light);
         }
         .masonry-card.highlight {
-            background: linear-gradient(135deg, #ffffff, var(--bleu-tres-clair));
-            border-left: 4px solid var(--bleu-ciel);
+            background: var(--masonry-highlight-bg);
+            border-left: 4px solid var(--masonry-highlight-border);
         }
         .masonry-card h3 {
             font-size: 1.05rem;
@@ -177,12 +293,12 @@
         }
         .masonry-card p {
             font-size: 0.85rem;
-            color: var(--texte-clair);
+            color: var(--text-secondary);
             margin-bottom: 0.6rem;
         }
         .badge-pill {
-            background: var(--bleu-tres-clair);
-            color: var(--bleu-ciel-fonce);
+            background: var(--badge-bg);
+            color: var(--badge-text);
             font-size: 0.7rem;
             font-weight: 600;
             padding: 0.2rem 0.7rem;
@@ -194,16 +310,17 @@
             padding: 5rem 0;
         }
         .bg-section {
-            background-color: var(--gris-fond);
+            background-color: var(--bg-section);
+            transition: background-color 0.4s ease;
         }
         .section-title {
             font-weight: 700;
             font-size: 2.2rem;
             margin-bottom: 0.5rem;
-            color: var(--texte);
+            color: var(--text-primary);
         }
         .section-subtitle {
-            color: var(--texte-clair);
+            color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
             font-size: 1rem;
@@ -211,18 +328,19 @@
 
         /* Services */
         .service-card {
-            background: var(--blanc);
+            background: var(--bg-card);
             border-radius: var(--rayon);
             padding: 2rem 1.8rem;
-            box-shadow: var(--ombre);
+            box-shadow: var(--shadow);
             height: 100%;
             position: relative;
             transition: var(--transition);
-            border: 1px solid #f1f5f9;
+            border: 1px solid var(--border-card);
         }
         .service-card:hover {
-            box-shadow: var(--ombre-hover);
-            border-color: var(--bleu-ciel);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-light);
+            transform: translateY(-3px);
         }
         .service-badge {
             position: absolute;
@@ -230,72 +348,93 @@
             right: 1.5rem;
             font-weight: 700;
             font-size: 1.4rem;
-            color: var(--bleu-ciel);
-            opacity: 0.25;
+            color: var(--accent);
+            opacity: 0.2;
         }
         .service-icon {
             width: 50px;
             height: 50px;
-            background: var(--bleu-tres-clair);
+            background: var(--service-icon-bg);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            color: var(--bleu-ciel-fonce);
+            color: var(--service-icon-color);
             margin-bottom: 1.2rem;
+            transition: transform 0.4s, background 0.3s, color 0.3s;
+        }
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg);
+            background: var(--accent);
+            color: #fff;
         }
         .service-card h3 {
             font-size: 1.2rem;
             font-weight: 600;
+            color: var(--text-primary);
         }
         .service-card p {
-            color: var(--texte-clair);
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
         .service-list {
             list-style: none;
             padding-left: 0;
             font-size: 0.85rem;
-            color: var(--texte-clair);
+            color: var(--text-secondary);
         }
         .service-list li::before {
             content: "•";
-            color: var(--bleu-ciel-fonce);
+            color: var(--accent);
             font-weight: bold;
             margin-right: 0.4rem;
         }
 
         /* FAQ */
         .faq-highlight {
-            background: var(--bleu-tres-clair);
+            background: var(--bg-highlight);
             border-radius: var(--rayon);
             padding: 1.8rem;
             margin-top: 1.5rem;
+            color: var(--text-primary);
+            transition: background 0.4s ease;
+        }
+        .accordion-button {
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+            transition: var(--transition);
         }
         .accordion-button:not(.collapsed) {
-            background-color: var(--bleu-tres-clair);
-            color: var(--bleu-ciel-fonce);
+            background-color: var(--accordion-active-bg);
+            color: var(--accordion-active-text);
             box-shadow: none;
             font-weight: 600;
         }
         .accordion-button:focus {
-            box-shadow: 0 0 0 0.15rem rgba(135, 206, 235, 0.5);
-            border-color: var(--bleu-ciel);
+            box-shadow: 0 0 0 0.15rem var(--accent-light);
+            border-color: var(--accent-light);
         }
         .accordion-item {
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
             border-radius: 0.8rem !important;
             margin-bottom: 0.8rem;
             overflow: hidden;
+            background-color: var(--bg-card);
+            transition: background 0.3s, border 0.3s;
+        }
+        .accordion-body {
+            color: var(--text-secondary);
+            background-color: var(--bg-card);
         }
 
         /* Contact */
         .contact-card {
-            background: var(--blanc);
+            background: var(--bg-card);
             border-radius: var(--rayon);
             padding: 2rem;
-            box-shadow: var(--ombre);
+            box-shadow: var(--shadow);
+            transition: background 0.4s, box-shadow 0.3s;
         }
         .contact-list {
             list-style: none;
@@ -303,17 +442,44 @@
         }
         .contact-list li {
             margin-bottom: 0.4rem;
+            color: var(--text-secondary);
+        }
+        .contact-list a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .form-control {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            transition: background 0.3s, border 0.3s, color 0.3s;
+        }
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.15rem rgba(156, 175, 136, 0.25);
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .form-label {
+            color: var(--text-primary);
         }
 
         /* Footer */
         .footer {
-            background: #ffffff;
-            border-top: 1px solid #eef2f6;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
             padding: 3.5rem 0 1.5rem;
-            color: var(--texte-clair);
+            color: var(--text-secondary);
+            transition: background 0.4s, border 0.3s;
         }
         .footer-grid {
-            disp
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-title {
+            font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 1rem;
             font-size: 1rem;
         }
@@ -326,36 +492,122 @@
         }
         .footer-links-list a {
             text-decoration: none;
-            color: var(--texte-clair);
+            color: var(--text-secondary);
             font-size: 0.9rem;
             transition: var(--transition);
         }
         .footer-links-list a:hover {
-            color: var(--bleu-ciel-fonce);
+            color: var(--accent);
+        }
+        .footer-links-list a i {
+            transition: transform 0.3s;
+        }
+        .footer-links-list a:hover i {
+            transform: translateX(3px);
         }
         .footer-social a {
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: var(--bleu-tres-clair);
+            background: var(--social-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--bleu-ciel-fonce);
+            color: var(--social-color);
             text-decoration: none;
             transition: var(--transition);
         }
         .footer-social a:hover {
-            background: var(--bleu-ciel);
-            color: white;
+            background: var(--social-hover-bg);
+            color: var(--social-hover-color);
+            transform: translateY(-3px);
+        }
+        .footer-social a i {
+            transition: transform 0.3s;
+        }
+        .footer-social a:hover i {
+            animation: iconBounce 0.5s ease;
         }
         .brand-mark {
-            background: var(--bleu-ciel);
-            color: white;
+            background: var(--brand-bg);
+            color: var(--brand-color);
             font-weight: 700;
             padding: 0.25rem 0.5rem;
             border-radius: 8px;
             font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .footer-text {
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        /* Animations icônes */
+        @keyframes iconBounce {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.35);
+            }
+            60% {
+                transform: scale(0.9);
+            }
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 0.8;
+            }
+        }
+        @keyframes spinOnce {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .service-icon i {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        .service-card:nth-child(2) .service-icon i {
+            animation-delay: 0.5s;
+        }
+        .service-card:nth-child(3) .service-icon i {
+            animation-delay: 1s;
+        }
+        .service-card:hover .service-icon i {
+            animation: spinOnce 0.6s ease forwards;
+        }
+
+        .navbar-brand i,
+        .nav-link i {
+            display: inline-block;
+        }
+        .nav-link:hover i {
+            animation: iconBounce 0.5s ease;
+        }
+
+        .faq-highlight i {
+            animation: pulse 2s ease-in-out infinite;
         }
 
         @media (max-width: 992px) {
@@ -377,6 +629,11 @@
                 padding: 2rem 0;
             }
         }
+
+        /* Transition fluide globale */
+        * {
+            transition: background-color 0.35s ease, border-color 0.35s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
     </style>
 </head>
 
@@ -397,7 +654,12 @@
                     <li class="nav-item"><a class="nav-link active" href="#hero"><i class="bi bi-house me-1"></i>Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-gear me-1"></i>Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#faq"><i class="bi bi-question-circle me-1"></i>FAQ</a></li>
-                    <li class="nav-item ms-lg-4">
+                    <li class="nav-item">
+                        <button id="theme-toggle" aria-label="Basculer le thème" title="Mode jour / nuit">
+                            <i class="bi bi-moon-stars"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-lg-2">
                         <a href="#contact" class="btn btn-loontech">Parler à un expert</a>
                     </li>
                 </ul>
@@ -416,7 +678,7 @@
                     </h1>
                     <p class="hero-subtitle">
                         LoonTech accompagne les entreprises, indépendants et organisations dans la conception
-                        d’expériences digitales exigeantes : analyse de données, machine learning, sites web
+                        d'expériences digitales exigeantes : analyse de données, machine learning, sites web
                         et applications déployables, sécurité, contenus et formation sur-mesure.
                     </p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
@@ -435,7 +697,7 @@
                         <div class="masonry-column">
                             <a href="#services" class="masonry-card">
                                 <h3>Créer un site vitrine</h3>
-                                <p>Comprendre les bases d’un site clair et professionnel.</p>
+                                <p>Comprendre les bases d'un site clair et professionnel.</p>
                                 <span class="badge-pill">Compétence web</span>
                             </a>
                             <a href="#services" class="masonry-card">
@@ -452,7 +714,7 @@
                             </a>
                             <a href="#services" class="masonry-card">
                                 <h3>Structurer un projet</h3>
-                                <p>Voir comment passer d’une idée à un plan simple.</p>
+                                <p>Voir comment passer d'une idée à un plan simple.</p>
                                 <span class="badge-pill">Vision projet</span>
                             </a>
                         </div>
@@ -464,7 +726,7 @@
                             </a>
                             <a href="#services" class="masonry-card">
                                 <h3>Déployer son site</h3>
-                                <p>Comprendre l’hébergement simple et durable.</p>
+                                <p>Comprendre l'hébergement simple et durable.</p>
                                 <span class="badge-pill">Déploiement</span>
                             </a>
                         </div>
@@ -481,7 +743,7 @@
                 <h2 class="section-title">Nos services</h2>
                 <p class="section-subtitle">
                     De la donnée au déploiement : LoonTech propose des formations en machine learning,
-                    création d’applications, maintenance de systèmes, marketing, portée de clientèle et sécurité.
+                    création d'applications, maintenance de systèmes, marketing, portée de clientèle et sécurité.
                 </p>
             </div>
 
@@ -521,7 +783,7 @@
                         <ul class="service-list">
                             <li>Cybersécurité et bonnes pratiques</li>
                             <li>Montage vidéo et marketing</li>
-                            <li>Systèmes d’ads et prompts IA</li>
+                            <li>Systèmes d'ads et prompts IA</li>
                         </ul>
                     </div>
                 </div>
@@ -541,7 +803,7 @@
                         </p>
                     </div>
                     <div class="faq-highlight">
-                        <h3>À qui s’adressent nos formations ?</h3>
+                        <h3><i class="bi bi-people me-2"></i>À qui s'adressent nos formations ?</h3>
                         <p>
                             À toute personne motivée à monter en compétences : étudiants, salariés,
                             indépendants ou personnes en reconversion, même avec un niveau technique
@@ -554,29 +816,29 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faq-one-heading">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-one" aria-expanded="true" aria-controls="faq-one">
-                                    Quelles thématiques de formation propose LoonTech ?
+                                    <i class="bi bi-book me-2"></i> Quelles thématiques de formation propose LoonTech ?
                                 </button>
                             </h2>
                             <div id="faq-one" class="accordion-collapse collapse show" aria-labelledby="faq-one-heading" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     Nous proposons des formations autour du <strong>machine learning</strong> et de la
-                                    <strong>data science</strong>, de la <strong>création de sites web et d’applications</strong>,
+                                    <strong>data science</strong>, de la <strong>création de sites web et d'applications</strong>,
                                     du <strong>hacking éthique et de la cybersécurité</strong>, du
                                     <strong>montage vidéo</strong>, du <strong>marketing digital</strong> et de la
-                                    <strong>maîtrise des prompts</strong> pour l’IA générative.
+                                    <strong>maîtrise des prompts</strong> pour l'IA générative.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faq-two-heading">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-two" aria-expanded="false" aria-controls="faq-two">
-                                    Faut-il déjà savoir coder pour suivre les formations ?
+                                    <i class="bi bi-code-slash me-2"></i> Faut-il déjà savoir coder pour suivre les formations ?
                                 </button>
                             </h2>
                             <div id="faq-two" class="accordion-collapse collapse" aria-labelledby="faq-two-heading" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     Pas forcément. Certaines formations sont accessibles aux vrais débutants et
-                                    d’autres sont conçues pour des profils plus avancés. Lors de la prise de
+                                    d'autres sont conçues pour des profils plus avancés. Lors de la prise de
                                     contact, nous clarifions ensemble votre niveau et vos objectifs.
                                 </div>
                             </div>
@@ -584,7 +846,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faq-three-heading">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-three" aria-expanded="false" aria-controls="faq-three">
-                                    Comment se déroulent les sessions de formation ?
+                                    <i class="bi bi-laptop me-2"></i> Comment se déroulent les sessions de formation ?
                                 </button>
                             </h2>
                             <div id="faq-three" class="accordion-collapse collapse" aria-labelledby="faq-three-heading" data-bs-parent="#faqAccordion">
@@ -598,7 +860,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faq-four-heading">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-four" aria-expanded="false" aria-controls="faq-four">
-                                    Comment s’inscrire ou demander un programme sur mesure ?
+                                    <i class="bi bi-pencil-square me-2"></i> Comment s'inscrire ou demander un programme sur mesure ?
                                 </button>
                             </h2>
                             <div id="faq-four" class="accordion-collapse collapse" aria-labelledby="faq-four-heading" data-bs-parent="#faqAccordion">
@@ -622,7 +884,7 @@
                 <div class="col-lg-6">
                     <h2 class="section-title mb-3">Discutons de votre projet</h2>
                     <p class="section-subtitle mb-4">
-                        Décrivez-nous rapidement votre besoin, et nous vous proposerons une première piste d’accompagnement.
+                        Décrivez-nous rapidement votre besoin, et nous vous proposerons une première piste d'accompagnement.
                     </p>
                     <ul class="contact-list">
                         <li><strong>Email :</strong> <a href="mailto:akoueteyannel662@gmail.com">akoueteyannel662@gmail.com</a></li>
@@ -714,7 +976,8 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+    </script>
 
     <script>
         // Année automatique
@@ -728,12 +991,44 @@
             document.getElementById('visitor-count').textContent = count;
         })();
 
+        // Gestion du thème sombre / clair
+        (function() {
+            const body = document.body;
+            const toggleBtn = document.getElementById('theme-toggle');
+            const icon = toggleBtn.querySelector('i');
+
+            // Vérifier si un thème est déjà stocké
+            const savedTheme = localStorage.getItem('loontech_theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark');
+                icon.classList.remove('bi-moon-stars');
+                icon.classList.add('bi-sun');
+            }
+
+            toggleBtn.addEventListener('click', function() {
+                body.classList.toggle('dark');
+                const isDark = body.classList.contains('dark');
+                if (isDark) {
+                    icon.classList.remove('bi-moon-stars');
+                    icon.classList.add('bi-sun');
+                    localStorage.setItem('loontech_theme', 'dark');
+                } else {
+                    icon.classList.remove('bi-sun');
+                    icon.classList.add('bi-moon-stars');
+                    localStorage.setItem('loontech_theme', 'light');
+                }
+                // Petite animation sur le clic
+                icon.style.transform = 'scale(0.6)';
+                setTimeout(() => { icon.style.transform = 'scale(1)'; }, 150);
+            });
+        })();
+
         // Gestion du formulaire de contact (simulation)
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const feedback = document.getElementById('contact-feedback');
             feedback.textContent = 'Merci ! Votre message a bien été envoyé (simulation).';
-            feedback.style.color = 'var(--bleu-ciel-fonce)';
+            feedback.style.color = 'var(--accent)';
             this.reset();
             setTimeout(() => { feedback.textContent = ''; }, 4000);
         });
@@ -747,7 +1042,6 @@
                 const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Fermer la navbar mobile si ouverte
                     const navbarCollapse = document.getElementById('navbarNav');
                     if (navbarCollapse.classList.contains('show')) {
                         new bootstrap.Collapse(navbarCollapse, { toggle: true });
