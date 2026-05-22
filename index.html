@@ -196,6 +196,24 @@
             transition: var(--transition);
             box-shadow: 0 6px 18px var(--btn-shadow);
             white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-loontech::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .btn-loontech:active::after {
+            width: 300px;
+            height: 300px;
         }
         .btn-loontech:hover {
             transform: translateY(-2px);
@@ -210,6 +228,24 @@
             padding: 0.65rem 1.8rem;
             font-weight: 600;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-outline-loontech::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .btn-outline-loontech:active::after {
+            width: 300px;
+            height: 300px;
         }
         .btn-outline-loontech:hover {
             background-color: var(--btn-outline-hover-bg);
@@ -276,6 +312,23 @@
             transition: var(--transition);
             display: block;
             border: 1px solid var(--border-card);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .masonry-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: skewX(-25deg);
+            transition: left 0.6s;
+        }
+        .masonry-card:active::after {
+            left: 125%;
         }
         .masonry-card:hover {
             transform: translateY(-4px);
@@ -321,7 +374,7 @@
         }
         .section-subtitle {
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             font-size: 1rem;
         }
@@ -336,11 +389,28 @@
             position: relative;
             transition: var(--transition);
             border: 1px solid var(--border-card);
+            cursor: pointer;
+            overflow: hidden;
         }
         .service-card:hover {
             box-shadow: var(--shadow-hover);
             border-color: var(--accent-light);
             transform: translateY(-3px);
+        }
+        /* Animation de clic (effet de vague) */
+        .service-card .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            transform: scale(0);
+            animation: rippleEffect 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes rippleEffect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
         .service-badge {
             position: absolute;
@@ -350,6 +420,7 @@
             font-size: 1.4rem;
             color: var(--accent);
             opacity: 0.2;
+            pointer-events: none;
         }
         .service-icon {
             width: 50px;
@@ -594,6 +665,15 @@
         .service-card:nth-child(3) .service-icon i {
             animation-delay: 1s;
         }
+        .service-card:nth-child(4) .service-icon i {
+            animation-delay: 0.2s;
+        }
+        .service-card:nth-child(5) .service-icon i {
+            animation-delay: 0.7s;
+        }
+        .service-card:nth-child(6) .service-icon i {
+            animation-delay: 1.2s;
+        }
         .service-card:hover .service-icon i {
             animation: spinOnce 0.6s ease forwards;
         }
@@ -742,12 +822,13 @@
             <div class="section-header text-center mb-5">
                 <h2 class="section-title">Nos services</h2>
                 <p class="section-subtitle">
-                    De la donnée au déploiement : LoonTech propose des formations en machine learning,
-                    création d'applications, maintenance de systèmes, marketing, portée de clientèle et sécurité.
+                    De la donnée au déploiement : LoonTech propose des formations et prestations en machine learning,
+                    création d'applications, rétro-ingénierie, sécurité, marketing, et bien plus.
                 </p>
             </div>
 
             <div class="row g-4">
+                <!-- Service 1 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
                         <span class="service-badge">01</span>
@@ -761,6 +842,7 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Service 2 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
                         <span class="service-badge">02</span>
@@ -774,6 +856,7 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Service 3 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
                         <span class="service-badge">03</span>
@@ -784,6 +867,48 @@
                             <li>Cybersécurité et bonnes pratiques</li>
                             <li>Montage vidéo et marketing</li>
                             <li>Systèmes d'ads et prompts IA</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Nouveau Service 4 : Rétro-ingénierie d'APK -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <span class="service-badge">04</span>
+                        <div class="service-icon"><i class="bi bi-file-earmark-binary"></i></div>
+                        <h3>Rétro-ingénierie d'APK</h3>
+                        <p>Analysez et comprenez le fonctionnement interne des applications Android.</p>
+                        <ul class="service-list">
+                            <li>Décompilation et analyse de code</li>
+                            <li>Modification de ressources</li>
+                            <li>Audit de sécurité et correctifs</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Nouveau Service 5 : Création de logo -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <span class="service-badge">05</span>
+                        <div class="service-icon"><i class="bi bi-palette"></i></div>
+                        <h3>Création de logo & identité visuelle</h3>
+                        <p>Donnez une identité forte à votre marque avec un logo professionnel.</p>
+                        <ul class="service-list">
+                            <li>Conception sur mesure</li>
+                            <li>Déclinaisons print et web</li>
+                            <li>Charte graphique complète</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Nouveau Service 6 : Crackage d'APK -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <span class="service-badge">06</span>
+                        <div class="service-icon"><i class="bi bi-unlock"></i></div>
+                        <h3>Craquage d'APK</h3>
+                        <p>Contournement de protections pour tests de sécurité et compatibilité.</p>
+                        <ul class="service-list">
+                            <li>Bypass de root detection</li>
+                            <li>Contournement de licence</li>
+                            <li>Rapport de vulnérabilités</li>
                         </ul>
                     </div>
                 </div>
@@ -949,6 +1074,7 @@
                         <li><a href="#services"><i class="bi bi-cpu me-2"></i>ML & data science</a></li>
                         <li><a href="#services"><i class="bi bi-window-sidebar me-2"></i>Web & applications</a></li>
                         <li><a href="#faq"><i class="bi bi-shield-lock me-2"></i>Hacking & sécurité</a></li>
+                        <li><a href="#services"><i class="bi bi-file-earmark-binary me-2"></i>Rétro-ingénierie</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -997,7 +1123,6 @@
             const toggleBtn = document.getElementById('theme-toggle');
             const icon = toggleBtn.querySelector('i');
 
-            // Vérifier si un thème est déjà stocké
             const savedTheme = localStorage.getItem('loontech_theme');
             if (savedTheme === 'dark') {
                 body.classList.add('dark');
@@ -1017,7 +1142,6 @@
                     icon.classList.add('bi-moon-stars');
                     localStorage.setItem('loontech_theme', 'light');
                 }
-                // Petite animation sur le clic
                 icon.style.transform = 'scale(0.6)';
                 setTimeout(() => { icon.style.transform = 'scale(1)'; }, 150);
             });
@@ -1047,6 +1171,49 @@
                         new bootstrap.Collapse(navbarCollapse, { toggle: true });
                     }
                 }
+            });
+        });
+
+        // --- Animation professionnelle au clic (effet de vague) sur les cartes de service ---
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Créer l'élément ripple
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+
+                // Positionner le ripple au point de clic
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+                // Supprimer le ripple après l'animation
+                ripple.addEventListener('animationend', () => {
+                    ripple.remove();
+                });
+            });
+        });
+
+        // Ajout d'un effet similaire sur les masonry-cards (clic doux)
+        document.querySelectorAll('.masonry-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Léger effet de clic via transformation
+                this.style.transform = 'scale(0.96)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Effet de clic sur les boutons (déjà géré en CSS via ::after, on peut ajouter un feedback sonore visuel)
+        document.querySelectorAll('.btn-loontech, .btn-outline-loontech').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.94)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 120);
             });
         });
     </script>
