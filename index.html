@@ -1,554 +1,760 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LoonTech </title>
-    <meta
-      name="description"
-      content="LoonTech – agence digitale : développement, conseil et solutions numériques modernes."
-    />
+    <title>LoonTech – Agence digitale &amp; formations</title>
+    <meta name="description" content="LoonTech : développement, conseil et solutions numériques modernes." />
 
     <!-- Bootstrap 5 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
     <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    <style>
+        :root {
+            --bleu-ciel: #87CEEB;
+            --bleu-ciel-fonce: #5DADE2;
+            --bleu-tres-clair: #E8F4FD;
+            --blanc: #ffffff;
+            --gris-fond: #f8fafc;
+            --texte: #1e293b;
+            --texte-clair: #475569;
+            --ombre: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --ombre-hover: 0 12px 30px rgba(0, 0, 0, 0.08);
+            --rayon: 1.2rem;
+            --transition: 0.25s ease;
+            --hauteur-nav: 76px;
+        }
 
-  <body>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--texte);
+            background-color: var(--blanc);
+            padding-top: var(--hauteur-nav);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            min-height: var(--hauteur-nav);
+        }
+        .navbar-brand {
+            color: var(--bleu-ciel-fonce) !important;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+        .navbar-brand img.logo-img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .navbar-nav .nav-link {
+            color: var(--texte-clair) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            border-radius: 2rem;
+            transition: var(--transition);
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--bleu-ciel-fonce) !important;
+            background-color: var(--bleu-tres-clair);
+        }
+
+        .btn-loontech {
+            background: linear-gradient(135deg, var(--bleu-ciel), var(--bleu-ciel-fonce));
+            color: white !important;
+            border: none;
+            border-radius: 2.5rem;
+            padding: 0.65rem 1.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 6px 18px rgba(93, 173, 226, 0.3);
+            white-space: nowrap;
+        }
+        .btn-loontech:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(93, 173, 226, 0.4);
+            color: white;
+        }
+        .btn-outline-loontech {
+            border: 1.5px solid var(--bleu-ciel);
+            color: var(--bleu-ciel-fonce);
+            background: transparent;
+            border-radius: 2.5rem;
+            padding: 0.65rem 1.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-outline-loontech:hover {
+            background-color: var(--bleu-tres-clair);
+            color: var(--bleu-ciel-fonce);
+        }
+
+        /* Hero */
+        .hero-section {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%);
+        }
+        .badge-soft-green {
+            background: var(--bleu-tres-clair);
+            color: var(--bleu-ciel-fonce);
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+        }
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 1rem 0;
+        }
+        .text-accent {
+            color: var(--bleu-ciel-fonce);
+        }
+        .hero-subtitle {
+            color: var(--texte-clair);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        .hero-meta-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--bleu-ciel-fonce);
+        }
+        .hero-meta-label {
+            font-size: 0.85rem;
+            color: var(--texte-clair);
+        }
+
+        /* Masonry */
+        .masonry-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .masonry-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .masonry-card {
+            background: var(--blanc);
+            border-radius: var(--rayon);
+            padding: 1.4rem;
+            text-decoration: none;
+            color: var(--texte);
+            box-shadow: var(--ombre);
+            transition: var(--transition);
+            display: block;
+            border: 1px solid #f1f5f9;
+        }
+        .masonry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--ombre-hover);
+            border-color: var(--bleu-ciel);
+        }
+        .masonry-card.highlight {
+            background: linear-gradient(135deg, #ffffff, var(--bleu-tres-clair));
+            border-left: 4px solid var(--bleu-ciel);
+        }
+        .masonry-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .masonry-card p {
+            font-size: 0.85rem;
+            color: var(--texte-clair);
+            margin-bottom: 0.6rem;
+        }
+        .badge-pill {
+            background: var(--bleu-tres-clair);
+            color: var(--bleu-ciel-fonce);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            border-radius: 2rem;
+        }
+
+        /* Sections */
+        .section-padding {
+            padding: 5rem 0;
+        }
+        .bg-section {
+            background-color: var(--gris-fond);
+        }
+        .section-title {
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--texte);
+        }
+        .section-subtitle {
+            color: var(--texte-clair);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* Services */
+        .service-card {
+            background: var(--blanc);
+            border-radius: var(--rayon);
+            padding: 2rem 1.8rem;
+            box-shadow: var(--ombre);
+            height: 100%;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+        }
+        .service-card:hover {
+            box-shadow: var(--ombre-hover);
+            border-color: var(--bleu-ciel);
+        }
+        .service-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--bleu-ciel);
+            opacity: 0.25;
+        }
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bleu-tres-clair);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--bleu-ciel-fonce);
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .service-card p {
+            color: var(--texte-clair);
+            font-size: 0.9rem;
+        }
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.85rem;
+            color: var(--texte-clair);
+        }
+        .service-list li::before {
+            content: "•";
+            color: var(--bleu-ciel-fonce);
+            font-weight: bold;
+            margin-right: 0.4rem;
+        }
+
+        /* FAQ */
+        .faq-highlight {
+            background: var(--bleu-tres-clair);
+            border-radius: var(--rayon);
+            padding: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: var(--bleu-tres-clair);
+            color: var(--bleu-ciel-fonce);
+            box-shadow: none;
+            font-weight: 600;
+        }
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.15rem rgba(135, 206, 235, 0.5);
+            border-color: var(--bleu-ciel);
+        }
+        .accordion-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.8rem !important;
+            margin-bottom: 0.8rem;
+            overflow: hidden;
+        }
+
+        /* Contact */
+        .contact-card {
+            background: var(--blanc);
+            border-radius: var(--rayon);
+            padding: 2rem;
+            box-shadow: var(--ombre);
+        }
+        .contact-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .contact-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid #eef2f6;
+            padding: 3.5rem 0 1.5rem;
+            color: var(--texte-clair);
+        }
+        .footer-grid {
+            disp
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .footer-links-list {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links-list li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-links-list a {
+            text-decoration: none;
+            color: var(--texte-clair);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-links-list a:hover {
+            color: var(--bleu-ciel-fonce);
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bleu-tres-clair);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bleu-ciel-fonce);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-social a:hover {
+            background: var(--bleu-ciel);
+            color: white;
+        }
+        .brand-mark {
+            background: var(--bleu-ciel);
+            color: white;
+            font-weight: 700;
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .masonry-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .masonry-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-section {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-loontech fixed-top shadow-sm">
-      <div class="container">
-        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#hero">
-          <img src="Logo.jpg" alt="Logo LoonTech" class="logo-img" />
-          <span>LoonTech</span>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Basculer la navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav align-items-lg-center gap-lg-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#hero">
-                <i class="bi bi-house me-1"></i>Accueil
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#services">
-                <i class="bi bi-gear me-1"></i>Services
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#faq">
-                <i class="bi bi-question-circle me-1"></i>FAQ
-              </a>
-            </li>
-            <li class="nav-item">
-              <button id="theme-toggle" class="btn btn-outline-secondary border-0" aria-label="Basculer le thème">
-                <i class="bi bi-moon-stars theme-icon"></i>
-              </button>
-            </li>
-            <li class="nav-item ms-lg-4">
-              <a
-                href="#contact"
-                class="btn btn-loontech"
-              >
-                Parler à un expert
-              </a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#hero">
+                <img src="Logo.jpg" alt="Logo LoonTech" class="logo-img" />
+                <span>LoonTech</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center gap-lg-3">
+                    <li class="nav-item"><a class="nav-link active" href="#hero"><i class="bi bi-house me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-gear me-1"></i>Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq"><i class="bi bi-question-circle me-1"></i>FAQ</a></li>
+                    <li class="nav-item ms-lg-4">
+                        <a href="#contact" class="btn btn-loontech">Parler à un expert</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <!-- Hero / Accueil -->
+    <!-- Hero -->
     <section id="hero" class="hero-section">
-      <div class="container">
-        <div class="row align-items-center gy-5">
-          <div class="col-lg-6">
-            <span class="badge badge-soft-green mb-3">Agence digitale &amp; studio d'innovation</span>
-            <h1 class="hero-title">
-              LoonTech façonne des solutions
-              <span class="text-accent">numériques utiles</span> et durables.
-            </h1>
-            <p class="hero-subtitle">
-              LoonTech accompagne les entreprises, indépendants et organisations dans la conception
-              d’expériences digitales exigeantes : analyse de données, machine learning, sites web
-              et applications déployables, sécurité, contenus et formation sur-mesure.
-            </p>
-            <div class="d-flex flex-wrap gap-3 mt-4">
-              <a href="#services" class="btn btn-loontech btn-lg">
-                Découvrir nos services
-              </a>
-              <a href="#faq" class="btn btn-outline-loontech btn-lg">
-                Questions fréquentes
-              </a>
-            </div>
-            <div class="hero-meta mt-4 d-flex flex-wrap gap-4">
-              <div>
-                <div class="hero-meta-number">+30</div>
-                <div class="hero-meta-label">projets et parcours formés</div>
-              </div>
-              <div>
-                <div class="hero-meta-number">100%</div>
-                <div class="hero-meta-label">expériences pensées multi-écrans</div>
-              </div>
-              <div>
-                <div class="hero-meta-number">0</div>
-                <div class="hero-meta-label">complexité inutile pour nos clients</div>
-              </div>
-            </div>
-          </div>
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <span class="badge badge-soft-green mb-3">Agence digitale &amp; studio d'innovation</span>
+                    <h1 class="hero-title">
+                        LoonTech façonne des solutions <span class="text-accent">numériques utiles</span> et durables.
+                    </h1>
+                    <p class="hero-subtitle">
+                        LoonTech accompagne les entreprises, indépendants et organisations dans la conception
+                        d’expériences digitales exigeantes : analyse de données, machine learning, sites web
+                        et applications déployables, sécurité, contenus et formation sur-mesure.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#services" class="btn btn-loontech btn-lg">Découvrir nos services</a>
+                        <a href="#faq" class="btn btn-outline-loontech btn-lg">Questions fréquentes</a>
+                    </div>
+                    <div class="hero-meta mt-4 d-flex flex-wrap gap-4">
+                        <div><div class="hero-meta-number">+30</div><div class="hero-meta-label">projets et parcours formés</div></div>
+                        <div><div class="hero-meta-number">100%</div><div class="hero-meta-label">expériences multi-écrans</div></div>
+                        <div><div class="hero-meta-number">0</div><div class="hero-meta-label">complexité inutile</div></div>
+                    </div>
+                </div>
 
-          <div class="col-lg-6">
-            <!-- Pinterest-like Masonry Grid -->
-            <div class="masonry-wrapper">
-              <div class="masonry-column">
-                <a href="#services" class="masonry-card">
-                  <h3>Créer un site vitrine</h3>
-                  <p>Comprendre les bases d’un site clair et professionnel.</p>
-                  <span class="badge-pill">Compétence web</span>
-                </a>
-                <a href="#services" class="masonry-card">
-                  <h3>Automatiser simplement</h3>
-                  <p>Découvrir comment éviter les tâches répétitives.</p>
-                  <span class="badge-pill">Gain de temps</span>
-                </a>
-              </div>
-              <div class="masonry-column">
-                <a href="#services" class="masonry-card highlight">
-                  <h3>Maîtriser un front moderne</h3>
-                  <p>Prendre en main une interface inspirée de Pinterest.</p>
-                  <span class="badge-pill">Expérience UI/UX</span>
-                </a>
-                <a href="#services" class="masonry-card">
-                  <h3>Structurer un projet</h3>
-                  <p>Voir comment passer d’une idée à un plan simple.</p>
-                  <span class="badge-pill">Vision projet</span>
-                </a>
-              </div>
-              <div class="masonry-column d-none d-md-block">
-                <a href="#services" class="masonry-card">
-                  <h3>Soigner son identité</h3>
-                  <p>Jouer avec la palette beige, blanc, vert.</p>
-                  <span class="badge-pill">Design</span>
-                </a>
-                <a href="#services" class="masonry-card">
-                  <h3>Déployer son site</h3>
-                  <p>Comprendre l’hébergement simple et durable.</p>
-                  <span class="badge-pill">Déploiement</span>
-                </a>
-              </div>
+                <div class="col-lg-6">
+                    <div class="masonry-wrapper">
+                        <div class="masonry-column">
+                            <a href="#services" class="masonry-card">
+                                <h3>Créer un site vitrine</h3>
+                                <p>Comprendre les bases d’un site clair et professionnel.</p>
+                                <span class="badge-pill">Compétence web</span>
+                            </a>
+                            <a href="#services" class="masonry-card">
+                                <h3>Automatiser simplement</h3>
+                                <p>Découvrir comment éviter les tâches répétitives.</p>
+                                <span class="badge-pill">Gain de temps</span>
+                            </a>
+                        </div>
+                        <div class="masonry-column">
+                            <a href="#services" class="masonry-card highlight">
+                                <h3>Maîtriser un front moderne</h3>
+                                <p>Prendre en main une interface inspirée de Pinterest.</p>
+                                <span class="badge-pill">Expérience UI/UX</span>
+                            </a>
+                            <a href="#services" class="masonry-card">
+                                <h3>Structurer un projet</h3>
+                                <p>Voir comment passer d’une idée à un plan simple.</p>
+                                <span class="badge-pill">Vision projet</span>
+                            </a>
+                        </div>
+                        <div class="masonry-column d-none d-md-block">
+                            <a href="#services" class="masonry-card">
+                                <h3>Soigner son identité</h3>
+                                <p>Jouer avec la palette blanc, bleu ciel.</p>
+                                <span class="badge-pill">Design</span>
+                            </a>
+                            <a href="#services" class="masonry-card">
+                                <h3>Déployer son site</h3>
+                                <p>Comprendre l’hébergement simple et durable.</p>
+                                <span class="badge-pill">Déploiement</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      
     </section>
 
     <!-- Services -->
     <section id="services" class="section-padding bg-section">
-      <div class="container">
-        <div class="section-header text-center mb-5">
-          <h2 class="section-title">Nos services</h2>
-          <p class="section-subtitle">
-            De la donnée au déploiement : LoonTech propose des formations en machine learning,
-            création d’applications, maintenance de systèmes, marketing, portée de clientèle et sécurité.
-          </p>
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Nos services</h2>
+                <p class="section-subtitle">
+                    De la donnée au déploiement : LoonTech propose des formations en machine learning,
+                    création d’applications, maintenance de systèmes, marketing, portée de clientèle et sécurité.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <span class="service-badge">01</span>
+                        <div class="service-icon"><i class="bi bi-cpu"></i></div>
+                        <h3>Machine learning & data science</h3>
+                        <p>Exploitez vos données : analyse, modèles prédictifs et automatisation.</p>
+                        <ul class="service-list">
+                            <li>Exploration et préparation de données</li>
+                            <li>Modèles ML adaptés</li>
+                            <li>Mise en production</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <span class="service-badge">02</span>
+                        <div class="service-icon"><i class="bi bi-window-sidebar"></i></div>
+                        <h3>Sites web, applications & maintenance</h3>
+                        <p>Conception de sites modernes et applications sur mesure, avec maintenance.</p>
+                        <ul class="service-list">
+                            <li>Sites vitrine et landing pages</li>
+                            <li>Apps web et outils internes</li>
+                            <li>Maintenance et déploiement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <span class="service-badge">03</span>
+                        <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
+                        <h3>Sécurité, marketing & IA générative</h3>
+                        <p>Formations en cybersécurité, marketing digital et maîtrise des IA.</p>
+                        <ul class="service-list">
+                            <li>Cybersécurité et bonnes pratiques</li>
+                            <li>Montage vidéo et marketing</li>
+                            <li>Systèmes d’ads et prompts IA</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="service-card animate-fade-in">
-              <span class="service-badge">01</span>
-              <div class="service-icon">
-                <i class="bi bi-cpu"></i>
-              </div>
-              <h3>Machine learning & data science</h3>
-              <p>
-                Exploitez vos données : analyse, modèles prédictifs et automatisation.
-              </p>
-              <ul class="service-list">
-                <li>Exploration et préparation de données</li>
-                <li>Modèles ML adaptés</li>
-                <li>Mise en production</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="service-card animate-fade-in">
-              <span class="service-badge">02</span>
-              <div class="service-icon">
-                <i class="bi bi-window-sidebar"></i>
-              </div>
-              <h3>Sites web, applications & maintenance</h3>
-              <p>
-                Conception de sites modernes et applications sur mesure, avec maintenance.
-              </p>
-              <ul class="service-list">
-                <li>Sites vitrine et landing pages</li>
-                <li>Apps web et outils internes</li>
-                <li>Maintenance et déploiement</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="service-card animate-fade-in">
-              <span class="service-badge">03</span>
-              <div class="service-icon">
-                <i class="bi bi-shield-lock"></i>
-              </div>
-              <h3>Sécurité, marketing & IA générative</h3>
-              <p>
-                Formations en cybersécurité, marketing digital et maîtrise des IA.
-              </p>
-              <ul class="service-list">
-                <li>Cybersécurité et bonnes pratiques</li>
-                <li>Montage vidéo et marketing</li>
-                <li>Systèmes d’ads et prompts IA</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- FAQ -->
     <section id="faq" class="section-padding">
-      <div class="container">
-        <div class="row g-5 align-items-start">
-          <div class="col-lg-5">
-            <div class="section-header mb-4">
-              <h2 class="section-title">FAQ</h2>
-              <p class="section-subtitle">
-                Ici, on répond uniquement aux questions les plus fréquentes sur les
-                formations proposées par LoonTech.
-              </p>
+        <div class="container">
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-5">
+                    <div class="section-header mb-4">
+                        <h2 class="section-title">FAQ</h2>
+                        <p class="section-subtitle">
+                            Les questions les plus fréquentes sur les formations proposées par LoonTech.
+                        </p>
+                    </div>
+                    <div class="faq-highlight">
+                        <h3>À qui s’adressent nos formations ?</h3>
+                        <p>
+                            À toute personne motivée à monter en compétences : étudiants, salariés,
+                            indépendants ou personnes en reconversion, même avec un niveau technique
+                            débutant ou intermédiaire.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq-one-heading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-one" aria-expanded="true" aria-controls="faq-one">
+                                    Quelles thématiques de formation propose LoonTech ?
+                                </button>
+                            </h2>
+                            <div id="faq-one" class="accordion-collapse collapse show" aria-labelledby="faq-one-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nous proposons des formations autour du <strong>machine learning</strong> et de la
+                                    <strong>data science</strong>, de la <strong>création de sites web et d’applications</strong>,
+                                    du <strong>hacking éthique et de la cybersécurité</strong>, du
+                                    <strong>montage vidéo</strong>, du <strong>marketing digital</strong> et de la
+                                    <strong>maîtrise des prompts</strong> pour l’IA générative.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq-two-heading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-two" aria-expanded="false" aria-controls="faq-two">
+                                    Faut-il déjà savoir coder pour suivre les formations ?
+                                </button>
+                            </h2>
+                            <div id="faq-two" class="accordion-collapse collapse" aria-labelledby="faq-two-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Pas forcément. Certaines formations sont accessibles aux vrais débutants et
+                                    d’autres sont conçues pour des profils plus avancés. Lors de la prise de
+                                    contact, nous clarifions ensemble votre niveau et vos objectifs.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq-three-heading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-three" aria-expanded="false" aria-controls="faq-three">
+                                    Comment se déroulent les sessions de formation ?
+                                </button>
+                            </h2>
+                            <div id="faq-three" class="accordion-collapse collapse" aria-labelledby="faq-three-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Les sessions peuvent se faire <strong>en ligne</strong> (visioconférence) ou
+                                    <strong>en présentiel</strong> selon le contexte. Elles alternent théorie,
+                                    démonstrations, exercices pratiques et cas réels en lien avec vos projets.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq-four-heading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-four" aria-expanded="false" aria-controls="faq-four">
+                                    Comment s’inscrire ou demander un programme sur mesure ?
+                                </button>
+                            </h2>
+                            <div id="faq-four" class="accordion-collapse collapse" aria-labelledby="faq-four-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Il suffit de nous écrire via le bouton <strong>« Parler à un expert »</strong>
+                                    ou via le <strong>formulaire de contact</strong> en précisant la ou les
+                                    thématiques qui vous intéressent.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="faq-highlight">
-              <h3>À qui s’adressent nos formations&nbsp;?</h3>
-              <p>
-                À toute personne motivée à monter en compétences : étudiants, salariés,
-                indépendants ou personnes en reconversion, même avec un niveau technique
-                débutant ou intermédiaire.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <div class="accordion" id="faqAccordion">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="faq-one-heading">
-                  <button
-                    class="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq-one"
-                    aria-expanded="true"
-                    aria-controls="faq-one"
-                  >
-                    Quelles thématiques de formation propose LoonTech&nbsp;?
-                  </button>
-                </h2>
-                <div
-                  id="faq-one"
-                  class="accordion-collapse collapse show"
-                  aria-labelledby="faq-one-heading"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    Nous proposons des formations autour du <strong>machine learning</strong> et de la
-                    <strong>data science</strong>, de la <strong>création de sites web et d’applications</strong>,
-                    du <strong>hacking éthique et de la cybersécurité</strong>, du
-                    <strong>montage vidéo</strong>, du <strong>marketing digital</strong> et de la
-                    <strong>maîtrise des prompts</strong> pour l’IA générative.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="faq-two-heading">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq-two"
-                    aria-expanded="false"
-                    aria-controls="faq-two"
-                  >
-                    Faut-il déjà savoir coder pour suivre les formations&nbsp;?
-                  </button>
-                </h2>
-                <div
-                  id="faq-two"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="faq-two-heading"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    Pas forcément. Certaines formations sont accessibles aux vrais débutants et
-                    d’autres sont conçues pour des profils plus avancés. Lors de la prise de
-                    contact, nous clarifions ensemble votre niveau et vos objectifs pour vous
-                    orienter vers le bon parcours.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="faq-three-heading">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq-three"
-                    aria-expanded="false"
-                    aria-controls="faq-three"
-                  >
-                    Comment se déroulent les sessions de formation&nbsp;?
-                  </button>
-                </h2>
-                <div
-                  id="faq-three"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="faq-three-heading"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    Les sessions peuvent se faire <strong>en ligne</strong> (visioconférence) ou
-                    <strong>en présentiel</strong> selon le contexte. Elles alternent théorie,
-                    démonstrations, exercices pratiques et cas réels en lien avec vos projets.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="faq-four-heading">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq-four"
-                    aria-expanded="false"
-                    aria-controls="faq-four"
-                  >
-                    Comment s’inscrire ou demander un programme sur mesure&nbsp;?
-                  </button>
-                </h2>
-                <div
-                  id="faq-four"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="faq-four-heading"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    Il suffit de nous écrire via le bouton <strong>«&nbsp;Parler à un expert&nbsp;»</strong>
-                    ou via le <strong>formulaire de contact</strong> en précisant la ou les
-                    thématiques qui vous intéressent. Nous revenons vers vous par email ou
-                    téléphone pour construire la formation la plus adaptée à votre profil.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Contact (simple call-to-action sans back-end) -->
-    <section id="contact" class="section-padding bg-section-light">
-      <div class="container">
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-6">
-            <h2 class="section-title mb-3">Discutons de votre projet</h2>
-            <p class="section-subtitle mb-4">
-              Décrivez-nous rapidement votre besoin, et nous vous proposerons une première piste
-              d’accompagnement.
-            </p>
-            <ul class="contact-list">
-              <li>
-                <strong>Email :</strong>
-                <a href="#hero">akoueteyannel662@gmail.com</a>
-              </li>
-              <li class="availability"><i class="bi bi-clock me-1"></i><strong>Disponibilités :</strong> du lundi au vendredi</li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <div class="contact-card">
-              <form id="contact-form">
-                <div class="mb-3">
-                  <label for="name" class="form-label">Nom / Structure</label>
-                  <input type="text" class="form-control" id="name" placeholder="Votre nom" />
+    <!-- Contact -->
+    <section id="contact" class="section-padding bg-section">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-3">Discutons de votre projet</h2>
+                    <p class="section-subtitle mb-4">
+                        Décrivez-nous rapidement votre besoin, et nous vous proposerons une première piste d’accompagnement.
+                    </p>
+                    <ul class="contact-list">
+                        <li><strong>Email :</strong> <a href="mailto:akoueteyannel662@gmail.com">akoueteyannel662@gmail.com</a></li>
+                        <li class="availability"><i class="bi bi-clock me-1"></i><strong>Disponibilités :</strong> du lundi au vendredi</li>
+                    </ul>
                 </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="vous@exemple.com"
-                  />
+                <div class="col-lg-6">
+                    <div class="contact-card">
+                        <form id="contact-form">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nom / Structure</label>
+                                <input type="text" class="form-control" id="name" placeholder="Votre nom" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="vous@exemple.com" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="project" class="form-label">Parlez-nous de votre projet</label>
+                                <textarea class="form-control" id="project" rows="4" placeholder="Quelques lignes sur vos objectifs..."></textarea>
+                            </div>
+                            <p class="small text-muted mb-3">Merci de remplir ce formulaire pour que nous puissions vous contacter.</p>
+                            <button type="submit" class="btn btn-loontech w-100">Envoyer</button>
+                            <div id="contact-feedback" class="form-text mt-2"></div>
+                        </form>
+                    </div>
                 </div>
-                <div class="mb-3">
-                  <label for="project" class="form-label">Parlez-nous de votre projet</label>
-                  <textarea
-                    class="form-control"
-                    id="project"
-                    rows="4"
-                    placeholder="Quelques lignes sur vos objectifs, votre contexte, vos délais…"
-                  ></textarea>
-                </div>
-                <p class="small text-muted mb-3">
-                Merci de remplir ce formulaire pour que nous puissions vous contacter.
-                </p>
-                <button type="submit" class="btn btn-loontech w-100">
-                  Envoyer 
-                </button>
-                <div id="contact-feedback" class="form-text mt-2"></div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-column">
-            <div class="d-flex align-items-center gap-2 mb-3">
-              <span class="brand-mark small"><a class="nav-link active" aria-current="page" href="#hero">LT</a></span>
-              <span class="fw-semibold">LoonTech</span>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="brand-mark small">LT</span>
+                        <span class="fw-semibold">LoonTech</span>
+                    </div>
+                    <p class="footer-text">Formations et solutions numériques pour apprendre à créer, sécuriser et déployer vos projets digitaux.</p>
+                    <div class="footer-social d-flex gap-3 mt-3">
+                        <a href="#" aria-label="Google"><i class="bi bi-google"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Découvrir</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#hero"><i class="bi bi-house me-2"></i>Accueil</a></li>
+                        <li><a href="#services"><i class="bi bi-gear me-2"></i>Services</a></li>
+                        <li><a href="#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
+                        <li><a href="apropos.html"><i class="bi bi-info-circle me-2"></i>À propos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Formation</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#services"><i class="bi bi-cpu me-2"></i>ML & data science</a></li>
+                        <li><a href="#services"><i class="bi bi-window-sidebar me-2"></i>Web & applications</a></li>
+                        <li><a href="#faq"><i class="bi bi-shield-lock me-2"></i>Hacking & sécurité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="mailto:akoueteyannel662@gmail.com"><i class="bi bi-envelope me-2"></i>akoueteyannel662@gmail.com</a></li>
+                        <li><a href="https://wa.me/22997546521?text=Bonjour%20LoonTech"><i class="bi bi-whatsapp me-2"></i>+229 97 54 65 21</a></li>
+                        <li><a href="confidentialite.html"><i class="bi bi-file-earmark-lock me-2"></i>Confidentialité</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="footer-text">
-              Formations et solutions numériques pour apprendre à créer, sécuriser et déployer
-              vos projets digitaux.
-            </p>
-            <div class="footer-social d-flex gap-3 mt-3">
-              <a href="#hero" aria-label="Accueil" class="social-google">
-                <i class="bi bi-google"></i>
-              </a>
-              <a href="#hero" aria-label="Accueil" class="social-facebook">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a href="#hero" aria-label="Accueil" class="social-twitter">
-                <i class="bi bi-twitter-x"></i>
-              </a>
-              <a href="#hero" aria-label="Accueil" class="social-instagram">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="#hero" aria-label="Accueil" class="social-tiktok">
-                <i class="bi bi-tiktok"></i>
-              </a>
+            <div class="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 mt-4">
+                <div class="text-muted small">© <span id="year"></span> LoonTech. Tous droits réservés. | Visiteurs: <span id="visitor-count">0</span></div>
+                <div class="footer-social d-flex gap-3">
+                    <a href="#" aria-label="Google"><i class="bi bi-google"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                </div>
             </div>
-          </div>
-
-          <div class="footer-column">
-            <h3 class="footer-title">Découvrir</h3>
-            <ul class="footer-links-list">
-              <li><a href="#hero"><i class="bi bi-house me-2"></i>Accueil</a></li>
-              <li><a href="#services"><i class="bi bi-gear me-2"></i>Services</a></li>
-              <li><a href="#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
-              <li><a href="apropos.html"><i class="bi bi-info-circle me-2"></i>À propos</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3 class="footer-title">Formation</h3>
-            <ul class="footer-links-list">
-              <li><a href="#services"><i class="bi bi-cpu me-2"></i>ML &amp; data science</a></li>
-              <li><a href="#services"><i class="bi bi-window-sidebar me-2"></i>Web &amp; applications</a></li>
-              <li><a href="#faq"><i class="bi bi-shield-lock me-2"></i>Hacking &amp; sécurité</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3 class="footer-title">Contact</h3>
-            <ul class="footer-links-list">
-              <li>
-                <a href="mailto:akoueteyannel662@gmail.com"><i class="bi bi-envelope me-2"></i>akoueteyannel662@gmail.com</a>
-              </li>
-              <li>
-                <a href="https://wa.me/22997546521?text=Bonjour Mr/Mme,j'aimerais savoir à combien est la formation et quelle est la durée"><i class="bi bi-whatsapp me-2"></i>+229 97 54 65 21</a>
-              </li>
-              <li>
-                <a href="confidentialite.html"><i class="bi bi-file-earmark-lock me-2"></i>Confidentialité</a>
-              </li>
-            </ul>
-          </div>
         </div>
-
-        <div class="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 mt-4">
-          <div class="text-muted small">
-            © <span id="year"></span> LoonTech. Tous droits réservés. | Visiteurs: <span id="visitor-count">0</span>
-          </div>
-          <div class="footer-social d-flex gap-3">
-            <a href="#services" aria-label="Services" class="social-google">
-              <i class="bi bi-google"></i>
-            </a>
-            <a href="#services" aria-label="Services" class="social-facebook">
-              <i class="bi bi-facebook"></i>
-            </a>
-            <a href="#services" aria-label="Services" class="social-twitter">
-              <i class="bi bi-twitter-x"></i>
-            </a>
-            <a href="#services" aria-label="Services" class="social-instagram">
-              <i class="bi bi-instagram"></i>
-            </a>
-            <a href="#services" aria-label="Services" class="social-tiktok">
-              <i class="bi bi-tiktok"></i>
-            </a>
-          </div>
-        </div>
-      </div>
     </footer>
 
     <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 
-    <!-- Custom JS -->
-    <script src="script.js"></script>
     <script>
-      // Visitor counter using localStorage
-      let visitorCount = localStorage.getItem('visitorCount') || 0;
-      visitorCount = parseInt(visitorCount) + 1;
-      localStorage.setItem('visitorCount', visitorCount);
-      document.getElementById('visitor-count').textContent = visitorCount;
+        // Année automatique
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Compteur de visiteurs (localStorage)
+        (function() {
+            let count = localStorage.getItem('loontech_visitor_count');
+            count = count ? parseInt(count) + 1 : 1;
+            localStorage.setItem('loontech_visitor_count', count);
+            document.getElementById('visitor-count').textContent = count;
+        })();
+
+        // Gestion du formulaire de contact (simulation)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('contact-feedback');
+            feedback.textContent = 'Merci ! Votre message a bien été envoyé (simulation).';
+            feedback.style.color = 'var(--bleu-ciel-fonce)';
+            this.reset();
+            setTimeout(() => { feedback.textContent = ''; }, 4000);
+        });
+
+        // Défilement doux pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Fermer la navbar mobile si ouverte
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse.classList.contains('show')) {
+                        new bootstrap.Collapse(navbarCollapse, { toggle: true });
+                    }
+                }
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
-
-
