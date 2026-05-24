@@ -1,10 +1,13 @@
+Voici une version améliorée de votre site, intégrant des images tech modernes et un design inspiré des plateformes créatives comme OpenArt.
+
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LoonTech – Agence digitale & formations</title>
-    <meta name="description" content="LoonTech : développement, conseil et solutions numériques modernes." />
+    <title>LoonTech – Agence digitale créative & formations tech</title>
+    <meta name="description" content="LoonTech : développement, conseil, formations en machine learning, design et solutions numériques modernes. Inspiré par l'IA et la tech." />
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,132 +16,114 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
-    <!-- Google Font -->
+    <!-- Google Fonts + espace élégant -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
 
     <style>
         :root {
-            /* Mode clair – Blanc & Bleu ciel */
             --bg-body: #ffffff;
-            --bg-section: #f8fafc;
+            --bg-section: #fafcff;
             --bg-card: #ffffff;
             --bg-nav: rgba(255, 255, 255, 0.92);
-            --bg-highlight: #E8F4FD;
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
-            --accent: #5DADE2;
-            --accent-light: #87CEEB;
-            --accent-bg: #E8F4FD;
-            --border: #e2e8f0;
-            --border-card: #f1f5f9;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.08);
-            --badge-bg: #E8F4FD;
-            --badge-text: #5DADE2;
+            --bg-highlight: #EFF6FF;
+            --text-primary: #0a0c10;
+            --text-secondary: #4a5568;
+            --accent: #3B82F6;
+            --accent-light: #60A5FA;
+            --accent-bg: #EFF6FF;
+            --border: #eef2f8;
+            --border-card: #edf2f7;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+            --badge-bg: #EFF6FF;
+            --badge-text: #3B82F6;
             --footer-bg: #ffffff;
             --footer-border: #eef2f6;
-            --hero-gradient: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%);
-            --btn-gradient: linear-gradient(135deg, #87CEEB, #5DADE2);
-            --btn-shadow: rgba(93, 173, 226, 0.3);
-            --btn-hover-shadow: rgba(93, 173, 226, 0.4);
-            --accordion-active-bg: #E8F4FD;
-            --accordion-active-text: #5DADE2;
-            --service-icon-bg: #E8F4FD;
-            --service-icon-color: #5DADE2;
-            --social-bg: #E8F4FD;
-            --social-color: #5DADE2;
-            --social-hover-bg: #87CEEB;
-            --social-hover-color: #ffffff;
-            --brand-bg: #87CEEB;
+            --hero-gradient: linear-gradient(145deg, #ffffff 0%, #f5f9ff 100%);
+            --btn-gradient: linear-gradient(105deg, #3B82F6, #2563EB);
+            --btn-shadow: rgba(59,130,246,0.3);
+            --btn-hover-shadow: rgba(37,99,235,0.4);
+            --accordion-active-bg: #EFF6FF;
+            --service-icon-bg: #EFF6FF;
+            --service-icon-color: #3B82F6;
+            --social-bg: #EFF6FF;
+            --social-color: #3B82F6;
+            --social-hover-bg: #3B82F6;
+            --brand-bg: #3B82F6;
             --brand-color: #ffffff;
-            --masonry-highlight-bg: linear-gradient(135deg, #ffffff, #E8F4FD);
-            --masonry-highlight-border: #87CEEB;
-            --text-muted-color: #6b7280;
-            --btn-outline-border: #87CEEB;
-            --btn-outline-color: #5DADE2;
-            --btn-outline-hover-bg: #E8F4FD;
-            --btn-outline-hover-color: #5DADE2;
-            --rayon: 1.2rem;
-            --transition: 0.25s ease;
+            --masonry-highlight-bg: linear-gradient(135deg, #ffffff, #EFF6FF);
+            --masonry-highlight-border: #3B82F6;
+            --rayon: 1.5rem;
+            --transition: 0.25s cubic-bezier(0.2, 0, 0, 1);
             --hauteur-nav: 76px;
         }
-
-        /* Mode sombre – Noir, vert cendre, marron */
         body.dark {
-            --bg-body: #121212;
-            --bg-section: #1a1a1a;
-            --bg-card: #1e1e1e;
-            --bg-nav: rgba(18, 18, 18, 0.94);
-            --bg-highlight: #2a2a2a;
-            --text-primary: #e0e0e0;
-            --text-secondary: #b0b0b0;
-            --accent: #9CAF88;
-            --accent-light: #A3B899;
-            --accent-bg: #2a2e26;
-            --border: #333333;
-            --border-card: #2c2c2c;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.5);
-            --badge-bg: #2a2e26;
-            --badge-text: #9CAF88;
-            --footer-bg: #121212;
-            --footer-border: #2a2a2a;
-            --hero-gradient: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
-            --btn-gradient: linear-gradient(135deg, #8B5E3C, #6B3F2A);
-            --btn-shadow: rgba(139, 94, 60, 0.3);
-            --btn-hover-shadow: rgba(139, 94, 60, 0.5);
-            --accordion-active-bg: #2a2e26;
-            --accordion-active-text: #9CAF88;
-            --service-icon-bg: #2a2e26;
-            --service-icon-color: #9CAF88;
-            --social-bg: #2a2e26;
-            --social-color: #9CAF88;
-            --social-hover-bg: #8B5E3C;
-            --social-hover-color: #ffffff;
-            --brand-bg: #8B5E3C;
-            --brand-color: #ffffff;
-            --masonry-highlight-bg: linear-gradient(135deg, #1e1e1e, #2a2e26);
-            --masonry-highlight-border: #9CAF88;
-            --text-muted-color: #888888;
-            --btn-outline-border: #8B5E3C;
-            --btn-outline-color: #C49A6C;
-            --btn-outline-hover-bg: #2a2018;
-            --btn-outline-hover-color: #D4A574;
+            --bg-body: #0B1120;
+            --bg-section: #0F172A;
+            --bg-card: #1E293B;
+            --bg-nav: rgba(15, 23, 42, 0.94);
+            --bg-highlight: #1E293B;
+            --text-primary: #F1F5F9;
+            --text-secondary: #CBD5E1;
+            --accent: #38BDF8;
+            --accent-light: #7DD3FC;
+            --accent-bg: #1E293B;
+            --border: #334155;
+            --border-card: #334155;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
+            --badge-bg: #1E293B;
+            --badge-text: #38BDF8;
+            --footer-bg: #0B1120;
+            --footer-border: #1E293B;
+            --hero-gradient: linear-gradient(145deg, #0B1120 0%, #0F172A 100%);
+            --btn-gradient: linear-gradient(105deg, #38BDF8, #0284C7);
+            --btn-shadow: rgba(56,189,248,0.3);
+            --accordion-active-bg: #1E293B;
+            --service-icon-bg: #1E293B;
+            --service-icon-color: #38BDF8;
+            --social-bg: #1E293B;
+            --social-color: #38BDF8;
+            --social-hover-bg: #38BDF8;
+            --brand-bg: #38BDF8;
+            --brand-color: #0B1120;
+            --masonry-highlight-bg: linear-gradient(135deg, #1E293B, #0F172A);
+            --masonry-highlight-border: #38BDF8;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--text-primary);
             background-color: var(--bg-body);
             padding-top: var(--hauteur-nav);
-            transition: background-color 0.4s ease, color 0.4s ease;
+            transition: background 0.4s ease, color 0.3s ease;
         }
 
-        /* Navbar */
+        /* Navbar modern glass */
         .navbar {
             background-color: var(--bg-nav);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             min-height: var(--hauteur-nav);
-            transition: background-color 0.4s ease;
+            transition: background 0.3s;
+            border-bottom: 1px solid rgba(59,130,246,0.08);
         }
         .navbar-brand {
             color: var(--accent) !important;
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-            transition: color 0.3s;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
         .navbar-brand img.logo-img {
             width: 42px;
             height: 42px;
-            border-radius: 12px;
+            border-radius: 14px;
             object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 6px 12px -6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
         }
         .navbar-brand:hover img.logo-img {
-            transform: rotate(-8deg) scale(1.08);
+            transform: scale(1.02) rotate(-2deg);
         }
         .navbar-nav .nav-link {
             color: var(--text-secondary) !important;
@@ -147,667 +132,289 @@
             border-radius: 2rem;
             transition: var(--transition);
         }
-        .navbar-nav .nav-link i {
-            transition: transform 0.3s, color 0.3s;
-        }
-        .navbar-nav .nav-link:hover i,
-        .navbar-nav .nav-link.active i {
-            transform: scale(1.25);
-            color: var(--accent);
-        }
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
             color: var(--accent) !important;
-            background-color: var(--accent-bg);
+            background: var(--accent-bg);
         }
-
-        /* Bouton thème */
         #theme-toggle {
             background: transparent;
-            border: 1.5px solid var(--border);
-            color: var(--text-secondary);
+            border: 1px solid var(--border);
             border-radius: 50%;
             width: 40px;
             height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
             transition: var(--transition);
-            font-size: 1.1rem;
         }
-        #theme-toggle:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background-color: var(--accent-bg);
-            transform: rotate(20deg);
-        }
-        #theme-toggle i {
-            transition: transform 0.4s, color 0.3s;
-        }
-
         .btn-loontech {
             background: var(--btn-gradient);
             color: white !important;
-            border: none;
             border-radius: 2.5rem;
-            padding: 0.65rem 1.8rem;
+            padding: 0.6rem 1.8rem;
             font-weight: 600;
-            transition: var(--transition);
-            box-shadow: 0 6px 18px var(--btn-shadow);
-            white-space: nowrap;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-loontech::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        .btn-loontech:active::after {
-            width: 300px;
-            height: 300px;
+            transition: all 0.2s;
+            box-shadow: 0 8px 18px var(--btn-shadow);
         }
         .btn-loontech:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 24px var(--btn-hover-shadow);
-            color: white;
+            box-shadow: 0 14px 26px var(--btn-hover-shadow);
         }
         .btn-outline-loontech {
-            border: 1.5px solid var(--btn-outline-border);
-            color: var(--btn-outline-color);
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
             background: transparent;
             border-radius: 2.5rem;
-            padding: 0.65rem 1.8rem;
             font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-outline-loontech::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        .btn-outline-loontech:active::after {
-            width: 300px;
-            height: 300px;
-        }
-        .btn-outline-loontech:hover {
-            background-color: var(--btn-outline-hover-bg);
-            color: var(--btn-outline-hover-color);
         }
 
-        /* Hero */
+        /* Hero section redesign */
         .hero-section {
-            padding: 4rem 0 3rem;
+            padding: 3rem 0 4rem;
             background: var(--hero-gradient);
-            transition: background 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
         .badge-soft-green {
             background: var(--badge-bg);
             color: var(--badge-text);
-            font-weight: 600;
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-weight: 500;
         }
         .hero-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
             line-height: 1.2;
-            margin: 1rem 0;
-            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
         .text-accent {
             color: var(--accent);
         }
-        .hero-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        .hero-meta-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-        .hero-meta-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
 
-        /* Masonry */
+        /* Masonry cards avec images & style OpenArt */
         .masonry-wrapper {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: 1.2rem;
         }
         .masonry-column {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
         }
         .masonry-card {
             background: var(--bg-card);
-            border-radius: var(--rayon);
-            padding: 1.4rem;
+            border-radius: 1.5rem;
+            padding: 0;
+            overflow: hidden;
             text-decoration: none;
             color: var(--text-primary);
             box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: block;
+            transition: all 0.3s ease;
             border: 1px solid var(--border-card);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        .masonry-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-            transform: skewX(-25deg);
-            transition: left 0.6s;
-        }
-        .masonry-card:active::after {
-            left: 125%;
+            display: flex;
+            flex-direction: column;
         }
         .masonry-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent-light);
         }
-        .masonry-card.highlight {
-            background: var(--masonry-highlight-bg);
-            border-left: 4px solid var(--masonry-highlight-border);
+        .masonry-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .masonry-card:hover .masonry-img {
+            transform: scale(1.03);
+        }
+        .masonry-content {
+            padding: 1rem 1rem 1.2rem;
         }
         .masonry-card h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
         }
         .masonry-card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
         .badge-pill {
             background: var(--badge-bg);
             color: var(--badge-text);
             font-size: 0.7rem;
             font-weight: 600;
-            padding: 0.2rem 0.7rem;
-            border-radius: 2rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        .masonry-card.highlight {
+            background: var(--masonry-highlight-bg);
+            border-left: 3px solid var(--masonry-highlight-border);
         }
 
-        /* Sections */
-        .section-padding {
-            padding: 5rem 0;
+        /* Gallery section (projets/visuels tech) */
+        .gallery-card {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            transition: 0.25s;
         }
-        .bg-section {
-            background-color: var(--bg-section);
-            transition: background-color 0.4s ease;
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.4s;
         }
-        .section-title {
-            font-weight: 700;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+        .gallery-card:hover img {
+            transform: scale(1.05);
         }
-        .section-subtitle {
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1rem;
+        .gallery-card .gallery-body {
+            padding: 1.2rem;
         }
 
-        /* Services */
+        /* Service cards améliorées */
         .service-card {
             background: var(--bg-card);
             border-radius: var(--rayon);
-            padding: 2rem 1.8rem;
+            padding: 2rem 1.5rem;
             box-shadow: var(--shadow);
-            height: 100%;
-            position: relative;
-            transition: var(--transition);
+            transition: all 0.25s;
             border: 1px solid var(--border-card);
+            height: 100%;
             cursor: pointer;
-            overflow: hidden;
         }
         .service-card:hover {
+            transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent-light);
-            transform: translateY(-3px);
-        }
-        /* Animation de clic (effet de vague) */
-        .service-card .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.25);
-            transform: scale(0);
-            animation: rippleEffect 0.6s linear;
-            pointer-events: none;
-        }
-        @keyframes rippleEffect {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        .service-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--accent);
-            opacity: 0.2;
-            pointer-events: none;
         }
         .service-icon {
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 56px;
             background: var(--service-icon-bg);
-            border-radius: 16px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             color: var(--service-icon-color);
             margin-bottom: 1.2rem;
-            transition: transform 0.4s, background 0.3s, color 0.3s;
-        }
-        .service-card:hover .service-icon {
-            transform: rotateY(360deg);
-            background: var(--accent);
-            color: #fff;
         }
         .service-card h3 {
+            font-weight: 700;
             font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
         }
         .service-list {
             list-style: none;
             padding-left: 0;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
         }
         .service-list li::before {
-            content: "•";
+            content: "▹";
             color: var(--accent);
-            font-weight: bold;
-            margin-right: 0.4rem;
+            margin-right: 0.5rem;
         }
 
-        /* FAQ */
-        .faq-highlight {
-            background: var(--bg-highlight);
-            border-radius: var(--rayon);
-            padding: 1.8rem;
-            margin-top: 1.5rem;
-            color: var(--text-primary);
-            transition: background 0.4s ease;
-        }
-        .accordion-button {
-            background-color: var(--bg-card);
-            color: var(--text-primary);
-            transition: var(--transition);
-        }
-        .accordion-button:not(.collapsed) {
-            background-color: var(--accordion-active-bg);
-            color: var(--accordion-active-text);
-            box-shadow: none;
-            font-weight: 600;
-        }
-        .accordion-button:focus {
-            box-shadow: 0 0 0 0.15rem var(--accent-light);
-            border-color: var(--accent-light);
-        }
-        .accordion-item {
-            border: 1px solid var(--border);
-            border-radius: 0.8rem !important;
-            margin-bottom: 0.8rem;
-            overflow: hidden;
-            background-color: var(--bg-card);
-            transition: background 0.3s, border 0.3s;
-        }
-        .accordion-body {
-            color: var(--text-secondary);
-            background-color: var(--bg-card);
-        }
-
-        /* Contact */
-        .contact-card {
-            background: var(--bg-card);
-            border-radius: var(--rayon);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            transition: background 0.4s, box-shadow 0.3s;
-        }
-        .contact-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .contact-list li {
-            margin-bottom: 0.4rem;
-            color: var(--text-secondary);
-        }
-        .contact-list a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        .form-control {
-            background-color: var(--bg-body);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            transition: background 0.3s, border 0.3s, color 0.3s;
-        }
-        .form-control:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 0.15rem rgba(156, 175, 136, 0.25);
-            background-color: var(--bg-card);
-            color: var(--text-primary);
-        }
-        .form-label {
-            color: var(--text-primary);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            padding: 3.5rem 0 1.5rem;
-            color: var(--text-secondary);
-            transition: background 0.4s, border 0.3s;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-        .footer-title {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        .footer-links-list {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-links-list li {
-            margin-bottom: 0.5rem;
-        }
-        .footer-links-list a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        .footer-links-list a:hover {
-            color: var(--accent);
-        }
-        .footer-links-list a i {
-            transition: transform 0.3s;
-        }
-        .footer-links-list a:hover i {
-            transform: translateX(3px);
-        }
         .footer-social a {
             width: 36px;
             height: 36px;
-            border-radius: 50%;
             background: var(--social-bg);
-            display: flex;
+            color: var(--social-color);
+            border-radius: 50%;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: var(--social-color);
-            text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.2s;
         }
         .footer-social a:hover {
             background: var(--social-hover-bg);
-            color: var(--social-hover-color);
+            color: white;
             transform: translateY(-3px);
         }
-        .footer-social a i {
-            transition: transform 0.3s;
-        }
-        .footer-social a:hover i {
-            animation: iconBounce 0.5s ease;
-        }
-        .brand-mark {
-            background: var(--brand-bg);
-            color: var(--brand-color);
-            font-weight: 700;
-            padding: 0.25rem 0.5rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-        .footer-text {
-            color: var(--text-secondary);
-            transition: color 0.3s;
-        }
-
-        /* Animations icônes */
-        @keyframes iconBounce {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            30% {
-                transform: scale(1.35);
-            }
-            60% {
-                transform: scale(0.9);
-            }
-        }
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-6px);
-            }
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.15);
-                opacity: 0.8;
-            }
-        }
-        @keyframes spinOnce {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .service-icon i {
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-        }
-        .service-card:nth-child(2) .service-icon i {
-            animation-delay: 0.5s;
-        }
-        .service-card:nth-child(3) .service-icon i {
-            animation-delay: 1s;
-        }
-        .service-card:nth-child(4) .service-icon i {
-            animation-delay: 0.2s;
-        }
-        .service-card:nth-child(5) .service-icon i {
-            animation-delay: 0.7s;
-        }
-        .service-card:nth-child(6) .service-icon i {
-            animation-delay: 1.2s;
-        }
-        .service-card:hover .service-icon i {
-            animation: spinOnce 0.6s ease forwards;
-        }
-
-        .navbar-brand i,
-        .nav-link i {
-            display: inline-block;
-        }
-        .nav-link:hover i {
-            animation: iconBounce 0.5s ease;
-        }
-
-        .faq-highlight i {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @media (max-width: 992px) {
-            .masonry-wrapper {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 576px) {
-            .masonry-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-section {
-                padding: 2rem 0;
-            }
-        }
-
-        /* Transition fluide globale */
-        * {
-            transition: background-color 0.35s ease, border-color 0.35s ease, color 0.3s ease, box-shadow 0.3s ease;
+        @media (max-width: 768px) {
+            .masonry-wrapper { grid-template-columns: 1fr; gap: 1rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero-section { padding: 2rem 0; }
         }
     </style>
 </head>
-
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#hero">
-                <img src="Logo.jpg" alt="Logo LoonTech" class="logo-img" />
+                <img src="Logo.jpg" alt="LoonTech" class="logo-img" onerror="this.src='https://placehold.co/42x42?text=LT'">
                 <span>LoonTech</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-lg-center gap-lg-3">
                     <li class="nav-item"><a class="nav-link active" href="#hero"><i class="bi bi-house me-1"></i>Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-gear me-1"></i>Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq"><i class="bi bi-question-circle me-1"></i>FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services"><i class="bi bi-grid me-1"></i>Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery"><i class="bi bi-images me-1"></i>Galerie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq"><i class="bi bi-chat-dots me-1"></i>FAQ</a></li>
                     <li class="nav-item">
-                        <button id="theme-toggle" aria-label="Basculer le thème" title="Mode jour / nuit">
-                            <i class="bi bi-moon-stars"></i>
-                        </button>
+                        <button id="theme-toggle" class="btn" aria-label="theme"><i class="bi bi-moon-stars"></i></button>
                     </li>
-                    <li class="nav-item ms-lg-2">
-                        <a href="#contact" class="btn btn-loontech">Parler à un expert</a>
-                    </li>
+                    <li class="nav-item ms-lg-2"><a href="#contact" class="btn btn-loontech">Discuter</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section with improved image masonry (style openart) -->
     <section id="hero" class="hero-section">
         <div class="container">
             <div class="row align-items-center gy-5">
                 <div class="col-lg-6">
-                    <span class="badge badge-soft-green mb-3">Agence digitale &amp; studio d'innovation</span>
-                    <h1 class="hero-title">
-                        LoonTech façonne des solutions <span class="text-accent">numériques utiles</span> et durables.
-                    </h1>
-                    <p class="hero-subtitle">
-                        LoonTech accompagne les entreprises, indépendants et organisations dans la conception
-                        d'expériences digitales exigeantes : analyse de données, machine learning, sites web
-                        et applications déployables, sécurité, contenus et formation sur-mesure.
+                    <span class="badge-soft-green mb-3 d-inline-block">✨ Studio créatif & IA</span>
+                    <h1 class="hero-title">LoonTech façonne des solutions <span class="text-accent">intelligentes & inspirantes</span>.</h1>
+                    <p class="hero-subtitle text-secondary my-3 fs-5">
+                        Agence digitale de nouvelle génération : machine learning, apps web, rétro-ingénierie, formations sur mesure et identité visuelle.
                     </p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
-                        <a href="#services" class="btn btn-loontech btn-lg">Découvrir nos services</a>
-                        <a href="#faq" class="btn btn-outline-loontech btn-lg">Questions fréquentes</a>
+                        <a href="#services" class="btn btn-loontech btn-lg">Explorer les services</a>
+                        <a href="#gallery" class="btn btn-outline-loontech btn-lg">Inspiration visuelle</a>
                     </div>
-                    <div class="hero-meta mt-4 d-flex flex-wrap gap-4">
-                        <div><div class="hero-meta-number">+30</div><div class="hero-meta-label">projets et parcours formés</div></div>
-                        <div><div class="hero-meta-number">100%</div><div class="hero-meta-label">expériences multi-écrans</div></div>
-                        <div><div class="hero-meta-number">0</div><div class="hero-meta-label">complexité inutile</div></div>
+                    <div class="hero-meta mt-5 d-flex gap-4">
+                        <div><span class="hero-meta-number fw-bold fs-2 text-accent">+30</span><br><span class="small text-secondary">projets concrets</span></div>
+                        <div><span class="hero-meta-number fw-bold fs-2 text-accent">100%</span><br><span class="small text-secondary">approche créative</span></div>
+                        <div><span class="hero-meta-number fw-bold fs-2 text-accent">4.9</span><br><span class="small text-secondary">satisfaction client</span></div>
                     </div>
                 </div>
-
                 <div class="col-lg-6">
                     <div class="masonry-wrapper">
                         <div class="masonry-column">
                             <a href="#services" class="masonry-card">
-                                <h3>Créer un site vitrine</h3>
-                                <p>Comprendre les bases d'un site clair et professionnel.</p>
-                                <span class="badge-pill">Compétence web</span>
+                                <img class="masonry-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=300&fit=crop" alt="tech circuit" loading="lazy">
+                                <div class="masonry-content"><h3>Développement & IA</h3><p>Modèles prédictifs et automation.</p><span class="badge-pill">Machine Learning</span></div>
                             </a>
                             <a href="#services" class="masonry-card">
-                                <h3>Automatiser simplement</h3>
-                                <p>Découvrir comment éviter les tâches répétitives.</p>
-                                <span class="badge-pill">Gain de temps</span>
+                                <img class="masonry-img" src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&h=300&fit=crop" alt="code" loading="lazy">
+                                <div class="masonry-content"><h3>Applications web</h3><p>Sites vitrines, dashboards, SaaS.</p><span class="badge-pill">Fullstack</span></div>
                             </a>
                         </div>
                         <div class="masonry-column">
                             <a href="#services" class="masonry-card highlight">
-                                <h3>Maîtriser un front moderne</h3>
-                                <p>Prendre en main une interface inspirée de Pinterest.</p>
-                                <span class="badge-pill">Expérience UI/UX</span>
+                                <img class="masonry-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=300&fit=crop" alt="data science" loading="lazy">
+                                <div class="masonry-content"><h3>Data & analyse</h3><p>Exploitation business intelligence.</p><span class="badge-pill">Data Science</span></div>
                             </a>
                             <a href="#services" class="masonry-card">
-                                <h3>Structurer un projet</h3>
-                                <p>Voir comment passer d'une idée à un plan simple.</p>
-                                <span class="badge-pill">Vision projet</span>
+                                <img class="masonry-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=300&fit=crop" alt="robotique" loading="lazy">
+                                <div class="masonry-content"><h3>Rétro-ingénierie APK</h3><p>Sécurité & analyse mobile.</p><span class="badge-pill">Cybersécurité</span></div>
                             </a>
                         </div>
-                        <div class="masonry-column d-none d-md-block">
+                        <div class="masonry-column d-none d-md-flex">
                             <a href="#services" class="masonry-card">
-                                <h3>Soigner son identité</h3>
-                                <p>Jouer avec la palette blanc, bleu ciel.</p>
-                                <span class="badge-pill">Design</span>
+                                <img class="masonry-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=300&fit=crop" alt="équipe tech" loading="lazy">
+                                <div class="masonry-content"><h3>Formations expertes</h3><p>ML, IA générative, hacking éthique.</p><span class="badge-pill">Pédagogie</span></div>
                             </a>
                             <a href="#services" class="masonry-card">
-                                <h3>Déployer son site</h3>
-                                <p>Comprendre l'hébergement simple et durable.</p>
-                                <span class="badge-pill">Déploiement</span>
+                                <img class="masonry-img" src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=600&h=300&fit=crop" alt="hardware" loading="lazy">
+                                <div class="masonry-content"><h3>Identité & branding</h3><p>Logo, charte graphique.</p><span class="badge-pill">Design</span></div>
                             </a>
                         </div>
                     </div>
@@ -816,406 +423,121 @@
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section-padding bg-section">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2 class="section-title">Nos services</h2>
-                <p class="section-subtitle">
-                    De la donnée au déploiement : LoonTech propose des formations et prestations en machine learning,
-                    création d'applications, rétro-ingénierie, sécurité, marketing, et bien plus.
-                </p>
+    <!-- Services (conservés et améliorés) -->
+    <section id="services" class="section-padding bg-section py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="section-title fw-bold display-6">Nos pôles d'expertise</h2>
+                <p class="section-subtitle text-secondary mx-auto">De la donnée au design, en passant par la sécurité</p>
             </div>
-
             <div class="row g-4">
-                <!-- Service 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <span class="service-badge">01</span>
-                        <div class="service-icon"><i class="bi bi-cpu"></i></div>
-                        <h3>Machine learning & data science</h3>
-                        <p>Exploitez vos données : analyse, modèles prédictifs et automatisation.</p>
-                        <ul class="service-list">
-                            <li>Exploration et préparation de données</li>
-                            <li>Modèles ML adaptés</li>
-                            <li>Mise en production</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Service 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <span class="service-badge">02</span>
-                        <div class="service-icon"><i class="bi bi-window-sidebar"></i></div>
-                        <h3>Sites web, applications & maintenance</h3>
-                        <p>Conception de sites modernes et applications sur mesure, avec maintenance.</p>
-                        <ul class="service-list">
-                            <li>Sites vitrine et landing pages</li>
-                            <li>Apps web et outils internes</li>
-                            <li>Maintenance et déploiement</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Service 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <span class="service-badge">03</span>
-                        <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
-                        <h3>Sécurité, marketing & IA générative</h3>
-                        <p>Formations en cybersécurité, marketing digital et maîtrise des IA.</p>
-                        <ul class="service-list">
-                            <li>Cybersécurité et bonnes pratiques</li>
-                            <li>Montage vidéo et marketing</li>
-                            <li>Systèmes d'ads et prompts IA</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Nouveau Service 4 : Rétro-ingénierie d'APK -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <span class="service-badge">04</span>
-                        <div class="service-icon"><i class="bi bi-file-earmark-binary"></i></div>
-                        <h3>Rétro-ingénierie d'APK</h3>
-                        <p>Analysez et comprenez le fonctionnement interne des applications Android.</p>
-                        <ul class="service-list">
-                            <li>Décompilation et analyse de code</li>
-                            <li>Modification de ressources</li>
-                            <li>Audit de sécurité et correctifs</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Nouveau Service 5 : Création de logo -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <span class="service-badge">05</span>
-                        <div class="service-icon"><i class="bi bi-palette"></i></div>
-                        <h3>Création de logo & identité visuelle</h3>
-                        <p>Donnez une identité forte à votre marque avec un logo professionnel.</p>
-                        <ul class="service-list">
-                            <li>Conception sur mesure</li>
-                            <li>Déclinaisons print et web</li>
-                            <li>Charte graphique complète</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Nouveau Service 6 : Crackage d'APK -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <span class="service-badge">06</span>
-                        <div class="service-icon"><i class="bi bi-unlock"></i></div>
-                        <h3>Craquage d'APK</h3>
-                        <p>Contournement de protections pour tests de sécurité et compatibilité.</p>
-                        <ul class="service-list">
-                            <li>Bypass de root detection</li>
-                            <li>Contournement de licence</li>
-                            <li>Rapport de vulnérabilités</li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="col-md-6 col-lg-4"><div class="service-card"><span class="service-badge opacity-25 fw-bold fs-1 position-absolute end-0 top-0 me-3 mt-2">01</span><div class="service-icon"><i class="bi bi-cpu"></i></div><h3>Machine Learning & Data</h3><p>Analyse, prédiction et automatisation intelligente.</p><ul class="service-list"><li>Modèles sur mesure</li><li>Prétraitement data</li><li>Déploiement MLOps</li></ul></div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="bi bi-window-sidebar"></i></div><h3>Web & Applications</h3><p>Sites modernes, PWA, outils internes performants.</p><ul class="service-list"><li>React / Bootstrap / Django</li><li>Maintenance évolutive</li><li>Hébergement scalable</li></ul></div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="bi bi-shield-lock"></i></div><h3>Sécurité & IA Génératives</h3><p>Formations cybersécurité, prompts, marketing digital.</p><ul class="service-list"><li>Ethical hacking</li><li>Maîtrise des prompts IA</li><li>Ads & montage vidéo</li></ul></div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="bi bi-file-earmark-binary"></i></div><h3>Rétro-ingénierie APK</h3><p>Audit, décompilation et bypass de protections.</p><ul class="service-list"><li>Analyse de code</li><li>Modification ressources</li><li>Rapport vulnérabilités</li></ul></div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="bi bi-palette"></i></div><h3>Création logo & identité</h3><p>Identité visuelle forte et mémorable.</p><ul class="service-list"><li>Logo & déclinaisons</li><li>Charte graphique</li><li>Packaging digital</li></ul></div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card"><div class="service-icon"><i class="bi bi-unlock"></i></div><h3>Craquage éthique APK</h3><p>Tests de robustesse pour applications Android.</p><ul class="service-list"><li>Bypass root detection</li><li>Analyse licence</li><li>Correctifs sur mesure</li></ul></div></div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section-padding">
+    <!-- Nouvelle section galerie tech (inspirée Shutterstock & OpenArt) -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-6">✨ Créativité & Tech en images</h2>
+                <p class="text-secondary">Des visuels qui inspirent nos projets, l'innovation et le design numérique</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=450&fit=crop" alt="collaboration tech"><div class="gallery-body"><h5>Collaboration IA</h5><p class="small text-secondary">Fusion entre data et créativité</p></div></div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=450&fit=crop" alt="cybersécurité"><div class="gallery-body"><h5>Cyber resilience</h5><p class="small text-secondary">Formation & tests intrusion</p></div></div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=450&fit=crop" alt="dev mobile"><div class="gallery-body"><h5>Rétro-ingénierie mobile</h5><p class="small text-secondary">Analyse APK avancée</p></div></div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=450&fit=crop" alt="machine learning"><div class="gallery-body"><h5>Machine Learning studio</h5><p class="small text-secondary">Modèles prédictifs déployés</p></div></div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=450&fit=crop" alt="digital branding"><div class="gallery-body"><h5>Identité & branding</h5><p class="small text-secondary">Logo design, charte moderne</p></div></div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=450&fit=crop" alt="IA futur"><div class="gallery-body"><h5>Génération augmentée</h5><p class="small text-secondary">Prompt design & IA créative</p></div></div>
+                </div>
+            </div>
+            <p class="text-center text-muted mt-4 small">Inspirations visuelles libres de droits issues de projets tech — <a href="https://www.shutterstock.com/fr/search/tech" target="_blank" class="text-accent">Explorer plus sur Shutterstock <i class="bi bi-box-arrow-up-right"></i></a></p>
+        </div>
+    </section>
+
+    <!-- FAQ & Contact (mélange classique) -->
+    <section id="faq" class="py-5 bg-section">
         <div class="container">
             <div class="row g-5 align-items-start">
                 <div class="col-lg-5">
-                    <div class="section-header mb-4">
-                        <h2 class="section-title">FAQ</h2>
-                        <p class="section-subtitle">
-                            Les questions les plus fréquentes sur les formations proposées par LoonTech.
-                        </p>
-                    </div>
-                    <div class="faq-highlight">
-                        <h3><i class="bi bi-people me-2"></i>À qui s'adressent nos formations ?</h3>
-                        <p>
-                            À toute personne motivée à monter en compétences : étudiants, salariés,
-                            indépendants ou personnes en reconversion, même avec un niveau technique
-                            débutant ou intermédiaire.
-                        </p>
-                    </div>
+                    <h2 class="fw-bold display-6">FAQ interactive</h2>
+                    <p class="text-secondary">Tout savoir sur nos formations & accompagnements</p>
+                    <div class="faq-highlight bg-highlight p-4 rounded-4 mt-3"><i class="bi bi-people-fill me-2 fs-4 text-accent"></i><h5 class="fw-semibold">À qui s'adressent nos formations ?</h5><p>Débutants comme experts, particuliers ou entreprises, 100% sur mesure.</p></div>
                 </div>
                 <div class="col-lg-7">
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq-one-heading">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-one" aria-expanded="true" aria-controls="faq-one">
-                                    <i class="bi bi-book me-2"></i> Quelles thématiques de formation propose LoonTech ?
-                                </button>
-                            </h2>
-                            <div id="faq-one" class="accordion-collapse collapse show" aria-labelledby="faq-one-heading" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Nous proposons des formations autour du <strong>machine learning</strong> et de la
-                                    <strong>data science</strong>, de la <strong>création de sites web et d'applications</strong>,
-                                    du <strong>hacking éthique et de la cybersécurité</strong>, du
-                                    <strong>montage vidéo</strong>, du <strong>marketing digital</strong> et de la
-                                    <strong>maîtrise des prompts</strong> pour l'IA générative.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq-two-heading">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-two" aria-expanded="false" aria-controls="faq-two">
-                                    <i class="bi bi-code-slash me-2"></i> Faut-il déjà savoir coder pour suivre les formations ?
-                                </button>
-                            </h2>
-                            <div id="faq-two" class="accordion-collapse collapse" aria-labelledby="faq-two-heading" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Pas forcément. Certaines formations sont accessibles aux vrais débutants et
-                                    d'autres sont conçues pour des profils plus avancés. Lors de la prise de
-                                    contact, nous clarifions ensemble votre niveau et vos objectifs.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq-three-heading">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-three" aria-expanded="false" aria-controls="faq-three">
-                                    <i class="bi bi-laptop me-2"></i> Comment se déroulent les sessions de formation ?
-                                </button>
-                            </h2>
-                            <div id="faq-three" class="accordion-collapse collapse" aria-labelledby="faq-three-heading" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Les sessions peuvent se faire <strong>en ligne</strong> (visioconférence) ou
-                                    <strong>en présentiel</strong> selon le contexte. Elles alternent théorie,
-                                    démonstrations, exercices pratiques et cas réels en lien avec vos projets.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq-four-heading">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-four" aria-expanded="false" aria-controls="faq-four">
-                                    <i class="bi bi-pencil-square me-2"></i> Comment s'inscrire ou demander un programme sur mesure ?
-                                </button>
-                            </h2>
-                            <div id="faq-four" class="accordion-collapse collapse" aria-labelledby="faq-four-heading" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Il suffit de nous écrire via le bouton <strong>« Parler à un expert »</strong>
-                                    ou via le <strong>formulaire de contact</strong> en précisant la ou les
-                                    thématiques qui vous intéressent.
-                                </div>
-                            </div>
-                        </div>
+                        <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1"><i class="bi bi-question-circle me-2"></i> Quelles thématiques ?</button></h2><div id="faq1" class="accordion-collapse collapse show"><div class="accordion-body">Machine learning, développement web, cybersécurité, rétro-ingénierie, branding & prompts IA.</div></div></div>
+                        <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2"><i class="bi bi-code-slash me-2"></i> Faut-il déjà coder ?</button></h2><div id="faq2" class="accordion-collapse collapse"><div class="accordion-body">Pas nécessairement, nous adaptons le niveau. Débutants bienvenus.</div></div></div>
+                        <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3"><i class="bi bi-laptop me-2"></i> En ligne ou présentiel ?</button></h2><div id="faq3" class="accordion-collapse collapse"><div class="accordion-body">Les deux formats selon votre préférence et votre localisation.</div></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section-padding bg-section">
+    <section id="contact" class="py-5">
         <div class="container">
             <div class="row g-4 align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="section-title mb-3">Discutons de votre projet</h2>
-                    <p class="section-subtitle mb-4">
-                        Décrivez-nous rapidement votre besoin, et nous vous proposerons une première piste d'accompagnement.
-                    </p>
-                    <ul class="contact-list">
-                        <li><strong>Email :</strong> <a href="mailto:akoueteyannel662@gmail.com">akoueteyannel662@gmail.com</a></li>
-                        <li class="availability"><i class="bi bi-clock me-1"></i><strong>Disponibilités :</strong> du lundi au vendredi</li>
-                    </ul>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-card">
-                        <form id="contact-form">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nom / Structure</label>
-                                <input type="text" class="form-control" id="name" placeholder="Votre nom" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="vous@exemple.com" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="project" class="form-label">Parlez-nous de votre projet</label>
-                                <textarea class="form-control" id="project" rows="4" placeholder="Quelques lignes sur vos objectifs..."></textarea>
-                            </div>
-                            <p class="small text-muted mb-3">Merci de remplir ce formulaire pour que nous puissions vous contacter.</p>
-                            <button type="submit" class="btn btn-loontech w-100">Envoyer</button>
-                            <div id="contact-feedback" class="form-text mt-2"></div>
-                        </form>
-                    </div>
-                </div>
+                <div class="col-lg-6"><h2 class="fw-bold display-6">Un projet en tête ?</h2><p class="text-secondary">Parlons de votre transformation digitale, formation ou création d’identité.</p><ul class="list-unstyled"><li class="mb-2"><i class="bi bi-envelope-paper me-2 text-accent"></i> akoueteyannel662@gmail.com</li><li><i class="bi bi-whatsapp me-2 text-accent"></i> +229 97 54 65 21</li></ul></div>
+                <div class="col-lg-6"><div class="contact-card bg-card p-4 rounded-4 shadow"><form id="contact-form"><div class="mb-3"><label class="form-label">Nom</label><input type="text" class="form-control" id="name" placeholder="Votre nom"></div><div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" id="email" placeholder="exemple@domaine.com"></div><div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" rows="3" placeholder="Décrivez votre besoin..."></textarea></div><button type="submit" class="btn btn-loontech w-100">Envoyer <i class="bi bi-send"></i></button><div id="contact-feedback" class="mt-2 small"></div></form></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer bg-footer py-5 border-top">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="d-flex align-items-center gap-2 mb-3">
-                        <span class="brand-mark small">LT</span>
-                        <span class="fw-semibold">LoonTech</span>
-                    </div>
-                    <p class="footer-text">Formations et solutions numériques pour apprendre à créer, sécuriser et déployer vos projets digitaux.</p>
-                    <div class="footer-social d-flex gap-3 mt-3">
-                        <a href="#" aria-label="Google"><i class="bi bi-google"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3 class="footer-title">Découvrir</h3>
-                    <ul class="footer-links-list">
-                        <li><a href="#hero"><i class="bi bi-house me-2"></i>Accueil</a></li>
-                        <li><a href="#services"><i class="bi bi-gear me-2"></i>Services</a></li>
-                        <li><a href="#faq"><i class="bi bi-question-circle me-2"></i>FAQ</a></li>
-                        <li><a href="apropos.html"><i class="bi bi-info-circle me-2"></i>À propos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3 class="footer-title">Formation</h3>
-                    <ul class="footer-links-list">
-                        <li><a href="#services"><i class="bi bi-cpu me-2"></i>ML & data science</a></li>
-                        <li><a href="#services"><i class="bi bi-window-sidebar me-2"></i>Web & applications</a></li>
-                        <li><a href="#faq"><i class="bi bi-shield-lock me-2"></i>Hacking & sécurité</a></li>
-                        <li><a href="#services"><i class="bi bi-file-earmark-binary me-2"></i>Rétro-ingénierie</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3 class="footer-title">Contact</h3>
-                    <ul class="footer-links-list">
-                        <li><a href="mailto:akoueteyannel662@gmail.com"><i class="bi bi-envelope me-2"></i>akoueteyannel662@gmail.com</a></li>
-                        <li><a href="https://wa.me/22997546521?text=Bonjour%20LoonTech"><i class="bi bi-whatsapp me-2"></i>+229 97 54 65 21</a></li>
-                        <li><a href="confidentialite.html"><i class="bi bi-file-earmark-lock me-2"></i>Confidentialité</a></li>
-                    </ul>
-                </div>
+            <div class="row gy-4">
+                <div class="col-md-3"><div class="d-flex align-items-center gap-2"><span class="brand-mark bg-accent text-white px-2 py-1 rounded">LT</span><span class="fw-bold">LoonTech</span></div><p class="small text-secondary mt-2">Solutions digitales, formations et design.</p><div class="footer-social d-flex gap-2 mt-3"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-github"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></div></div>
+                <div class="col-md-3"><h5 class="fw-semibold">Navigation</h5><ul class="list-unstyled"><li><a href="#hero" class="text-decoration-none text-secondary">Accueil</a></li><li><a href="#services" class="text-decoration-none text-secondary">Services</a></li><li><a href="#gallery" class="text-decoration-none text-secondary">Galerie</a></li><li><a href="#faq" class="text-decoration-none text-secondary">FAQ</a></li></ul></div>
+                <div class="col-md-3"><h5 class="fw-semibold">Expertises</h5><ul class="list-unstyled"><li class="text-secondary">Machine Learning</li><li class="text-secondary">Rétro-ingénierie</li><li class="text-secondary">Branding & Logo</li><li class="text-secondary">Cybersécurité</li></ul></div>
+                <div class="col-md-3"><h5 class="fw-semibold">Contact pro</h5><ul class="list-unstyled"><li><i class="bi bi-envelope me-1"></i> <a href="mailto:akoueteyannel662@gmail.com" class="text-secondary">akoueteyannel662@gmail.com</a></li><li><i class="bi bi-whatsapp"></i> <span class="text-secondary">+229 97 54 65 21</span></li></ul></div>
             </div>
-            <div class="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 mt-4">
-                <div class="text-muted small">© <span id="year"></span> LoonTech. Tous droits réservés. | Visiteurs: <span id="visitor-count">0</span></div>
-                <div class="footer-social d-flex gap-3">
-                    <a href="#" aria-label="Google"><i class="bi bi-google"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-                </div>
-            </div>
+            <hr class="my-4"><div class="d-flex justify-content-between flex-wrap"><span class="small text-secondary">© <span id="year"></span> LoonTech — Créativité & code</span><span class="small text-secondary">Visiteurs : <span id="visitor-count">0</span></span></div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous">
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Année automatique
         document.getElementById('year').textContent = new Date().getFullYear();
+        let count = localStorage.getItem('loontech_visitor_count');
+        count = count ? parseInt(count)+1 : 1;
+        localStorage.setItem('loontech_visitor_count', count);
+        document.getElementById('visitor-count').textContent = count;
 
-        // Compteur de visiteurs (localStorage)
-        (function() {
-            let count = localStorage.getItem('loontech_visitor_count');
-            count = count ? parseInt(count) + 1 : 1;
-            localStorage.setItem('loontech_visitor_count', count);
-            document.getElementById('visitor-count').textContent = count;
-        })();
-
-        // Gestion du thème sombre / clair
-        (function() {
-            const body = document.body;
-            const toggleBtn = document.getElementById('theme-toggle');
-            const icon = toggleBtn.querySelector('i');
-
-            const savedTheme = localStorage.getItem('loontech_theme');
-            if (savedTheme === 'dark') {
-                body.classList.add('dark');
-                icon.classList.remove('bi-moon-stars');
-                icon.classList.add('bi-sun');
-            }
-
-            toggleBtn.addEventListener('click', function() {
-                body.classList.toggle('dark');
-                const isDark = body.classList.contains('dark');
-                if (isDark) {
-                    icon.classList.remove('bi-moon-stars');
-                    icon.classList.add('bi-sun');
-                    localStorage.setItem('loontech_theme', 'dark');
-                } else {
-                    icon.classList.remove('bi-sun');
-                    icon.classList.add('bi-moon-stars');
-                    localStorage.setItem('loontech_theme', 'light');
-                }
-                icon.style.transform = 'scale(0.6)';
-                setTimeout(() => { icon.style.transform = 'scale(1)'; }, 150);
-            });
-        })();
-
-        // Gestion du formulaire de contact (simulation)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const feedback = document.getElementById('contact-feedback');
-            feedback.textContent = 'Merci ! Votre message a bien été envoyé (simulation).';
-            feedback.style.color = 'var(--accent)';
-            this.reset();
-            setTimeout(() => { feedback.textContent = ''; }, 4000);
+        const toggle = document.getElementById('theme-toggle');
+        const icon = toggle.querySelector('i');
+        if(localStorage.getItem('loontech_theme') === 'dark') {
+            document.body.classList.add('dark');
+            icon.classList.replace('bi-moon-stars','bi-sun');
+        }
+        toggle.addEventListener('click',()=>{
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            if(isDark) { icon.classList.replace('bi-moon-stars','bi-sun'); localStorage.setItem('loontech_theme','dark');}
+            else { icon.classList.replace('bi-sun','bi-moon-stars'); localStorage.setItem('loontech_theme','light');}
         });
-
-        // Défilement doux pour les ancres
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    const navbarCollapse = document.getElementById('navbarNav');
-                    if (navbarCollapse.classList.contains('show')) {
-                        new bootstrap.Collapse(navbarCollapse, { toggle: true });
-                    }
-                }
-            });
-        });
-
-        // --- Animation professionnelle au clic (effet de vague) sur les cartes de service ---
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Créer l'élément ripple
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                this.appendChild(ripple);
-
-                // Positionner le ripple au point de clic
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                ripple.style.width = ripple.style.height = `${size}px`;
-                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-
-                // Supprimer le ripple après l'animation
-                ripple.addEventListener('animationend', () => {
-                    ripple.remove();
-                });
-            });
-        });
-
-        // Ajout d'un effet similaire sur les masonry-cards (clic doux)
-        document.querySelectorAll('.masonry-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Léger effet de clic via transformation
-                this.style.transform = 'scale(0.96)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
-
-        // Effet de clic sur les boutons (déjà géré en CSS via ::after, on peut ajouter un feedback sonore visuel)
-        document.querySelectorAll('.btn-loontech, .btn-outline-loontech').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.style.transform = 'scale(0.94)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 120);
-            });
-        });
+        document.getElementById('contact-form').addEventListener('submit',function(e){e.preventDefault(); document.getElementById('contact-feedback').innerHTML='<span class="text-success">✅ Message envoyé (simulation)</span>'; this.reset(); setTimeout(()=>document.getElementById('contact-feedback').innerHTML='',3000);});
+        document.querySelectorAll('a[href^="#"]').forEach(anchor=>anchor.addEventListener('click',function(e){let href=this.getAttribute('href'); if(href==='#') return; e.preventDefault(); document.querySelector(href)?.scrollIntoView({behavior:'smooth'});}));
+        document.querySelectorAll('.service-card').forEach(card=>card.addEventListener('click',function(e){let ripple=document.createElement('span'); ripple.className='ripple'; this.appendChild(ripple); let rect=this.getBoundingClientRect(); let size=Math.max(rect.width,rect.height); ripple.style.width=ripple.style.height=size+'px'; ripple.style.left=e.clientX-rect.left-size/2+'px'; ripple.style.top=e.clientY-rect.top-size/2+'px'; ripple.addEventListener('animationend',()=>ripple.remove());}));
+        const styleRipple = document.createElement('style'); styleRipple.textContent = `.ripple{position:absolute; border-radius:50%; background:rgba(255,255,255,0.3); transform:scale(0); animation:rippleAnim 0.5s linear; pointer-events:none; z-index:10;} @keyframes rippleAnim{to{transform:scale(4); opacity:0;}} .service-card{position:relative; overflow:hidden;}`; document.head.appendChild(styleRipple);
     </script>
 </body>
 </html>
+```
