@@ -362,7 +362,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section with improved image masonry (style openart) -->
+    <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="container">
             <div class="row align-items-center gy-5">
@@ -489,7 +489,7 @@
         </div>
     </section>
 
-    <!-- Contact avec lien WhatsApp corrigé -->
+    <!-- Contact avec formulaire réel (ouverture mail) -->
     <section id="contact" class="py-5">
         <div class="container">
             <div class="row g-4 align-items-center">
@@ -501,7 +501,26 @@
                         <li><i class="bi bi-whatsapp me-2 text-accent"></i> <a href="https://wa.me/22997546521?text=Bonjour%20LoonTech" target="_blank" class="text-decoration-none text-secondary">+229 97 54 65 21</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-6"><div class="contact-card bg-card p-4 rounded-4 shadow"><form id="contact-form"><div class="mb-3"><label class="form-label">Nom</label><input type="text" class="form-control" id="name" placeholder="Votre nom"></div><div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" id="email" placeholder="exemple@domaine.com"></div><div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" rows="3" placeholder="Décrivez votre besoin..."></textarea></div><button type="submit" class="btn btn-loontech w-100">Envoyer <i class="bi bi-send"></i></button><div id="contact-feedback" class="mt-2 small"></div></form></div></div>
+                <div class="col-lg-6">
+                    <div class="contact-card bg-card p-4 rounded-4 shadow">
+                        <form id="contact-form">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nom / Structure</label>
+                                <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="vous@exemple.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Parlez-nous de votre projet</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Quelques lignes sur vos objectifs..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-loontech w-100">Envoyer <i class="bi bi-send"></i></button>
+                            <div id="contact-feedback" class="mt-2 small"></div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -520,12 +539,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Année et compteur
         document.getElementById('year').textContent = new Date().getFullYear();
         let count = localStorage.getItem('loontech_visitor_count');
         count = count ? parseInt(count)+1 : 1;
         localStorage.setItem('loontech_visitor_count', count);
         document.getElementById('visitor-count').textContent = count;
 
+        // Thème clair/sombre
         const toggle = document.getElementById('theme-toggle');
         const icon = toggle.querySelector('i');
         if(localStorage.getItem('loontech_theme') === 'dark') {
@@ -538,10 +559,60 @@
             if(isDark) { icon.classList.replace('bi-moon-stars','bi-sun'); localStorage.setItem('loontech_theme','dark');}
             else { icon.classList.replace('bi-sun','bi-moon-stars'); localStorage.setItem('loontech_theme','light');}
         });
-        document.getElementById('contact-form').addEventListener('submit',function(e){e.preventDefault(); document.getElementById('contact-feedback').innerHTML='<span class="text-success">✅ Message envoyé (simulation)</span>'; this.reset(); setTimeout(()=>document.getElementById('contact-feedback').innerHTML='',3000);});
-        document.querySelectorAll('a[href^="#"]').forEach(anchor=>anchor.addEventListener('click',function(e){let href=this.getAttribute('href'); if(href==='#') return; e.preventDefault(); document.querySelector(href)?.scrollIntoView({behavior:'smooth'});}));
-        document.querySelectorAll('.service-card').forEach(card=>card.addEventListener('click',function(e){let ripple=document.createElement('span'); ripple.className='ripple'; this.appendChild(ripple); let rect=this.getBoundingClientRect(); let size=Math.max(rect.width,rect.height); ripple.style.width=ripple.style.height=size+'px'; ripple.style.left=e.clientX-rect.left-size/2+'px'; ripple.style.top=e.clientY-rect.top-size/2+'px'; ripple.addEventListener('animationend',()=>ripple.remove());}));
-        const styleRipple = document.createElement('style'); styleRipple.textContent = `.ripple{position:absolute; border-radius:50%; background:rgba(255,255,255,0.3); transform:scale(0); animation:rippleAnim 0.5s linear; pointer-events:none; z-index:10;} @keyframes rippleAnim{to{transform:scale(4); opacity:0;}} .service-card{position:relative; overflow:hidden;}`; document.head.appendChild(styleRipple);
+
+        // Formulaire de contact : envoi réel via mailto:
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                
+                if (!name || !email || !message) {
+                    document.getElementById('contact-feedback').innerHTML = '<span class="text-danger">⚠️ Veuillez remplir tous les champs.</span>';
+                    return;
+                }
+                
+                const subject = `Demande de contact LoonTech - ${name}`;
+                const body = `Nom : ${name}%0AEmail : ${email}%0A%0A--- Message ---%0A${message}`;
+                window.location.href = `mailto:akoueteyannel662@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+                
+                document.getElementById('contact-feedback').innerHTML = '<span class="text-success">📧 Ouverture de votre messagerie... Veuillez envoyer l\'email.</span>';
+                setTimeout(() => document.getElementById('contact-feedback').innerHTML = '', 5000);
+                // Optionnel : réinitialiser le formulaire
+                // contactForm.reset();
+            });
+        }
+
+        // Défilement smooth pour ancres
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Effet ripple sur cartes service
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                this.appendChild(ripple);
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = e.clientX - rect.left - size/2 + 'px';
+                ripple.style.top = e.clientY - rect.top - size/2 + 'px';
+                ripple.addEventListener('animationend', () => ripple.remove());
+            });
+        });
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `.ripple{position:absolute; border-radius:50%; background:rgba(255,255,255,0.3); transform:scale(0); animation:rippleAnim 0.5s linear; pointer-events:none; z-index:10;} @keyframes rippleAnim{to{transform:scale(4); opacity:0;}} .service-card{position:relative; overflow:hidden;}`;
+        document.head.appendChild(rippleStyle);
     </script>
 </body>
 </html>
