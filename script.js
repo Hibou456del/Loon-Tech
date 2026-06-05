@@ -1,3 +1,8 @@
+/* ═══════════════════════════════════════════════════════════
+   LOONTECH — script.js
+   Custom scroll controller · 3D canvas · Drum · Cursor · Loader
+   ═══════════════════════════════════════════════════════════ */
+
 'use strict';
 
 /* ──────────────── UTILITIES ──────────────── */
@@ -314,7 +319,7 @@ function updateDrum(progress) {
     const opacity = Math.max(0, (Math.cos(angleRad) - 0.18) / 0.82);
     const blur = Math.min(7, Math.max(0, (Math.abs(diff) - 1.2) * 0.9));
 
-    line.style.transform = `translateY(${ty}lateZ(${tz}px) rotateX(${-angleDeg * 0.75}deg) scale(${scale})`;
+    line.style.transform = `translateY(${ty}px) translateZ(${tz}px) rotateX(${-angleDeg * 0.75}deg) scale(${scale})`;
     line.style.opacity = opacity;
     line.style.filter = blur > 0.1 ? `blur(${blur}px)` : '';
     line.classList.toggle('center', Math.abs(diff) < 0.6);
@@ -873,6 +878,3 @@ function initSite() {
   _origInitSite();
   setTimeout(initMascot, 100);
 }
-
-
-
