@@ -2,494 +2,769 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoonTech — Digital Agency & Tech Solutions</title>
-  <meta name="description" content="LoonTech : développement, machine learning, design 3D, formations tech et solutions numériques de nouvelle génération." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>LoonTech · Agence créative & formations tech</title>
+  <meta name="description" content="LoonTech : développement IA, rétro-ingénierie, branding, formations ML — design radical et solutions innovantes." />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- GSAP (CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <!-- Bootstrap 5 (grille uniquement, style personnalisé prioritaire) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---------- RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-deep: #020617;
+      --bg-surface: #0a0f1a;
+      --card-glass: rgba(15, 23, 42, 0.65);
+      --border-glow: rgba(56, 189, 248, 0.25);
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --accent-glow: #0ea5e9;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --transition-default: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0f121c; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 8px; }
+
+    /* ---------- TYPOGRAPHIE & UTILITAIRES ---------- */
+    .text-gradient {
+      background: linear-gradient(120deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .badge-glow {
+      background: rgba(56, 189, 248, 0.12);
+      backdrop-filter: blur(8px);
+      border-radius: 100px;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 0.5px solid rgba(56, 189, 248, 0.3);
+      display: inline-block;
+    }
+
+    /* ---------- NAVIGATION GLASS ---------- */
+    .glass-nav {
+      background: rgba(2, 6, 23, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-glow);
+      padding: 0.8rem 0;
+      transition: var(--transition-default);
+    }
+    .navbar-brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(145deg, var(--accent), var(--accent-dark));
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      box-shadow: 0 6px 14px rgba(14, 165, 233, 0.3);
+      transition: var(--transition-default);
+    }
+    .navbar-brand:hover .logo-icon {
+      transform: scale(1.02) rotate(-2deg);
+    }
+    .nav-link {
+      color: var(--text-muted) !important;
+      font-weight: 500;
+      margin: 0 0.25rem;
+      transition: var(--transition-default);
+      border-radius: 40px;
+      padding: 0.5rem 1rem !important;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent) !important;
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .btn-gradient {
+      background: linear-gradient(105deg, var(--accent), var(--accent-dark));
+      border: none;
+      border-radius: 40px;
+      padding: 0.6rem 1.8rem;
+      font-weight: 600;
+      color: white;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 14px rgba(2, 132, 199, 0.3);
+    }
+    .btn-gradient:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(2, 132, 199, 0.5);
+      background: linear-gradient(105deg, var(--accent-glow), #0369a1);
+    }
+    .btn-outline-accent {
+      border: 1.5px solid var(--accent);
+      background: transparent;
+      border-radius: 40px;
+      color: var(--accent);
+      font-weight: 600;
+      transition: 0.25s;
+    }
+    .btn-outline-accent:hover {
+      background: var(--accent);
+      color: #020617;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.08), transparent 70%);
+      padding: 6rem 0 4rem;
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .hero-stats .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(145deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ---------- CARDS MODERNES (services) ---------- */
+    .service-card {
+      background: var(--card-glass);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 2rem 1.5rem;
+      transition: var(--transition-default);
+      border: 1px solid var(--border-glow);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 30px -12px rgba(14, 165, 233, 0.2);
+      background: rgba(20, 30, 50, 0.8);
+    }
+    .service-icon {
+      font-size: 2.6rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .service-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .service-list li {
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-list li i {
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* ---------- MASONRY CARDS (hero right) ---------- */
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .masonry-card {
+      background: var(--card-glass);
+      backdrop-filter: blur(8px);
+      border-radius: 1.8rem;
+      overflow: hidden;
+      border: 1px solid var(--border-glow);
+      transition: var(--transition-default);
+    }
+    .masonry-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .masonry-card:hover img {
+      transform: scale(1.05);
+    }
+    .masonry-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .badge-tech {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+      border-radius: 40px;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-card {
+      background: rgba(10, 15, 26, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: var(--transition-default);
+      border: 0.5px solid var(--border-glow);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+    .gallery-card:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ---------- FAQ ACCORDION ---------- */
+    .faq-accordion .accordion-item {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border-glow);
+      border-radius: 1.2rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .faq-accordion .accordion-button {
+      background: transparent;
+      color: var(--text-light);
+      font-weight: 600;
+      padding: 1.2rem 1.5rem;
+    }
+    .faq-accordion .accordion-button:not(.collapsed) {
+      background: rgba(56, 189, 248, 0.08);
+      color: var(--accent);
+      box-shadow: none;
+    }
+    .faq-accordion .accordion-button:focus {
+      box-shadow: none;
+      border-color: transparent;
+    }
+
+    /* ---------- CONTACT FORM ---------- */
+    .contact-glass {
+      background: rgba(10, 15, 26, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid var(--border-glow);
+    }
+    .form-control-glass {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: white;
+      border-radius: 1rem;
+      padding: 0.75rem 1rem;
+      transition: 0.2s;
+    }
+    .form-control-glass:focus {
+      background: #0a101c;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+      color: white;
+      outline: none;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer-modern {
+      background: #03060c;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 50%;
+      transition: 0.25s;
+      color: var(--accent);
+    }
+    .social-icon:hover {
+      background: var(--accent);
+      color: #0a0f1a;
+      transform: translateY(-4px);
+    }
+
+    /* ---------- ANIMATIONS & RESPONSIVE ---------- */
+    [data-aos] {
+      transition-timing-function: cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+        padding-top: 5rem;
+      }
+      .hero-stats {
+        justify-content: center;
+      }
+      .masonry-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card {
+        padding: 1.5rem;
+      }
+    }
+    /* Ripple effect amélioré */
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    .ripple:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.4);
+      transform: translate(-50%, -50%);
+      transition: width 0.4s, height 0.4s, opacity 0.4s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .ripple:active:after {
+      width: 300px;
+      height: 300px;
+      opacity: 1;
+      transition: 0s;
+    }
+  </style>
 </head>
-<body data-scroll="0">
+<body>
 
-  <!-- ░░ CURSOR ░░ -->
-  <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
-
-  <!-- ░░ LOADER ░░ -->
-  <div id="loader">
-    <div class="loader-inner">
-      <div class="loader-logo">LT</div>
-      <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
-      <span class="loader-label" id="loader-label">INITIALISATION…</span>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top glass-nav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#hero">
+      <div class="logo-icon me-2"><i class="fas fa-code-branch"></i></div>
+      <span>LoonTech</span>
+    </a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center gap-2">
+        <li class="nav-item"><a class="nav-link active" href="#hero">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Galerie</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="btn-gradient ms-2" href="#contact">Discuter <i class="fas fa-arrow-right ms-1"></i></a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <!-- ░░ MAIN ░░ -->
-  <main id="app">
-
-    <!-- ═══════════════ SCREEN 1 — HERO ═══════════════ -->
-    <section id="screen-hero" class="screen screen-active">
-
-      <!-- 3D Canvas Background -->
-      <canvas id="hero-canvas" aria-hidden="true"></canvas>
-
-      <!-- Grain overlay -->
-      <div class="grain" aria-hidden="true"></div>
-
-      <!-- Header -->
-      <header id="header">
-        <div class="header-logo" id="nav-logo">
-          <div class="logo-mark">
-            <img src="Logo.jpg" alt="LoonTech" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="logo-fallback">LT</span>
-          </div>
-          <div class="logo-text">
-            <span class="logo-name">LoonTech</span>
-            <span class="logo-sub">Digital Agency</span>
-          </div>
+<!-- Hero Section -->
+<section id="hero" class="hero">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+        <span class="badge-glow mb-3"><i class="fas fa-brain me-1"></i> Studio IA & Création Radicale</span>
+        <h1 class="hero-title mt-3">Solutions <span class="text-gradient">augmentées</span><br>pour l'ère digitale.</h1>
+        <p class="text-muted fs-5 mt-3">Machine Learning · Sécurité offensive · Branding · Formations immersives. LoonTech réinvente l’exécution technique.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#services" class="btn-gradient px-4 py-2">Explorer l’univers <i class="fas fa-arrow-right ms-1"></i></a>
+          <a href="#gallery" class="btn-outline-accent px-4 py-2">Inspirations visuelles</a>
         </div>
-
-        <nav class="header-nav" id="header-nav">
-          <button class="nav-btn" data-target="screen-services">Services</button>
-          <button class="nav-btn" data-target="screen-drum">Manifesto</button>
-          <button class="nav-btn" data-target="screen-contact">Contact</button>
-          <a href="mailto:akoueteyannel662@gmail.com" class="nav-cta">
-            <span>Travailler ensemble</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </nav>
-
-        <button class="burger" id="burger" aria-label="Menu">
-          <span></span><span></span>
-        </button>
-      </header>
-
-      <!-- Mobile Nav Overlay -->
-      <div class="mobile-nav" id="mobile-nav">
-        <button class="mobile-nav-close" id="mobile-close">✕</button>
-        <nav>
-          <button class="mobile-nav-item" data-target="screen-services">01 — Services</button>
-          <button class="mobile-nav-item" data-target="screen-drum">02 — Manifesto</button>
-          <button class="mobile-nav-item" data-target="screen-contact">03 — Contact</button>
-        </nav>
-        <div class="mobile-nav-footer">akoueteyannel662@gmail.com</div>
-      </div>
-
-      <!-- Hero Content -->
-      <div class="hero-content">
-        <div class="hero-badge" id="hero-badge">
-          <span class="badge-dot"></span>
-          <span>Studio créatif & IA · Bénin</span>
-        </div>
-
-        <h1 class="hero-title" id="hero-title">
-          <span class="split-line" data-line="0">
-            <span class="split-inner">LOON</span>
-          </span>
-          <span class="split-line" data-line="1">
-            <span class="split-inner">TECH</span>
-          </span>
-        </h1>
-
-        <div class="hero-desc" id="hero-desc">
-          <p>Agence digitale de nouvelle génération — machine learning,<br>apps web, sécurité, design et formations sur mesure.</p>
-        </div>
-
-        <div class="hero-cta-group" id="hero-cta">
-          <button class="btn-primary" data-target="screen-services">
-            Explorer →
-          </button>
-          <button class="btn-ghost" data-target="screen-drum">
-            Notre manifesto
-          </button>
-        </div>
-
-        <!-- Stats strip -->
-        <div class="hero-stats" id="hero-stats">
-          <div class="stat">
-            <span class="stat-num" data-count="30">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Projets</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num" data-count="100">0</span><span class="stat-plus">%</span>
-            <span class="stat-label">Créatif</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num" data-count="4">0</span><span class="stat-plus">.9★</span>
-            <span class="stat-label">Satisfaction</span>
-          </div>
+        <div class="hero-stats d-flex gap-5 mt-5">
+          <div><span class="stat-number">+35</span><br><span class="text-muted small">projets concrets</span></div>
+          <div><span class="stat-number">100%</span><br><span class="text-muted small">approche créative</span></div>
+          <div><span class="stat-number">4.95</span><br><span class="text-muted small">satisfaction client</span></div>
         </div>
       </div>
-
-      <!-- Floating tiles (right side) -->
-      <div class="tiles-column" id="tiles-col">
-        <div class="tile tile-1" id="tile-0">
-          <div class="tile-icon">⚡</div>
-          <div class="tile-body">
-            <h3>Machine Learning</h3>
-            <p>Modèles prédictifs & automation IA</p>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200">
+        <div class="masonry-grid">
+          <div class="masonry-card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=300&fit=crop" alt="tech vision">
+            <div class="card-content p-3">
+              <h5 class="fw-bold">Deep Learning</h5>
+              <p class="small text-muted">Modèles prédictifs & automation</p>
+              <span class="badge-tech"><i class="fas fa-microchip"></i> Neural nets</span>
+            </div>
           </div>
-          <span class="tile-tag">ML</span>
-        </div>
-        <div class="tile tile-2" id="tile-1">
-          <div class="tile-icon">🛡️</div>
-          <div class="tile-body">
-            <h3>Cybersécurité</h3>
-            <p>Ethical hacking & rétro-ingénierie APK</p>
+          <div class="masonry-card">
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&h=300&fit=crop" alt="web3">
+            <div class="card-content p-3">
+              <h5 class="fw-bold">Full-Stack Edge</h5>
+              <p class="small text-muted">Apps réactives, dashboards SaaS</p>
+              <span class="badge-tech"><i class="fab fa-react"></i> React · Node</span>
+            </div>
           </div>
-          <span class="tile-tag">SEC</span>
-        </div>
-        <div class="tile tile-3" id="tile-2">
-          <div class="tile-icon">🎨</div>
-          <div class="tile-body">
-            <h3>Design & Branding</h3>
-            <p>Identité visuelle & UI/UX</p>
-          </div>
-          <span class="tile-tag">UX</span>
-        </div>
-        <div class="tile tile-4" id="tile-3">
-          <div class="tile-icon">🌐</div>
-          <div class="tile-body">
-            <h3>Web & Applications</h3>
-            <p>React, Django, PWA & SaaS</p>
-          </div>
-          <span class="tile-tag">DEV</span>
-        </div>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="scroll-hint" id="scroll-hint">
-        <div class="scroll-mouse">
-          <div class="scroll-wheel"></div>
-        </div>
-        <span>Défiler</span>
-      </div>
-    </section>
-
-    <!-- ═══════════════ SCREEN 2 — SERVICES ═══════════════ -->
-    <section id="screen-services" class="screen">
-      <canvas id="services-canvas" aria-hidden="true"></canvas>
-      <div class="grain" aria-hidden="true"></div>
-
-      <div class="screen-header">
-        <div class="section-eyebrow">
-          <span class="eyebrow-line"></span>
-          <span>01 / Services</span>
-        </div>
-        <h2 class="section-title">Nos pôles<br><em>d'expertise</em></h2>
-      </div>
-
-      <div class="services-grid">
-
-        <div class="service-card card-featured">
-          <div class="card-glow"></div>
-          <div class="card-number">01</div>
-          <div class="card-icon-3d" data-symbol="◈">◈</div>
-          <h3>Machine Learning & Data</h3>
-          <p>Modèles sur mesure, déploiement MLOps, prétraitement data et analyse prédictive pour votre business.</p>
-          <ul class="card-list">
-            <li>Modèles prédictifs</li>
-            <li>Pipelines MLOps</li>
-            <li>Data visualisation</li>
-          </ul>
-          <div class="card-footer">
-            <span class="card-badge">Machine Learning</span>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-glow"></div>
-          <div class="card-number">02</div>
-          <div class="card-icon-3d">⬡</div>
-          <h3>Web & Applications</h3>
-          <p>Sites modernes, PWA, outils internes performants. Du design à la mise en production.</p>
-          <ul class="card-list">
-            <li>React / Django</li>
-            <li>Progressive Web Apps</li>
-            <li>Hébergement scalable</li>
-          </ul>
-          <div class="card-footer">
-            <span class="card-badge">Fullstack</span>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-glow"></div>
-          <div class="card-number">03</div>
-          <div class="card-icon-3d">◉</div>
-          <h3>Cybersécurité & IA</h3>
-          <p>Formations ethical hacking, maîtrise des prompts IA, audit et rétro-ingénierie Android.</p>
-          <ul class="card-list">
-            <li>Ethical hacking</li>
-            <li>Analyse APK</li>
-            <li>Prompt engineering</li>
-          </ul>
-          <div class="card-footer">
-            <span class="card-badge">Security</span>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-glow"></div>
-          <div class="card-number">04</div>
-          <div class="card-icon-3d">✦</div>
-          <h3>Design & Branding</h3>
-          <p>Identité visuelle forte et mémorable. Logo, charte graphique, packaging digital.</p>
-          <ul class="card-list">
-            <li>Logo & déclinaisons</li>
-            <li>Charte graphique</li>
-            <li>UI/UX design</li>
-          </ul>
-          <div class="card-footer">
-            <span class="card-badge">Design</span>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-glow"></div>
-          <div class="card-number">05</div>
-          <div class="card-icon-3d">◬</div>
-          <h3>Formations Expertes</h3>
-          <p>ML, IA générative, hacking éthique — débutants comme experts, 100% sur mesure.</p>
-          <ul class="card-list">
-            <li>Cours personnalisés</li>
-            <li>Online & présentiel</li>
-            <li>Certification</li>
-          </ul>
-          <div class="card-footer">
-            <span class="card-badge">Formation</span>
-          </div>
-        </div>
-
-        <div class="service-card card-cta-card">
-          <div class="card-glow card-glow-accent"></div>
-          <div class="cta-card-inner">
-            <span class="cta-big">Votre<br>projet →</span>
-            <a href="mailto:akoueteyannel662@gmail.com" class="btn-primary">Démarrer</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════════════ SCREEN 3 — DRUM / MANIFESTO ═══════════════ -->
-    <section id="screen-drum" class="screen">
-      <canvas id="drum-canvas" aria-hidden="true"></canvas>
-      <div class="grain" aria-hidden="true"></div>
-
-      <!-- Drum left panel -->
-      <div class="drum-panel">
-        <div class="section-eyebrow">
-          <span class="eyebrow-line"></span>
-          <span>02 / Manifesto</span>
-        </div>
-        <h2 class="drum-title">Nous<br><em>bâtissons</em><br>l'avenir<br>digital.</h2>
-
-        <div class="drum-cta">
-          <a href="https://wa.me/22997546521?text=Bonjour%20LoonTech" target="_blank" class="btn-primary">
-            WhatsApp →
-          </a>
-        </div>
-
-        <!-- Logo marquee strip -->
-        <div class="marquee-strip">
-          <div class="marquee-label">Technologies maîtrisées</div>
-          <div class="marquee-container">
-            <div class="marquee-track" id="marquee-track">
-              <span class="marquee-item">Python</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">React</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">TensorFlow</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Django</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Framer</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Figma</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Android SDK</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">GPT-4o</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Python</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">React</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">TensorFlow</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Django</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Framer</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Figma</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">Android SDK</span>
-              <span class="marquee-sep">◆</span>
-              <span class="marquee-item">GPT-4o</span>
-              <span class="marquee-sep">◆</span>
+          <div class="masonry-card">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=300&fit=crop" alt="data science">
+            <div class="card-content p-3">
+              <h5 class="fw-bold">Data Intelligence</h5>
+              <p class="small text-muted">BI, analyse avancée & MLOps</p>
+              <span class="badge-tech"><i class="fas fa-database"></i> Data pipeline</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Cylindrical drum -->
-      <div class="drum-viewport" id="drum-viewport">
-        <div class="drum-perspective" id="drum-perspective">
-          <div class="drum-lines" id="drum-lines">
-            <!-- Populated by JS -->
+<!-- Services Section -->
+<section id="services" class="py-5" style="background: #070c14;">
+  <div class="container py-4">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-glow mb-2"><i class="fas fa-cogs"></i> pôles d'expertise</span>
+      <h2 class="display-6 fw-bold mt-2">Compétences techniques & créatives</h2>
+      <p class="text-muted w-75 mx-auto">De l’intelligence artificielle à l’identité visuelle, nous repoussons les frontières.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-brain"></i></div>
+          <h4>Machine Learning & Data</h4>
+          <p class="text-muted small">Modèles sur mesure, classification, prédiction.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Feature engineering</li>
+            <li><i class="fas fa-check-circle"></i> Déploiement MLOps</li>
+            <li><i class="fas fa-check-circle"></i> LLM fine-tuning</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Cyber & Rétro-ingénierie</h4>
+          <p class="text-muted small">Audit APK, bypass de protections, sécurité.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Reverse engineering Android</li>
+            <li><i class="fas fa-check-circle"></i> Root detection bypass</li>
+            <li><i class="fas fa-check-circle"></i> Rapport vulnérabilités</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-palette"></i></div>
+          <h4>Branding & Design IA</h4>
+          <p class="text-muted small">Identité visuelle, génération assistée par IA.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Logo & charte graphique</li>
+            <li><i class="fas fa-check-circle"></i> Assets génératifs</li>
+            <li><i class="fas fa-check-circle"></i> Direction artistique</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <h4>Formations expertes</h4>
+          <p class="text-muted small">ML, IA générative, hacking éthique.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Cours sur mesure</li>
+            <li><i class="fas fa-check-circle"></i> Bootcamp intensif</li>
+            <li><i class="fas fa-check-circle"></i> Certificat LoonTech</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h4>Applications Web3 & Mobile</h4>
+          <p class="text-muted small">PWA, dApps, interfaces réactives.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> React / Vue / Three.js</li>
+            <li><i class="fas fa-check-circle"></i> Intégration blockchain</li>
+            <li><i class="fas fa-check-circle"></i> UX/UI interactif</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-video"></i></div>
+          <h4>Prompt engineering & Marketing IA</h4>
+          <p class="text-muted small">Contenus génératifs, optimisation.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Midjourney / DALL·E</li>
+            <li><i class="fas fa-check-circle"></i> Stratégie social media</li>
+            <li><i class="fas fa-check-circle"></i> Automatisation créative</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-glow"><i class="fas fa-images"></i> Créativité & Tech</span>
+      <h2 class="display-6 fw-bold mt-2">Fusion visuelle & innovation</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=450&fit=crop" alt="collaboration IA">
+          <div class="p-3"><h5>Collaboration augmentée</h5><p class="text-muted small">IA & équipes créatives</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=450&fit=crop" alt="cyber resilience">
+          <div class="p-3"><h5>Cyber résilience</h5><p class="text-muted small">Pentest & formation éthique</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=450&fit=crop" alt="reverse engineering">
+          <div class="p-3"><h5>Reverse APK</h5><p class="text-muted small">Ingénierie & sécurité mobile</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="150">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=450&fit=crop" alt="ML studio">
+          <div class="p-3"><h5>Machine Learning Studio</h5><p class="text-muted small">Pipelines automatisés</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="250">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=450&fit=crop" alt="branding digital">
+          <div class="p-3"><h5>Branding futuriste</h5><p class="text-muted small">Identité signature</p></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=450&fit=crop" alt="prompt design">
+          <div class="p-3"><h5>Génération augmentée</h5><p class="text-muted small">Prompt design & IA créative</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-muted mt-4 small">Inspirations visuelles — laboratoire d'idées technologiques</p>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5" style="background: #070c14;">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="badge-glow"><i class="fas fa-circle-question"></i> réponses</span>
+        <h2 class="display-6 fw-bold mt-2">FAQ interactive</h2>
+        <p class="text-muted">Formations, accompagnement, technologies : on vous dit tout.</p>
+        <div class="p-4 rounded-4 mt-3" style="background: rgba(56,189,248,0.05); border-left: 3px solid #38bdf8;">
+          <i class="fas fa-users fs-3 text-accent mb-2"></i>
+          <h5 class="fw-semibold">Pour qui ?</h5>
+          <p>Débutants comme experts, entreprises et indépendants. 100% personnalisé.</p>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="accordion faq-accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"><i class="fas fa-microchip me-2"></i> Quelles spécialités ?</button></h2>
+            <div id="faq1" class="accordion-collapse collapse show"><div class="accordion-body text-muted">Machine Learning, développement web full-stack, cybersécurité, reverse APK, branding et prompt engineering.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"><i class="fas fa-laptop-code me-2"></i> Faut-il des prérequis techniques ?</button></h2>
+            <div id="faq2" class="accordion-collapse collapse"><div class="accordion-body text-muted">Non, les formations s’adaptent à votre niveau. Pour les services techniques, nous analysons vos besoins en amont.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"><i class="fas fa-globe me-2"></i> Distanciel ou présentiel ?</button></h2>
+            <div id="faq3" class="accordion-collapse collapse"><div class="accordion-body text-muted">Les deux formats sont possibles : sessions en ligne interactives ou workshops physiques.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"><i class="fas fa-clock me-2"></i> Délais pour un projet ?</button></h2>
+            <div id="faq4" class="accordion-collapse collapse"><div class="accordion-body text-muted">Sous 2 à 4 semaines en moyenne, selon la complexité. Accélération possible.</div></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- ═══════════════ SCREEN 4 — GALLERY ═══════════════ -->
-    <section id="screen-gallery" class="screen">
-      <canvas id="gallery-canvas" aria-hidden="true"></canvas>
-      <div class="grain" aria-hidden="true"></div>
-
-      <div class="screen-header">
-        <div class="section-eyebrow">
-          <span class="eyebrow-line"></span>
-          <span>03 / Galerie</span>
-        </div>
-        <h2 class="section-title">Créativité<br><em>& Tech</em></h2>
-      </div>
-
-      <div class="gallery-mosaic">
-        <div class="gallery-item gi-1">
-          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop&q=80" alt="Machine Learning" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gi-label">IA & Data Science</span>
-          </div>
-        </div>
-        <div class="gallery-item gi-2">
-          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=900&fit=crop&q=80" alt="Digital Art" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gi-label">Génération augmentée</span>
-          </div>
-        </div>
-        <div class="gallery-item gi-3">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop&q=80" alt="Cybersécurité" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gi-label">Cybersécurité</span>
-          </div>
-        </div>
-        <div class="gallery-item gi-4">
-          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=600&fit=crop&q=80" alt="Mobile" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gi-label">Rétro-ingénierie</span>
-          </div>
-        </div>
-        <div class="gallery-item gi-5">
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=500&fit=crop&q=80" alt="Collaboration" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gi-label">Collaboration IA</span>
-          </div>
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="badge-glow"><i class="fas fa-paper-plane"></i> contact direct</span>
+        <h2 class="display-6 fw-bold mt-2">Un projet audacieux ?<br>On en parle.</h2>
+        <ul class="list-unstyled mt-4">
+          <li class="mb-3"><i class="fas fa-envelope text-accent me-3"></i> <a href="mailto:akoueteyannel662@gmail.com" class="text-decoration-none text-muted">akoueteyannel662@gmail.com</a></li>
+          <li><i class="fab fa-whatsapp text-accent me-3"></i> <a href="https://wa.me/22997546521?text=Bonjour%20LoonTech" target="_blank" class="text-decoration-none text-muted">+229 97 54 65 21</a></li>
+        </ul>
+        <div class="mt-4 d-flex gap-3">
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-    </section>
-
-    <!-- ═══════════════ SCREEN 5 — CONTACT ═══════════════ -->
-    <section id="screen-contact" class="screen">
-      <canvas id="contact-canvas" aria-hidden="true"></canvas>
-      <div class="grain" aria-hidden="true"></div>
-
-      <div class="contact-wrap">
-        <div class="contact-left">
-          <div class="section-eyebrow">
-            <span class="eyebrow-line"></span>
-            <span>04 / Contact</span>
-          </div>
-          <h2 class="contact-title">Un projet<br><em>en tête ?</em></h2>
-          <p class="contact-desc">Parlons de votre transformation digitale, formation ou création d'identité visuelle.</p>
-
-          <div class="contact-links">
-            <a href="mailto:akoueteyannel662@gmail.com" class="contact-link">
-              <span class="cl-icon">✉</span>
-              <span>akoueteyannel662@gmail.com</span>
-            </a>
-            <a href="https://wa.me/22997546521" target="_blank" class="contact-link">
-              <span class="cl-icon">📱</span>
-              <span>+229 97 54 65 21</span>
-            </a>
-          </div>
-
-          <div class="contact-social">
-            <a href="#" class="social-pill" aria-label="Instagram">IG</a>
-            <a href="#" class="social-pill" aria-label="Twitter">𝕏</a>
-            <a href="#" class="social-pill" aria-label="GitHub">GH</a>
-            <a href="#" class="social-pill" aria-label="LinkedIn">LI</a>
-          </div>
-        </div>
-
-        <div class="contact-right">
-          <form class="contact-form" id="contact-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" id="name" placeholder="Votre nom" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="vous@exemple.com" required />
-              </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="contact-glass">
+          <form id="contact-form">
+            <div class="mb-3">
+              <label class="form-label small">Nom / Structure</label>
+              <input type="text" class="form-control form-control-glass" id="name" placeholder="Votre identité" required>
             </div>
-            <div class="form-group">
-              <label for="service">Service</label>
-              <select id="service">
-                <option value="">Choisir un service…</option>
-                <option>Machine Learning & Data</option>
-                <option>Web & Applications</option>
-                <option>Cybersécurité</option>
-                <option>Design & Branding</option>
-                <option>Formation</option>
-                <option>Autre</option>
-              </select>
+            <div class="mb-3">
+              <label class="form-label small">Email</label>
+              <input type="email" class="form-control form-control-glass" id="email" placeholder="hello@exemple.com" required>
             </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" rows="4" placeholder="Décrivez votre projet…" required></textarea>
+            <div class="mb-3">
+              <label class="form-label small">Message</label>
+              <textarea class="form-control form-control-glass" id="message" rows="4" placeholder="Votre vision ou besoin..."></textarea>
             </div>
-            <button type="submit" class="btn-primary btn-full">
-              Envoyer le message →
-            </button>
-            <div id="form-feedback"></div>
+            <button type="submit" class="btn-gradient w-100 py-2">Envoyer la demande <i class="fas fa-arrow-right ms-2"></i></button>
+            <div id="contact-feedback" class="mt-3 small text-center"></div>
           </form>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Footer strip -->
-      <footer class="footer-strip">
-        <span>© <span id="year"></span> LoonTech</span>
-        <span>Visiteurs : <span id="visitor-count">0</span></span>
-        <span>Bénin · Afrique de l'Ouest</span>
-      </footer>
-    </section>
+<!-- Footer -->
+<footer class="footer-modern py-5">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center gap-2">
+          <div class="logo-icon"><i class="fas fa-crown"></i></div>
+          <span class="fw-bold fs-5">LoonTech</span>
+        </div>
+        <p class="text-muted small mt-2">Solutions digitales, formations pointues et design radical.</p>
+      </div>
+      <div class="col-md-2">
+        <h6 class="fw-semibold">Explorer</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#hero" class="text-muted text-decoration-none">Accueil</a></li>
+          <li><a href="#services" class="text-muted text-decoration-none">Services</a></li>
+          <li><a href="#gallery" class="text-muted text-decoration-none">Galerie</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h6 class="fw-semibold">Expertises</h6>
+        <ul class="list-unstyled small">
+          <li class="text-muted">ML / IA</li>
+          <li class="text-muted">Reverse APK</li>
+          <li class="text-muted">Branding</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="fw-semibold">Contact pro</h6>
+        <ul class="list-unstyled small">
+          <li><i class="fas fa-envelope me-2 text-accent"></i> <a href="mailto:akoueteyannel662@gmail.com" class="text-muted">akoueteyannel662@gmail.com</a></li>
+          <li><i class="fab fa-whatsapp me-2 text-accent"></i> <a href="https://wa.me/22997546521" class="text-muted">+229 97 54 65 21</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="opacity-25 my-4">
+    <div class="d-flex justify-content-between flex-wrap">
+      <span class="small text-muted">© <span id="year"></span> LoonTech — créativité & code augmenté</span>
+      <span class="small text-muted"><i class="fas fa-chart-line me-1"></i> visiteurs : <span id="visitor-count">0</span></span>
+    </div>
+  </div>
+</footer>
 
-  </main>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true, offset: 100, easing: 'ease-out' });
 
-  <!-- ░░ NAVIGATION DOTS ░░ -->
-  <nav class="dot-nav" id="dot-nav" aria-label="Navigation sections">
-    <button class="dot active" data-target="screen-hero" aria-label="Accueil"></button>
-    <button class="dot" data-target="screen-services" aria-label="Services"></button>
-    <button class="dot" data-target="screen-drum" aria-label="Manifesto"></button>
-    <button class="dot" data-target="screen-gallery" aria-label="Galerie"></button>
-    <button class="dot" data-target="screen-contact" aria-label="Contact"></button>
-  </nav>
+  // Année et compteur visiteur
+  document.getElementById('year').textContent = new Date().getFullYear();
+  let count = localStorage.getItem('loontech_visitor_count');
+  count = count ? parseInt(count) + 1 : 1;
+  localStorage.setItem('loontech_visitor_count', count);
+  document.getElementById('visitor-count').textContent = count;
 
-  <!-- ░░ PROGRESS BAR ░░ -->
-  <div class="progress-bar" id="progress-bar"></div>
+  // Formulaire de contact
+  const contactForm = document.getElementById('contact-form');
+  const feedback = document.getElementById('contact-feedback');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      feedback.innerHTML = '<span class="text-danger">❌ Tous les champs sont requis.</span>';
+      return;
+    }
+    const subject = `Demande LoonTech - ${name}`;
+    const body = `Nom : ${name}%0AEmail : ${email}%0A%0A${message}`;
+    window.location.href = `mailto:akoueteyannel662@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    feedback.innerHTML = '<span class="text-accent">📨 Ouverture de votre messagerie, merci !</span>';
+    setTimeout(() => feedback.innerHTML = '', 5000);
+  });
 
-  <script src="script.js"></script>
+  // Effet ripple sur les cartes services
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.classList.add('ripple');
+  });
+
+  // Navigation active au scroll
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+      if (scrollY >= sectionTop) current = section.getAttribute("id");
+    });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
+    });
+  });
+</script>
 </body>
 </html>
