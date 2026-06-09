@@ -482,13 +482,67 @@
       .hero__cards { grid-template-columns:1fr; }
     }
 
+    /* ─── CUSTOM CURSOR ──────────────────────────────── */
+    * { cursor: none !important; }
+    .cursor-dot {
+      position: fixed; top:0; left:0; z-index:9999; pointer-events:none;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(0,229,255,.5);
+      transform: translate(-50%,-50%);
+      transition: transform .08s linear, opacity .2s;
+      will-change: transform;
+    }
+    .cursor-ring {
+      position: fixed; top:0; left:0; z-index:9998; pointer-events:none;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid rgba(0,229,255,.5);
+      transform: translate(-50%,-50%);
+      transition: transform .18s cubic-bezier(.2,.9,.4,1), width .25s, height .25s, border-color .2s, opacity .2s;
+      will-change: transform;
+    }
+    /* hover state — ring expands over clickable elements */
+    .cursor-ring.hovered {
+      width: 54px; height: 54px;
+      border-color: var(--cyan);
+      background: rgba(0,229,255,.06);
+    }
+    .cursor-dot.clicked { transform: translate(-50%,-50%) scale(.5); }
+
+    /* ─── 3D CARD PERSPECTIVE ─────────────────────────── */
+    .tilt-wrap {
+      perspective: 900px;
+      transform-style: preserve-3d;
+    }
+    .svc-card, .hero__card, .gal-card, .contact__form-wrap {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    /* subtle inner depth on service icon */
+    .svc-card .svc-icon {
+      transform: translateZ(16px);
+      transition: transform .3s;
+    }
+    .svc-card h4 { transform: translateZ(10px); transition: transform .3s; }
+
     /* ─── REDUCED MOTION ──────────────────────────────── */
     @media(prefers-reduced-motion:reduce) {
       *, *::before, *::after { animation:none!important; transition:none!important; }
+      * { cursor: auto !important; }
+      .cursor-dot, .cursor-ring { display:none; }
+    }
+    @media(hover:none) {
+      /* touch devices — hide custom cursor */
+      .cursor-dot, .cursor-ring { display:none; }
+      * { cursor: auto !important; }
     }
   </style>
 </head>
 <body>
+  <!-- Custom cursor -->
+  <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
   <div class="grid-bg" aria-hidden="true"></div>
 
   <!-- ─── NAV ──────────────────────────────────────────── -->
@@ -952,6 +1006,58 @@
       fb.innerHTML = '<span style="color:var(--cyan)">Messagerie ouverte — merci !</span>';
       setTimeout(() => fb.innerHTML = '', 5000);
     });
+    /* ── Custom cursor ── */
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left  = mx + 'px';
+      dot.style.top   = my + 'px';
+    });
+
+    // ring follows with lerp via rAF
+    function lerpCursor() {
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(lerpCursor);
+    }
+    lerpCursor();
+
+    // hover expand
+    document.querySelectorAll('a, button, .svc-card, .hero__card, .gal-card, .social, .btn-cta, .btn-outline').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+    });
+    // click shrink
+    document.addEventListener('mousedown', () => dot.classList.add('clicked'));
+    document.addEventListener('mouseup',   () => dot.classList.remove('clicked'));
+
+    /* ── 3D Tilt on cards ── */
+    function addTilt(selector, strength = 12) {
+      document.querySelectorAll(selector).forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const r  = card.getBoundingClientRect();
+          const x  = e.clientX - r.left;
+          const y  = e.clientY - r.top;
+          const cx = r.width  / 2;
+          const cy = r.height / 2;
+          const rx2 = ((y - cy) / cy) * -strength;
+          const ry2 = ((x - cx) / cx) *  strength;
+          card.style.transform = `perspective(900px) rotateX(${rx2}deg) rotateY(${ry2}deg) scale3d(1.03,1.03,1.03)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+        });
+      });
+    }
+    addTilt('.svc-card',   10);
+    addTilt('.hero__card',  8);
+    addTilt('.gal-card',    6);
+    addTilt('.contact__form-wrap', 5);
   </script>
 </body>
 </html>
