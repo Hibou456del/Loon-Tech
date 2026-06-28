@@ -6,6 +6,45 @@
   <title>LoonTech · Agence IA & Formations tech</title>
   <meta name="description" content="LoonTech : développement IA, rétro-ingénierie, branding, formations ML — design radical et solutions innovantes." />
 
+  <!-- Favicon (généré automatiquement pour l'exemple) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="LoonTech · Agence IA & Formations tech" />
+  <meta property="og:description" content="Solutions IA, cybersécurité, formations et branding. Design radical et innovation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://loontech.africa" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=630&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Données structurées JSON-LD pour Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LoonTech",
+    "url": "https://loontech.africa",
+    "logo": "Logo.jpg",
+    "description": "Agence spécialisée en IA, cybersécurité, développement et formations.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cotonou",
+      "addressCountry": "Bénin"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+22997546521",
+      "email": "akoueteyannel662@gmail.com",
+      "contactType": "Commercial"
+    },
+    "sameAs": [
+      "https://www.instagram.com/loontech",
+      "https://twitter.com/loontech",
+      "https://www.linkedin.com/company/loontech"
+    ]
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
@@ -82,7 +121,9 @@
       display:flex; align-items:center; justify-content:center;
       font-size:.85rem; color:#fff;
       box-shadow:0 4px 14px rgba(0,229,255,.3);
+      overflow:hidden;
     }
+    .nav__logo-box img { width:100%; height:100%; object-fit:cover; border-radius:10px; }
     .nav__links {
       display:flex; align-items:center; gap:.2rem; list-style:none;
     }
@@ -116,6 +157,19 @@
       display:none; background:none; border:none;
       color:var(--white); font-size:1.2rem; cursor:pointer;
     }
+    .theme-btn {
+      border:1px solid rgba(0,229,255,.4);
+      background:transparent;
+      color:var(--white);
+      padding:.4rem .8rem;
+      border-radius:30px;
+      cursor:pointer;
+      font-family:var(--font-display);
+      font-size:.8rem;
+      transition:all .2s;
+      white-space:nowrap;
+    }
+    .theme-btn:hover { background:var(--cyan-dim); }
 
     /* ─── HERO ────────────────────────────────────────── */
     .hero {
@@ -124,6 +178,7 @@
       background:
         radial-gradient(ellipse 60% 50% at 80% 20%, rgba(124,58,237,.12), transparent),
         radial-gradient(ellipse 50% 60% at 10% 80%, rgba(0,229,255,.08), transparent);
+      overflow:hidden;
     }
     .hero__inner {
       max-width:1200px; margin:0 auto; padding:0 1.5rem;
@@ -191,6 +246,36 @@
       margin-top:.5rem;
     }
 
+    /* IA Orbs */
+    .ai-orb{
+      position:absolute;
+      width:420px;
+      height:420px;
+      right:6%;
+      top:18%;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(0,229,255,.25),transparent 65%);
+      filter:blur(25px);
+      animation:floatAI 6s ease-in-out infinite alternate;
+      pointer-events:none;
+    }
+    @keyframes floatAI{
+      from{transform:translateY(0) scale(1);}
+      to{transform:translateY(-35px) scale(1.08);}
+    }
+    .ai-grid{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at center,rgba(0,229,255,.12),transparent 35%);
+      animation:pulseAI 5s infinite;
+      pointer-events:none;
+    }
+    @keyframes pulseAI{
+      0%,100%{opacity:.3}
+      50%{opacity:.8}
+    }
+
     /* ─── TICKER ──────────────────────────────────────── */
     .ticker {
       overflow:hidden; border-top:1px solid var(--border);
@@ -244,7 +329,6 @@
       position:relative; overflow:hidden;
       transition:transform .3s, border-color .3s, box-shadow .3s;
     }
-    /* animated corner accent */
     .svc-card::before {
       content:''; position:absolute; top:0; left:0;
       width:3px; height:0; background:linear-gradient(var(--cyan),var(--violet));
@@ -272,6 +356,57 @@
     .svc-list li::before {
       content:''; width:5px; height:5px; border-radius:50%;
       background:var(--cyan); flex-shrink:0;
+    }
+
+    /* ─── STATS / POURQUOI CHOISIR ───────────────────── */
+    .stats-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:2rem;
+      margin-top:2rem;
+    }
+    .stat-item {
+      text-align:center; background:var(--card); border:1px solid var(--border);
+      border-radius:1.2rem; padding:2rem 1rem;
+      transition:border-color .3s, transform .3s;
+    }
+    .stat-item:hover { border-color:var(--cyan); transform:translateY(-5px); }
+    .stat-number {
+      font-family:var(--font-display); font-size:2.8rem; font-weight:700;
+      background:linear-gradient(100deg,var(--cyan),var(--violet));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .stat-label { color:var(--slate); font-size:.9rem; margin-top:.2rem; }
+    .stat-desc { color:var(--slate2); font-size:.85rem; margin-top:.6rem; }
+
+    /* ─── PROJECTS ────────────────────────────────────── */
+    .projects-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+    }
+    .project-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:1.4rem; overflow:hidden;
+      transition:transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .project-card:hover { transform:translateY(-8px); border-color:rgba(0,229,255,.3); box-shadow:var(--glow-c); }
+    .project-card img {
+      width:100%; height:180px; object-fit:cover;
+    }
+    .project-body { padding:1.2rem 1.4rem; }
+    .project-body h4 {
+      font-family:var(--font-display); font-size:1.05rem; font-weight:600;
+      margin-bottom:.2rem;
+    }
+    .project-body .tech-tag {
+      display:inline-block; font-size:.7rem; font-family:var(--font-mono);
+      background:var(--cyan-dim); color:var(--cyan);
+      padding:.15rem .7rem; border-radius:40px; margin:.4rem .2rem;
+    }
+    .project-body ul { list-style:none; margin-top:.5rem; }
+    .project-body ul li {
+      font-size:.82rem; color:var(--slate);
+      display:flex; align-items:center; gap:.4rem;
+    }
+    .project-body ul li::before {
+      content:'✔'; color:var(--cyan); font-size:.7rem;
     }
 
     /* ─── GALLERY ─────────────────────────────────────── */
@@ -306,6 +441,96 @@
       font-family:var(--font-display); font-size:.92rem; font-weight:600;
     }
     .gal-overlay p { font-size:.75rem; color:var(--slate); }
+
+    /* ─── TRAINING ────────────────────────────────────── */
+    .training-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem;
+    }
+    .training-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:1.4rem; padding:1.8rem;
+      text-align:center; transition:all .3s;
+    }
+    .training-card:hover { border-color:var(--cyan); transform:translateY(-6px); box-shadow:var(--glow-c); }
+    .training-card .svc-icon { margin:0 auto 1rem; }
+    .training-card h4 { font-family:var(--font-display); font-size:1rem; font-weight:600; }
+    .training-card p { color:var(--slate); font-size:.85rem; margin:.3rem 0 .8rem; }
+
+    /* ─── TESTIMONIALS ────────────────────────────────── */
+    .testimonials-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+    }
+    .testimonial-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:1.4rem; padding:1.8rem;
+      transition:border-color .3s, transform .3s;
+    }
+    .testimonial-card:hover { border-color:var(--violet); transform:translateY(-5px); }
+    .testimonial-card .stars {
+      color:#fbbf24; letter-spacing:2px; margin-bottom:.5rem;
+    }
+    .testimonial-card blockquote {
+      font-style:italic; color:var(--slate); font-size:.9rem;
+      margin-bottom:.5rem;
+    }
+    .testimonial-card cite {
+      font-family:var(--font-display); font-weight:600; color:var(--white);
+      font-style:normal;
+    }
+
+    /* ─── CTA BANNER ──────────────────────────────────── */
+    .cta-banner {
+      background:linear-gradient(135deg, var(--cyan-dim), var(--violet-dim));
+      border:1px solid rgba(0,229,255,.2);
+      border-radius:2rem; padding:3rem 2rem;
+      text-align:center;
+    }
+    .cta-banner h2 {
+      font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem);
+      font-weight:700;
+    }
+    .cta-banner p { color:var(--slate); margin:1rem 0 1.5rem; font-size:1rem; }
+    .cta-banner .btn-cta { font-size:1rem; padding:.7rem 2rem; }
+
+    /* ─── TEAM ────────────────────────────────────────── */
+    .team-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:2rem; max-width:800px; margin:0 auto;
+    }
+    .team-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:1.6rem; padding:2rem; text-align:center;
+    }
+    .team-avatar {
+      width:120px; height:120px; border-radius:50%;
+      background:linear-gradient(135deg,var(--cyan),var(--violet));
+      margin:0 auto 1rem;
+      display:flex; align-items:center; justify-content:center;
+      font-size:3rem; color:#fff; font-weight:700;
+      box-shadow:0 8px 30px rgba(0,229,255,.2);
+    }
+    .team-card h4 { font-family:var(--font-display); font-size:1.2rem; }
+    .team-card .role { color:var(--cyan); font-size:.85rem; margin:.2rem 0; }
+    .team-card p { color:var(--slate); font-size:.85rem; margin-top:.4rem; }
+
+    /* ─── TIMELINE ────────────────────────────────────── */
+    .timeline {
+      display:flex; flex-direction:column; gap:.5rem;
+      max-width:600px; margin:0 auto;
+    }
+    .timeline-item {
+      display:flex; align-items:center; gap:2rem;
+      padding:1rem 1.5rem;
+      background:var(--card); border:1px solid var(--border);
+      border-radius:1rem;
+      border-left:4px solid var(--cyan);
+    }
+    .timeline-item .year {
+      font-family:var(--font-display); font-weight:700;
+      color:var(--cyan); font-size:1.1rem;
+      min-width:80px;
+    }
+    .timeline-item .desc { color:var(--slate); font-size:.9rem; }
 
     /* ─── FAQ ─────────────────────────────────────────── */
     .faq__layout { display:grid; grid-template-columns:1fr 1.5fr; gap:4rem; align-items:start; }
@@ -436,7 +661,6 @@
     .reveal-right { opacity:0; transform:translateX(24px);  transition:opacity .65s cubic-bezier(.2,.9,.4,1), transform .65s cubic-bezier(.2,.9,.4,1); }
     .reveal-left.visible, .reveal-right.visible { opacity:1; transform:none; }
 
-    /* delay helpers */
     .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
     .d4{transition-delay:.4s} .d5{transition-delay:.5s}
 
@@ -458,6 +682,10 @@
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media(max-width:1024px) {
       .services__grid { grid-template-columns:repeat(2,1fr); }
+      .projects-grid { grid-template-columns:repeat(2,1fr); }
+      .training-grid { grid-template-columns:repeat(2,1fr); }
+      .testimonials-grid { grid-template-columns:repeat(2,1fr); }
+      .stats-grid { grid-template-columns:repeat(2,1fr); }
     }
     @media(max-width:900px) {
       .hero__inner { grid-template-columns:1fr; gap:2.5rem; text-align:center; }
@@ -476,10 +704,15 @@
     }
     @media(max-width:600px) {
       .services__grid { grid-template-columns:1fr; }
+      .projects-grid { grid-template-columns:1fr; }
+      .training-grid { grid-template-columns:1fr; }
+      .testimonials-grid { grid-template-columns:1fr; }
+      .stats-grid { grid-template-columns:1fr; }
       .gallery__grid { grid-template-columns:1fr; }
       .gal-card:nth-child(1), .gal-card:nth-child(5) { grid-column:span 1; }
       .footer__grid { grid-template-columns:1fr; }
       .hero__cards { grid-template-columns:1fr; }
+      .timeline-item { flex-direction:column; align-items:flex-start; gap:.2rem; }
     }
 
     /* ─── CUSTOM CURSOR ──────────────────────────────── */
@@ -501,7 +734,6 @@
       transition: transform .18s cubic-bezier(.2,.9,.4,1), width .25s, height .25s, border-color .2s, opacity .2s;
       will-change: transform;
     }
-    /* hover state — ring expands over clickable elements */
     .cursor-ring.hovered {
       width: 54px; height: 54px;
       border-color: var(--cyan);
@@ -514,11 +746,10 @@
       perspective: 900px;
       transform-style: preserve-3d;
     }
-    .svc-card, .hero__card, .gal-card, .contact__form-wrap {
+    .svc-card, .hero__card, .gal-card, .contact__form-wrap, .project-card, .training-card, .testimonial-card {
       transform-style: preserve-3d;
       will-change: transform;
     }
-    /* subtle inner depth on service icon */
     .svc-card .svc-icon {
       transform: translateZ(16px);
       transition: transform .3s;
@@ -532,99 +763,50 @@
       .cursor-dot, .cursor-ring { display:none; }
     }
     @media(hover:none) {
-      /* touch devices — hide custom cursor */
       .cursor-dot, .cursor-ring { display:none; }
       * { cursor: auto !important; }
     }
-  
-/* LoonTech AI Upgrade */
-.ai-orb{
-position:absolute;
-width:420px;
-height:420px;
-right:6%;
-top:18%;
-border-radius:50%;
-background:radial-gradient(circle,rgba(0,229,255,.25),transparent 65%);
-filter:blur(25px);
-animation:floatAI 6s ease-in-out infinite alternate;
-pointer-events:none;
-}
 
-.hero{
-overflow:hidden;
-}
-
-@keyframes floatAI{
-from{transform:translateY(0) scale(1);}
-to{transform:translateY(-35px) scale(1.08);}
-}
-
-.svc-card:hover{
-transform:translateY(-15px) rotateX(5deg);
-box-shadow:0 25px 60px rgba(0,229,255,.25);
-}
-
-.ai-grid{
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at center,rgba(0,229,255,.12),transparent 35%);
-animation:pulseAI 5s infinite;
-pointer-events:none;
-}
-
-@keyframes pulseAI{
-0%,100%{opacity:.3}
-50%{opacity:.8}
-}
-
-#typing{
-color:var(--cyan);
-font-family:var(--font-mono);
-}
-
-
-/* Theme light mode */
-body.light-mode{
- --void:#f5fff8;
- --surface:#ffffff;
- --surface2:#eaffef;
- --card:#ffffff;
- --white:#0b1f14;
- --slate:#3f5d4a;
- --slate2:#6b8575;
- --border:rgba(0,120,60,.15);
- --cyan:#00a86b;
- background:#f5fff8;
- color:#0b1f14;
-}
-
-body.light-mode .nav{
- background:rgba(255,255,255,.85);
-}
-
-body.light-mode .grid-bg{
- background-image:
- linear-gradient(rgba(0,168,107,.08) 1px, transparent 1px),
- linear-gradient(90deg, rgba(0,168,107,.08) 1px, transparent 1px);
-}
-
-.theme-btn{
- border:1px solid rgba(0,229,255,.4);
- background:transparent;
- color:var(--white);
- padding:.55rem .9rem;
- border-radius:30px;
- cursor:pointer;
- font-family:var(--font-display);
-}
-
-body.light-mode .theme-btn{
- color:#087a45;
- border-color:#00a86b;
-}
-</style>
+    /* ─── LIGHT MODE ──────────────────────────────────── */
+    body.light-mode{
+      --void:#f5fff8;
+      --surface:#ffffff;
+      --surface2:#eaffef;
+      --card:#ffffff;
+      --white:#0b1f14;
+      --slate:#3f5d4a;
+      --slate2:#6b8575;
+      --border:rgba(0,120,60,.15);
+      --cyan:#00a86b;
+      background:#f5fff8;
+      color:#0b1f14;
+    }
+    body.light-mode .nav{
+      background:rgba(255,255,255,.85);
+    }
+    body.light-mode .grid-bg{
+      background-image:
+        linear-gradient(rgba(0,168,107,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,168,107,.08) 1px, transparent 1px);
+    }
+    body.light-mode .theme-btn{
+      color:#087a45;
+      border-color:#00a86b;
+    }
+    body.light-mode .theme-btn:hover { background:rgba(0,168,107,.1); }
+    body.light-mode .hero {
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(124,58,237,.08), transparent),
+        radial-gradient(ellipse 50% 60% at 10% 80%, rgba(0,168,107,.06), transparent);
+    }
+    body.light-mode .stat-number {
+      background:linear-gradient(100deg,#0b1f14,var(--cyan));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    body.light-mode .cta-banner {
+      background:linear-gradient(135deg, rgba(0,168,107,.1), rgba(124,58,237,.08));
+    }
+  </style>
 </head>
 <body>
   <!-- Custom cursor -->
@@ -637,27 +819,33 @@ body.light-mode .theme-btn{
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="#hero" class="nav__brand" aria-label="LoonTech accueil">
-        <div class="nav__logo-box" aria-hidden="true"><img src="Logo.jpg" alt="LoonTech Logo" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+        <div class="nav__logo-box" aria-hidden="true"><img src="Logo.jpg" alt="LoonTech Logo"></div>
         LoonTech
       </a>
       <ul class="nav__links" id="nav-links" role="list">
         <button class="nav__close" id="nav-close" aria-label="Fermer menu"><i class="fas fa-xmark"></i></button>
         <li><a href="#hero" class="active">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#training">Formations</a></li>
+        <li><a href="#testimonials">Témoignages</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li style="margin-left:.5rem">
           <a href="#contact" class="btn-cta">Contact <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
         </li>
       </ul>
-      <button class="theme-btn" id="theme-toggle"><i class="fas fa-sun"></i> Luminosité</button><button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir menu"><i class="fas fa-bars"></i></button>
+      <div style="display:flex;gap:.5rem;align-items:center;">
+        <button class="theme-btn" id="theme-toggle"><i class="fas fa-sun"></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir menu"><i class="fas fa-bars"></i></button>
+      </div>
     </div>
   </nav>
 
   <!-- ─── HERO ──────────────────────────────────────────── -->
   <section id="hero" class="hero">
-<div class="ai-grid"></div>
-<div class="ai-orb"></div>
+    <div class="ai-grid"></div>
+    <div class="ai-orb"></div>
 
     <div class="hero__inner">
       <!-- Left -->
@@ -676,7 +864,7 @@ body.light-mode .theme-btn{
         </p>
         <div class="hero__actions reveal d3">
           <a href="#services" class="btn-cta">Explorer l'univers <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
-          <a href="#gallery" class="btn-outline">Inspirations</a>
+          <a href="#projects" class="btn-outline">Nos projets</a>
         </div>
         <div class="hero__stats reveal d4">
           <div>
@@ -747,6 +935,43 @@ body.light-mode .theme-btn{
       <span class="ticker__item"><span>◆</span> LLM Fine-Tuning</span>
     </div>
   </div>
+
+  <!-- ─── ABOUT ──────────────────────────────────────────── -->
+  <section id="about" class="section">
+    <div class="section__inner">
+      <div class="section__head reveal">
+        <div class="section__eyebrow">À propos</div>
+        <h2 class="section__title">Qui est LoonTech ?</h2>
+        <p class="section__desc">
+          LoonTech est une agence technologique spécialisée dans
+          l'intelligence artificielle, la cybersécurité et le développement
+          de solutions digitales.
+        </p>
+      </div>
+      <div class="services__grid">
+        <div class="svc-card reveal d1">
+          <div class="svc-icon"><i class="fas fa-eye"></i></div>
+          <h4>Notre vision</h4>
+          <p>Construire des technologies innovantes accessibles aux entreprises, startups et particuliers en Afrique et à l'international.</p>
+        </div>
+        <div class="svc-card reveal d2">
+          <div class="svc-icon"><i class="fas fa-bullseye"></i></div>
+          <h4>Notre mission</h4>
+          <p>Transformer les idées en solutions numériques performantes grâce à l'IA, au développement logiciel et à la cybersécurité.</p>
+        </div>
+        <div class="svc-card reveal d3">
+          <div class="svc-icon"><i class="fas fa-heart"></i></div>
+          <h4>Nos valeurs</h4>
+          <ul class="svc-list">
+            <li>Innovation</li>
+            <li>Excellence</li>
+            <li>Transparence</li>
+            <li>Satisfaction client</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ─── SERVICES ───────────────────────────────────────── -->
   <section id="services" class="section section--alt">
@@ -821,6 +1046,94 @@ body.light-mode .theme-btn{
     </div>
   </section>
 
+  <!-- ─── POURQUOI CHOISIR LOONTECH ────────────────────── -->
+  <section id="why" class="section">
+    <div class="section__inner">
+      <div class="section__head reveal">
+        <div class="section__eyebrow"><span>pourquoi nous</span></div>
+        <h2 class="section__title">Pourquoi choisir LoonTech ?</h2>
+        <p class="section__desc">Nous développons des solutions adaptées aux besoins des entreprises africaines et internationales.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item reveal d1">
+          <div class="stat-number">+35</div>
+          <div class="stat-label">Projets réalisés</div>
+          <div class="stat-desc">Des solutions concrètes déployées</div>
+        </div>
+        <div class="stat-item reveal d2">
+          <div class="stat-number">+100h</div>
+          <div class="stat-label">de formation</div>
+          <div class="stat-desc">Accompagnement et montée en compétences</div>
+        </div>
+        <div class="stat-item reveal d3">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Clients satisfaits</div>
+          <div class="stat-desc">Un retour positif sur nos services</div>
+        </div>
+        <div class="stat-item reveal d4">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support</div>
+          <div class="stat-desc">Une équipe réactive et disponible</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJETS ─────────────────────────────────────────── -->
+  <section id="projects" class="section section--alt">
+    <div class="section__inner">
+      <div class="section__head reveal">
+        <div class="section__eyebrow"><span>réalisations</span></div>
+        <h2 class="section__title">Nos projets récents</h2>
+        <p class="section__desc">Des solutions innovantes pour des défis concrets.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal d1">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=360&fit=crop" alt="Plateforme IA de gestion" loading="lazy" />
+          <div class="project-body">
+            <h4>Plateforme IA de gestion</h4>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">Machine Learning</span>
+            <ul>
+              <li>Automatisation des tâches</li>
+              <li>Analyse intelligente</li>
+              <li>Tableau de bord</li>
+            </ul>
+          </div>
+        </div>
+        <div class="project-card reveal d2">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=360&fit=crop" alt="Audit Cybersécurité Mobile" loading="lazy" />
+          <div class="project-body">
+            <h4>Audit Cybersécurité Mobile</h4>
+            <span class="tech-tag">Android</span>
+            <span class="tech-tag">Reverse Engineering</span>
+            <span class="tech-tag">Pentest</span>
+            <ul>
+              <li>Détection de vulnérabilités</li>
+              <li>Analyse APK</li>
+              <li>Rapport de sécurité</li>
+            </ul>
+          </div>
+        </div>
+        <div class="project-card reveal d3">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=360&fit=crop" alt="Application SaaS" loading="lazy" />
+          <div class="project-body">
+            <h4>Application SaaS</h4>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">API REST</span>
+            <ul>
+              <li>Gestion utilisateurs</li>
+              <li>Tableau de bord</li>
+              <li>Paiements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── GALLERY ────────────────────────────────────────── -->
   <section id="gallery" class="section">
     <div class="section__inner">
@@ -858,8 +1171,154 @@ body.light-mode .theme-btn{
     </div>
   </section>
 
+  <!-- ─── FORMATIONS ─────────────────────────────────────── -->
+  <section id="training" class="section section--alt">
+    <div class="section__inner">
+      <div class="section__head reveal">
+        <div class="section__eyebrow"><span>apprendre</span></div>
+        <h2 class="section__title">Nos formations expertes</h2>
+        <p class="section__desc">Montez en compétences avec des programmes concrets.</p>
+      </div>
+      <div class="training-grid">
+        <div class="training-card reveal d1">
+          <div class="svc-icon"><i class="fab fa-python"></i></div>
+          <h4>Python &amp; Automatisation</h4>
+          <p>Maîtrisez Python pour l'analyse et l'automatisation.</p>
+          <a href="#contact" class="btn-outline" style="font-size:.75rem;padding:.3rem 1.2rem;">Découvrir</a>
+        </div>
+        <div class="training-card reveal d2">
+          <div class="svc-icon"><i class="fas fa-robot"></i></div>
+          <h4>Intelligence Artificielle</h4>
+          <p>Deep learning, NLP, et modèles génératifs.</p>
+          <a href="#contact" class="btn-outline" style="font-size:.75rem;padding:.3rem 1.2rem;">Découvrir</a>
+        </div>
+        <div class="training-card reveal d3">
+          <div class="svc-icon"><i class="fas fa-lock"></i></div>
+          <h4>Cybersécurité</h4>
+          <p>Audit, reverse engineering, sécurité offensive.</p>
+          <a href="#contact" class="btn-outline" style="font-size:.75rem;padding:.3rem 1.2rem;">Découvrir</a>
+        </div>
+        <div class="training-card reveal d1">
+          <div class="svc-icon"><i class="fas fa-code"></i></div>
+          <h4>Développement Web</h4>
+          <p>React, Node.js, déploiement cloud.</p>
+          <a href="#contact" class="btn-outline" style="font-size:.75rem;padding:.3rem 1.2rem;">Découvrir</a>
+        </div>
+        <div class="training-card reveal d2">
+          <div class="svc-icon"><i class="fab fa-linux"></i></div>
+          <h4>Linux &amp; Réseaux</h4>
+          <p>Administration système, scripts, sécurité réseau.</p>
+          <a href="#contact" class="btn-outline" style="font-size:.75rem;padding:.3rem 1.2rem;">Découvrir</a>
+        </div>
+        <div class="training-card reveal d3">
+          <div class="svc-icon"><i class="fas fa-cloud"></i></div>
+          <h4>Cloud Computing</h4>
+          <p>AWS, déploiement continu, infrastructure scalable.</p>
+          <a href="#contact" class="btn-outline" style="font-size:.75rem;padding:.3rem 1.2rem;">Découvrir</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TÉMOIGNAGES ────────────────────────────────────── -->
+  <section id="testimonials" class="section">
+    <div class="section__inner">
+      <div class="section__head reveal">
+        <div class="section__eyebrow"><span>ils parlent de nous</span></div>
+        <h2 class="section__title">Témoignages</h2>
+        <p class="section__desc">Ce que nos clients et partenaires disent de LoonTech.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal d1">
+          <div class="stars">★★★★★</div>
+          <blockquote>"LoonTech nous a permis de créer une plateforme moderne en seulement quelques semaines."</blockquote>
+          <cite>— Startup cliente</cite>
+        </div>
+        <div class="testimonial-card reveal d2">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Une équipe très professionnelle et disponible. Un vrai partenaire technologique."</blockquote>
+          <cite>— Entrepreneur</cite>
+        </div>
+        <div class="testimonial-card reveal d3">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Formation IA de très grande qualité, avec des cas pratiques concrets."</blockquote>
+          <cite>— Participant à une formation</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA BANNER ─────────────────────────────────────── -->
+  <section id="cta" class="section section--alt" style="padding:3rem 0;">
+    <div class="section__inner">
+      <div class="cta-banner reveal">
+        <h2>Votre idée mérite une technologie à la hauteur.</h2>
+        <p>Discutons gratuitement de votre projet.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="https://wa.me/22997546521" target="_blank" rel="noopener" class="btn-cta" style="background:#25d366;box-shadow:0 4px 16px rgba(37,211,102,.3);">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="#contact" class="btn-outline">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ÉQUIPE ─────────────────────────────────────────── -->
+  <section id="team" class="section">
+    <div class="section__inner">
+      <div class="section__head reveal">
+        <div class="section__eyebrow"><span>équipe</span></div>
+        <h2 class="section__title">Notre fondateur</h2>
+        <p class="section__desc">La vision et l'expertise derrière LoonTech.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">YA</div>
+          <h4>Yannel Akouété</h4>
+          <div class="role">Fondateur · IA &amp; Cybersécurité</div>
+          <p>Expert en intelligence artificielle, cybersécurité et développement Full Stack. Sa mission est de créer des solutions technologiques qui apportent une réelle valeur aux entreprises.</p>
+          <div style="display:flex;gap:.4rem;justify-content:center;margin-top:.8rem;">
+            <span class="tech-tag" style="background:var(--violet-dim);color:#a78bfa;">IA</span>
+            <span class="tech-tag" style="background:var(--violet-dim);color:#a78bfa;">Cybersécurité</span>
+            <span class="tech-tag" style="background:var(--violet-dim);color:#a78bfa;">Full Stack</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TIMELINE ────────────────────────────────────────── -->
+  <section id="timeline" class="section section--alt">
+    <div class="section__inner">
+      <div class="section__head reveal">
+        <div class="section__eyebrow"><span>parcours</span></div>
+        <h2 class="section__title">Notre évolution</h2>
+        <p class="section__desc">Les étapes clés de LoonTech.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal d1">
+          <span class="year">2024</span>
+          <span class="desc">Création de LoonTech</span>
+        </div>
+        <div class="timeline-item reveal d2">
+          <span class="year">2025</span>
+          <span class="desc">Premiers projets IA et cybersécurité</span>
+        </div>
+        <div class="timeline-item reveal d3">
+          <span class="year">2026</span>
+          <span class="desc">Développement des formations et expansion</span>
+        </div>
+        <div class="timeline-item reveal d4">
+          <span class="year">Aujourd'hui</span>
+          <span class="desc">Agence spécialisée IA &amp; cybersécurité</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── FAQ ───────────────────────────────────────────── -->
-  <section id="faq" class="section section--alt">
+  <section id="faq" class="section">
     <div class="section__inner">
       <div class="faq__layout">
         <div class="reveal-left">
@@ -921,7 +1380,7 @@ body.light-mode .theme-btn{
   </section>
 
   <!-- ─── CONTACT ───────────────────────────────────────── -->
-  <section id="contact" class="section">
+  <section id="contact" class="section section--alt">
     <div class="section__inner">
       <div class="contact__layout">
         <div class="reveal-left">
@@ -975,7 +1434,7 @@ body.light-mode .theme-btn{
       <div class="footer__grid">
         <div>
           <div class="footer__brand-name">
-            <div class="nav__logo-box" aria-hidden="true"><img src="Logo.jpg" alt="LoonTech Logo" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+            <div class="nav__logo-box" aria-hidden="true"><img src="Logo.jpg" alt="LoonTech Logo"></div>
             LoonTech
           </div>
           <p class="footer__desc">Solutions digitales, formations pointues et design radical depuis Cotonou.</p>
@@ -984,8 +1443,11 @@ body.light-mode .theme-btn{
           <h6 class="footer__heading">Explorer</h6>
           <ul class="footer__list">
             <li><a href="#hero">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Galerie</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#training">Formations</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
@@ -1097,6 +1559,7 @@ body.light-mode .theme-btn{
       fb.innerHTML = '<span style="color:var(--cyan)">Messagerie ouverte — merci !</span>';
       setTimeout(() => fb.innerHTML = '', 5000);
     });
+
     /* ── Custom cursor ── */
     const dot  = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
@@ -1108,7 +1571,6 @@ body.light-mode .theme-btn{
       dot.style.top   = my + 'px';
     });
 
-    // ring follows with lerp via rAF
     function lerpCursor() {
       rx += (mx - rx) * 0.14;
       ry += (my - ry) * 0.14;
@@ -1118,12 +1580,10 @@ body.light-mode .theme-btn{
     }
     lerpCursor();
 
-    // hover expand
-    document.querySelectorAll('a, button, .svc-card, .hero__card, .gal-card, .social, .btn-cta, .btn-outline').forEach(el => {
+    document.querySelectorAll('a, button, .svc-card, .hero__card, .gal-card, .social, .btn-cta, .btn-outline, .project-card, .training-card, .testimonial-card, .stat-item').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
     });
-    // click shrink
     document.addEventListener('mousedown', () => dot.classList.add('clicked'));
     document.addEventListener('mouseup',   () => dot.classList.remove('clicked'));
 
@@ -1149,33 +1609,20 @@ body.light-mode .theme-btn{
     addTilt('.hero__card',  8);
     addTilt('.gal-card',    6);
     addTilt('.contact__form-wrap', 5);
-  
-// Typing IA
-const typingText="LoonTech construit les technologies du futur.";
-let typingIndex=0;
+    addTilt('.project-card', 6);
+    addTilt('.training-card', 6);
+    addTilt('.testimonial-card', 4);
+    addTilt('.stat-item', 4);
 
-function startTyping(){
- const el=document.getElementById("typing");
- if(!el)return;
- if(typingIndex<typingText.length){
-   el.innerHTML += typingText[typingIndex];
-   typingIndex++;
-   setTimeout(startTyping,55);
- }
-}
-startTyping();
-
-
-// Theme luminosité
-const themeBtn=document.getElementById("theme-toggle");
-themeBtn?.addEventListener("click",()=>{
- document.body.classList.toggle("light-mode");
- localStorage.setItem("loonTheme",
- document.body.classList.contains("light-mode")?"light":"dark");
-});
-if(localStorage.getItem("loonTheme")==="light"){
- document.body.classList.add("light-mode");
-}
-</script>
+    /* ── Theme toggle ── */
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn?.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem('loonTheme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    });
+    if (localStorage.getItem('loonTheme') === 'light') {
+      document.body.classList.add('light-mode');
+    }
+  </script>
 </body>
 </html>
