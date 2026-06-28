@@ -536,7 +536,95 @@
       .cursor-dot, .cursor-ring { display:none; }
       * { cursor: auto !important; }
     }
-  </style>
+  
+/* LoonTech AI Upgrade */
+.ai-orb{
+position:absolute;
+width:420px;
+height:420px;
+right:6%;
+top:18%;
+border-radius:50%;
+background:radial-gradient(circle,rgba(0,229,255,.25),transparent 65%);
+filter:blur(25px);
+animation:floatAI 6s ease-in-out infinite alternate;
+pointer-events:none;
+}
+
+.hero{
+overflow:hidden;
+}
+
+@keyframes floatAI{
+from{transform:translateY(0) scale(1);}
+to{transform:translateY(-35px) scale(1.08);}
+}
+
+.svc-card:hover{
+transform:translateY(-15px) rotateX(5deg);
+box-shadow:0 25px 60px rgba(0,229,255,.25);
+}
+
+.ai-grid{
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at center,rgba(0,229,255,.12),transparent 35%);
+animation:pulseAI 5s infinite;
+pointer-events:none;
+}
+
+@keyframes pulseAI{
+0%,100%{opacity:.3}
+50%{opacity:.8}
+}
+
+#typing{
+color:var(--cyan);
+font-family:var(--font-mono);
+}
+
+
+/* Theme light mode */
+body.light-mode{
+ --void:#f5fff8;
+ --surface:#ffffff;
+ --surface2:#eaffef;
+ --card:#ffffff;
+ --white:#0b1f14;
+ --slate:#3f5d4a;
+ --slate2:#6b8575;
+ --border:rgba(0,120,60,.15);
+ --cyan:#00a86b;
+ background:#f5fff8;
+ color:#0b1f14;
+}
+
+body.light-mode .nav{
+ background:rgba(255,255,255,.85);
+}
+
+body.light-mode .grid-bg{
+ background-image:
+ linear-gradient(rgba(0,168,107,.08) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(0,168,107,.08) 1px, transparent 1px);
+}
+
+.theme-btn{
+ border:1px solid rgba(0,229,255,.4);
+ background:transparent;
+ color:var(--white);
+ padding:.55rem .9rem;
+ border-radius:30px;
+ cursor:pointer;
+ font-family:var(--font-display);
+}
+
+body.light-mode .theme-btn{
+ color:#087a45;
+ border-color:#00a86b;
+}
+</style>
 </head>
 <body>
   <!-- Custom cursor -->
@@ -549,7 +637,7 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="#hero" class="nav__brand" aria-label="LoonTech accueil">
-        <div class="nav__logo-box" aria-hidden="true"><i class="fas fa-bolt"></i></div>
+        <div class="nav__logo-box" aria-hidden="true"><img src="Logo.jpg" alt="LoonTech Logo" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
         LoonTech
       </a>
       <ul class="nav__links" id="nav-links" role="list">
@@ -562,12 +650,15 @@
           <a href="#contact" class="btn-cta">Contact <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
         </li>
       </ul>
-      <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir menu"><i class="fas fa-bars"></i></button>
+      <button class="theme-btn" id="theme-toggle"><i class="fas fa-sun"></i> Luminosité</button><button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir menu"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
 
   <!-- ─── HERO ──────────────────────────────────────────── -->
   <section id="hero" class="hero">
+<div class="ai-grid"></div>
+<div class="ai-orb"></div>
+
     <div class="hero__inner">
       <!-- Left -->
       <div>
@@ -605,7 +696,7 @@
       <!-- Right -->
       <div class="hero__cards reveal-right d2">
         <div class="hero__card">
-          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&h=260&fit=crop" alt="Deep Learning" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&h=260&fit=crop" alt="Deep Learning" loading="lazy" />
           <div class="hero__card-body">
             <h5>Deep Learning</h5>
             <p>Modèles prédictifs &amp; automation intelligente</p>
@@ -613,7 +704,7 @@
           </div>
         </div>
         <div class="hero__card">
-          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=260&fit=crop" alt="Data Intelligence" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=260&fit=crop" alt="Data Intelligence" loading="lazy" />
           <div class="hero__card-body">
             <h5>Data Intelligence</h5>
             <p>BI, analyse avancée &amp; MLOps</p>
@@ -621,7 +712,7 @@
           </div>
         </div>
         <div class="hero__card">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=260&fit=crop" alt="Full-Stack" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=260&fit=crop" alt="Full-Stack" loading="lazy" />
           <div class="hero__card-body">
             <h5>Full-Stack Edge</h5>
             <p>Apps réactives, dashboards SaaS</p>
@@ -760,7 +851,7 @@
           <div class="gal-overlay"><h5>Machine Learning Studio</h5><p>Pipelines automatisés</p></div>
         </div>
         <div class="gal-card reveal d3">
-          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=260&fit=crop" alt="Génération augmentée" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=260&fit=crop" alt="Génération augmentée" loading="lazy" />
           <div class="gal-overlay"><h5>Génération augmentée</h5><p>Prompt design &amp; IA</p></div>
         </div>
       </div>
@@ -884,7 +975,7 @@
       <div class="footer__grid">
         <div>
           <div class="footer__brand-name">
-            <div class="nav__logo-box" aria-hidden="true"><i class="fas fa-bolt"></i></div>
+            <div class="nav__logo-box" aria-hidden="true"><img src="Logo.jpg" alt="LoonTech Logo" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
             LoonTech
           </div>
           <p class="footer__desc">Solutions digitales, formations pointues et design radical depuis Cotonou.</p>
@@ -1058,6 +1149,33 @@
     addTilt('.hero__card',  8);
     addTilt('.gal-card',    6);
     addTilt('.contact__form-wrap', 5);
-  </script>
+  
+// Typing IA
+const typingText="LoonTech construit les technologies du futur.";
+let typingIndex=0;
+
+function startTyping(){
+ const el=document.getElementById("typing");
+ if(!el)return;
+ if(typingIndex<typingText.length){
+   el.innerHTML += typingText[typingIndex];
+   typingIndex++;
+   setTimeout(startTyping,55);
+ }
+}
+startTyping();
+
+
+// Theme luminosité
+const themeBtn=document.getElementById("theme-toggle");
+themeBtn?.addEventListener("click",()=>{
+ document.body.classList.toggle("light-mode");
+ localStorage.setItem("loonTheme",
+ document.body.classList.contains("light-mode")?"light":"dark");
+});
+if(localStorage.getItem("loonTheme")==="light"){
+ document.body.classList.add("light-mode");
+}
+</script>
 </body>
 </html>
