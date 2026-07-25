@@ -546,7 +546,64 @@
       * { cursor: auto !important; }
       .cursor-dot, .cursor-ring { display:none; }
     }
-    @media(hover:none) { .cursor-dot, .cursor-ring { display:none; } * { cursor: auto !important; } }
+    /* ─── MODALE MÉDIA — vidéos & Instagram liés à l'élément cliqué ──── */
+    .media-modal {
+      position:fixed; inset:0; z-index:9500;
+      display:flex; align-items:center; justify-content:center;
+      padding:1.5rem;
+      background:rgba(9,7,13,.82); backdrop-filter:blur(6px);
+      opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease;
+    }
+    .media-modal.open { opacity:1; visibility:visible; }
+    .media-modal__box {
+      width:100%; max-width:860px; max-height:88vh; overflow-y:auto;
+      background:var(--card); border:1px solid var(--border); border-radius:1.1rem;
+      transform:translateY(24px) scale(.97); transition:transform .35s cubic-bezier(.2,.9,.3,1);
+      box-shadow:0 30px 80px rgba(0,0,0,.5);
+    }
+    .media-modal.open .media-modal__box { transform:translateY(0) scale(1); }
+    .media-modal__head {
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
+      padding:1.2rem 1.4rem; border-bottom:1px solid var(--border);
+      position:sticky; top:0; background:var(--card); z-index:2;
+    }
+    .media-modal__title { font-family:var(--font-display); font-size:1.05rem; font-weight:600; }
+    .media-modal__title span { display:block; font-family:var(--font-mono); font-size:.68rem; color:var(--gold); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.2rem; }
+    .media-modal__close {
+      width:36px; height:36px; border-radius:50%; border:1px solid var(--border);
+      background:rgba(255,255,255,.05); color:var(--white); font-size:.9rem;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+      transition:background .2s, transform .2s;
+    }
+    .media-modal__close:hover { background:var(--orange); color:#12060a; transform:rotate(90deg); }
+    .media-modal__tabs { display:flex; gap:.5rem; padding:1rem 1.4rem 0; }
+    .media-modal__tab {
+      font-family:var(--font-mono); font-size:.75rem; font-weight:500; color:var(--slate);
+      background:var(--surface2); border:1px solid var(--border); padding:.5rem 1rem; border-radius:40px;
+      transition:all .2s; cursor:pointer;
+    }
+    .media-modal__tab.active { color:var(--void); background:var(--orange); border-color:var(--orange); }
+    .media-modal__panel { padding:1.2rem 1.4rem 1.6rem; }
+    .media-modal__video-wrap {
+      position:relative; width:100%; padding-top:56.25%; border-radius:.8rem; overflow:hidden;
+      background:#000; border:1px solid var(--border);
+    }
+    .media-modal__video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .media-modal__hint { font-size:.78rem; color:var(--slate2); margin-top:.8rem; }
+    .media-modal__insta {
+      display:flex; flex-direction:column; align-items:center; text-align:center; gap:1rem;
+      padding:2.5rem 1.5rem; background:var(--surface2); border-radius:.9rem; border:1px solid var(--border);
+    }
+    .media-modal__insta i { font-size:2.4rem; background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .media-modal__insta p { color:var(--slate); font-size:.88rem; max-width:380px; }
+    .media-modal__insta-btn {
+      display:inline-flex; align-items:center; gap:.5rem; font-family:var(--font-display); font-weight:600; font-size:.88rem;
+      padding:.6rem 1.4rem; border-radius:8px; color:#fff;
+      background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .media-modal__insta-btn:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(221,42,123,.4); }
+    @media(max-width:600px){ .media-modal__head{ padding:1rem; } .media-modal__panel{ padding:1rem; } }
 
     /* ─── LIGHT MODE ──────────────────────────────────── */
     body.light-mode{
@@ -697,7 +754,7 @@
         <p class="section__desc">De l'intelligence artificielle à l'identité visuelle, chaque pôle est une série à part entière.</p>
       </div>
       <div class="poster-grid">
-        <div class="poster-card reveal d1">
+        <div class="poster-card reveal d1" data-topic="machine learning data science tutoriel">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&h=380&fit=crop" alt="Machine Learning" loading="lazy" />
             <span class="poster-card__badge">POPULAIRE</span>
@@ -714,7 +771,7 @@
             </ul>
           </div>
         </div>
-        <div class="poster-card reveal d2">
+        <div class="poster-card reveal d2" data-topic="reverse engineering android cybersecurity">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&h=380&fit=crop" alt="Cybersécurité" loading="lazy" />
             <span class="poster-card__badge">NOUVEAU</span>
@@ -731,7 +788,7 @@
             </ul>
           </div>
         </div>
-        <div class="poster-card reveal d3">
+        <div class="poster-card reveal d3" data-topic="AI branding design generative">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&h=380&fit=crop" alt="Branding IA" loading="lazy" />
             <span class="poster-card__badge">TENDANCE</span>
@@ -748,7 +805,7 @@
             </ul>
           </div>
         </div>
-        <div class="poster-card reveal d1">
+        <div class="poster-card reveal d1" data-topic="formation intelligence artificielle bootcamp">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=380&fit=crop" alt="Formations expertes" loading="lazy" />
             <span class="poster-card__badge">SÉRIE</span>
@@ -765,7 +822,7 @@
             </ul>
           </div>
         </div>
-        <div class="poster-card reveal d2">
+        <div class="poster-card reveal d2" data-topic="web3 mobile app development react">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?w=700&h=380&fit=crop" alt="Web3 & Mobile" loading="lazy" />
             <span class="poster-card__badge">EXCLUSIF</span>
@@ -782,7 +839,7 @@
             </ul>
           </div>
         </div>
-        <div class="poster-card reveal d3">
+        <div class="poster-card reveal d3" data-topic="prompt engineering AI marketing">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1547954575-855750c57bd3?w=700&h=380&fit=crop" alt="Prompt & Marketing IA" loading="lazy" />
             <span class="poster-card__badge">SAISON 1</span>
@@ -849,7 +906,7 @@
         <p class="section__desc">Des solutions innovantes pour des défis concrets.</p>
       </div>
       <div class="poster-grid">
-        <div class="poster-card reveal d1">
+        <div class="poster-card reveal d1" data-topic="python django machine learning platform">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=380&fit=crop" alt="Plateforme IA de gestion" loading="lazy" />
             <span class="poster-card__rating"><i class="fas fa-star"></i> 4.9</span>
@@ -865,7 +922,7 @@
             </ul>
           </div>
         </div>
-        <div class="poster-card reveal d2">
+        <div class="poster-card reveal d2" data-topic="android penetration testing reverse engineering">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=700&h=380&fit=crop" alt="Audit Cybersécurité Mobile" loading="lazy" />
             <span class="poster-card__rating"><i class="fas fa-star"></i> 4.8</span>
@@ -881,7 +938,7 @@
             </ul>
           </div>
         </div>
-        <div class="poster-card reveal d3">
+        <div class="poster-card reveal d3" data-topic="react node saas dashboard">
           <div class="poster-card__media">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=380&fit=crop" alt="Application SaaS" loading="lazy" />
             <span class="poster-card__rating"><i class="fas fa-star"></i> 4.9</span>
@@ -912,32 +969,32 @@
         <p class="section__desc">Un laboratoire d'idées où technologie et esthétique se rencontrent.</p>
       </div>
       <div class="gallery__grid">
-        <div class="gal-card reveal d1">
+        <div class="gal-card reveal d1" data-topic="AI collaboration teamwork technology">
           <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=520&fit=crop" alt="Collaboration augmentée" loading="lazy" />
           <div class="gal-play"><i class="fas fa-play"></i></div>
           <div class="gal-overlay"><h5>Collaboration augmentée</h5><p>IA &amp; équipes créatives</p></div>
         </div>
-        <div class="gal-card reveal d2">
+        <div class="gal-card reveal d2" data-topic="cybersecurity pentest training">
           <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=260&fit=crop" alt="Cyber résilience" loading="lazy" />
           <div class="gal-play"><i class="fas fa-play"></i></div>
           <div class="gal-overlay"><h5>Cyber résilience</h5><p>Pentest &amp; formation</p></div>
         </div>
-        <div class="gal-card reveal d3">
+        <div class="gal-card reveal d3" data-topic="android reverse engineering apk">
           <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&h=260&fit=crop" alt="Reverse APK" loading="lazy" />
           <div class="gal-play"><i class="fas fa-play"></i></div>
           <div class="gal-overlay"><h5>Reverse APK</h5><p>Ingénierie mobile</p></div>
         </div>
-        <div class="gal-card reveal d1">
+        <div class="gal-card reveal d1" data-topic="futuristic branding design AI">
           <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=400&h=260&fit=crop" alt="Branding futuriste" loading="lazy" />
           <div class="gal-play"><i class="fas fa-play"></i></div>
           <div class="gal-overlay"><h5>Branding futuriste</h5><p>Identité signature</p></div>
         </div>
-        <div class="gal-card reveal d2">
+        <div class="gal-card reveal d2" data-topic="machine learning pipeline mlops">
           <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=260&fit=crop" alt="ML Studio" loading="lazy" />
           <div class="gal-play"><i class="fas fa-play"></i></div>
           <div class="gal-overlay"><h5>Machine Learning Studio</h5><p>Pipelines automatisés</p></div>
         </div>
-        <div class="gal-card reveal d3">
+        <div class="gal-card reveal d3" data-topic="AI prompt generative art">
           <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=260&fit=crop" alt="Génération augmentée" loading="lazy" />
           <div class="gal-play"><i class="fas fa-play"></i></div>
           <div class="gal-overlay"><h5>Génération augmentée</h5><p>Prompt design &amp; IA</p></div>
@@ -1205,6 +1262,40 @@
     </div>
   </section>
 
+  <!-- ─── MODALE MÉDIA ─────────────────────────────────── -->
+  <div class="media-modal" id="media-modal" aria-hidden="true">
+    <div class="media-modal__box" role="dialog" aria-modal="true" aria-labelledby="media-modal-title">
+      <div class="media-modal__head">
+        <div class="media-modal__title">
+          <span>Références sur le sujet</span>
+          <span id="media-modal-title" style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--white)">—</span>
+        </div>
+        <button class="media-modal__close" id="media-modal-close" aria-label="Fermer"><i class="fas fa-xmark"></i></button>
+      </div>
+      <div class="media-modal__tabs">
+        <button class="media-modal__tab active" data-tab="video"><i class="fab fa-youtube"></i> Vidéos</button>
+        <button class="media-modal__tab" data-tab="insta"><i class="fab fa-instagram"></i> Instagram</button>
+      </div>
+      <div class="media-modal__panel">
+        <div class="media-modal__pane" data-pane="video">
+          <div class="media-modal__video-wrap">
+            <iframe id="media-modal-iframe" src="" title="Vidéos liées" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-modal__hint">Résultats vidéo YouTube en lien direct avec cet élément.</p>
+        </div>
+        <div class="media-modal__pane" data-pane="insta" style="display:none">
+          <div class="media-modal__insta">
+            <i class="fab fa-instagram"></i>
+            <p>Découvre de vrais posts et reels Instagram publiés sur ce thème, directement sur Instagram.</p>
+            <a id="media-modal-insta-link" href="#" target="_blank" rel="noopener" class="media-modal__insta-btn">
+              Voir sur Instagram <i class="fas fa-arrow-up-right-from-square" style="font-size:.75rem"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── FOOTER ────────────────────────────────────────── -->
   <footer class="footer">
     <div class="footer__inner">
@@ -1254,6 +1345,57 @@
 
   <!-- ─── SCRIPTS ───────────────────────────────────────── -->
   <script>
+    /* ── Modale média : vidéos & Instagram liés à l'élément cliqué ── */
+    const mediaModal   = document.getElementById('media-modal');
+    const modalTitle    = document.getElementById('media-modal-title');
+    const modalIframe   = document.getElementById('media-modal-iframe');
+    const modalInstaLink= document.getElementById('media-modal-insta-link');
+    const modalClose    = document.getElementById('media-modal-close');
+    const modalTabs     = document.querySelectorAll('.media-modal__tab');
+    const modalPanes    = document.querySelectorAll('.media-modal__pane');
+
+    function openMediaModal(topic, label) {
+      modalTitle.textContent = label;
+      modalIframe.src = `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(topic)}`;
+      const tag = topic.split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+      modalInstaLink.href = `https://www.instagram.com/explore/tags/${tag || 'tech'}/`;
+      mediaModal.classList.add('open');
+      mediaModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalTabs.forEach(t => t.classList.remove('active'));
+      modalTabs[0].classList.add('active');
+      modalPanes.forEach(p => p.style.display = 'none');
+      document.querySelector('.media-modal__pane[data-pane="video"]').style.display = '';
+    }
+    function closeMediaModal() {
+      mediaModal.classList.remove('open');
+      mediaModal.setAttribute('aria-hidden', 'true');
+      modalIframe.src = '';
+      document.body.style.overflow = '';
+    }
+    modalClose.addEventListener('click', closeMediaModal);
+    mediaModal.addEventListener('click', e => { if (e.target === mediaModal) closeMediaModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMediaModal(); });
+
+    modalTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        modalTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.getAttribute('data-tab');
+        modalPanes.forEach(p => { p.style.display = p.getAttribute('data-pane') === target ? '' : 'none'; });
+      });
+    });
+
+    document.querySelectorAll('[data-topic]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button')) return; // laisser les liens internes fonctionner normalement
+        const topic = card.getAttribute('data-topic');
+        const label = card.querySelector('h4, h5')?.textContent?.trim() || topic;
+        openMediaModal(topic, label);
+      });
+    });
+
     /* ── Loader ── */
     window.addEventListener('load', () => {
       setTimeout(() => document.getElementById('loader').classList.add('hidden'), 350);
