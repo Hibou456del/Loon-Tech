@@ -1278,10 +1278,13 @@
       </div>
       <div class="media-modal__panel">
         <div class="media-modal__pane" data-pane="video">
-          <div class="media-modal__video-wrap">
-            <iframe id="media-modal-iframe" src="" title="Vidéos liées" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+          <div class="media-modal__insta" style="background:var(--surface2)">
+            <i class="fab fa-youtube" style="font-size:2.4rem;color:#ff0000;background:none;-webkit-text-fill-color:#ff0000"></i>
+            <p>Découvre de vraies vidéos YouTube publiées sur ce thème, directement sur YouTube.</p>
+            <a id="media-modal-yt-link" href="#" target="_blank" rel="noopener" class="media-modal__insta-btn" style="background:#ff0000">
+              Voir les vidéos sur YouTube <i class="fas fa-arrow-up-right-from-square" style="font-size:.75rem"></i>
+            </a>
           </div>
-          <p class="media-modal__hint">Résultats vidéo YouTube en lien direct avec cet élément.</p>
         </div>
         <div class="media-modal__pane" data-pane="insta" style="display:none">
           <div class="media-modal__insta">
@@ -1348,7 +1351,7 @@
     /* ── Modale média : vidéos & Instagram liés à l'élément cliqué ── */
     const mediaModal   = document.getElementById('media-modal');
     const modalTitle    = document.getElementById('media-modal-title');
-    const modalIframe   = document.getElementById('media-modal-iframe');
+    const modalYtLink   = document.getElementById('media-modal-yt-link');
     const modalInstaLink= document.getElementById('media-modal-insta-link');
     const modalClose    = document.getElementById('media-modal-close');
     const modalTabs     = document.querySelectorAll('.media-modal__tab');
@@ -1356,7 +1359,7 @@
 
     function openMediaModal(topic, label) {
       modalTitle.textContent = label;
-      modalIframe.src = `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(topic)}`;
+      modalYtLink.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(topic)}`;
       const tag = topic.split(' ')[0].toLowerCase().replace(/[^a-z0-9]/g, '');
       modalInstaLink.href = `https://www.instagram.com/explore/tags/${tag || 'tech'}/`;
       mediaModal.classList.add('open');
@@ -1370,7 +1373,6 @@
     function closeMediaModal() {
       mediaModal.classList.remove('open');
       mediaModal.setAttribute('aria-hidden', 'true');
-      modalIframe.src = '';
       document.body.style.overflow = '';
     }
     modalClose.addEventListener('click', closeMediaModal);
