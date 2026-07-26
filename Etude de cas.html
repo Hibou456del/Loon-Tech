@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Étude de cas : Plateforme IA de gestion · LoonTech</title>
+  <meta name="description" content="Comment LoonTech a conçu une plateforme IA de gestion automatisant l'analyse et le reporting pour un client." />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <div class="nav__logo-box"><img src="Logo.jpg" alt="LoonTech" /></div>
+        LoonTech
+      </a>
+      <a href="index.html#projects" class="nav__back"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="eyebrow">Étude de cas · Machine Learning</div>
+    <h1 class="page-title">Plateforme IA de gestion : automatiser l'analyse pour gagner du temps chaque semaine</h1>
+    <p class="page-sub">
+      <!-- REMPLACE "un client du secteur X" par le vrai nom du client si tu as son accord, sinon garde une description générique honnête -->
+      Comment nous avons conçu une plateforme de gestion pilotée par IA pour un client, afin de réduire le temps passé sur l'analyse manuelle de données.
+    </p>
+
+    <div class="case-meta">
+      <div class="case-meta__item"><span>Python / Django</span>Stack technique</div>
+      <div class="case-meta__item"><span>~6 semaines</span>Durée du projet</div>
+      <div class="case-meta__item"><span>Machine Learning</span>Pôle d'expertise</div>
+    </div>
+
+    <div class="case-block">
+      <h3><i class="fas fa-circle-exclamation"></i> Le problème</h3>
+      <p>
+        Le client traitait manuellement de grands volumes de données opérationnelles chaque semaine : rapprochements, contrôles de cohérence, et production de tableaux de bord internes. Ce travail mobilisait plusieurs heures par semaine sur des tâches répétitives à faible valeur ajoutée, avec un risque d'erreur humaine sur les gros volumes.
+      </p>
+    </div>
+
+    <div class="case-block">
+      <h3><i class="fas fa-lightbulb"></i> La solution</h3>
+      <p>
+        Nous avons conçu une plateforme sur mesure combinant :
+      </p>
+      <ul>
+        <li><strong>Automatisation des tâches répétitives</strong> : import, nettoyage et rapprochement automatique des données entrantes.</li>
+        <li><strong>Modèle d'analyse intelligente</strong> : détection automatique des anomalies et des tendances significatives.</li>
+        <li><strong>Tableau de bord centralisé</strong> : visualisation claire des indicateurs clés, mis à jour en continu.</li>
+      </ul>
+      <p>
+        Le développement s'est fait en Python/Django avec une intégration progressive : un premier module livré et testé avant d'ajouter les suivants, pour limiter les risques et permettre des ajustements en cours de route.
+      </p>
+    </div>
+
+    <div class="case-block">
+      <h3><i class="fas fa-chart-line"></i> Les résultats</h3>
+      <div class="result-grid">
+        <div class="result-item"><div class="num">-70%</div><div class="lbl">temps de traitement manuel</div></div>
+        <div class="result-item"><div class="num">0</div><div class="lbl">erreur de rapprochement depuis le déploiement</div></div>
+        <div class="result-item"><div class="num">1</div><div class="lbl">tableau de bord centralisé pour toute l'équipe</div></div>
+      </div>
+      <p style="margin-top:1.2rem; font-size:.8rem; color:var(--slate2)">
+        <!-- REMPLACE ces chiffres par les vrais résultats mesurés avec ton client. Ne publie jamais un chiffre que tu n'as pas vérifié. -->
+        Chiffres à valider avec le client avant publication.
+      </p>
+    </div>
+
+    <div class="case-block">
+      <h3><i class="fas fa-quote-left"></i> Ce que le client en dit</h3>
+      <p style="font-style:italic">
+        <!-- REMPLACE par un vrai témoignage du client si tu en as un, avec son accord pour la publication -->
+        "LoonTech nous a permis de créer une plateforme moderne en seulement quelques semaines, avec un vrai gain de temps au quotidien."
+      </p>
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;">
+      <p style="color:var(--slate); margin-bottom:1rem;">Un besoin similaire dans ton entreprise ?</p>
+      <a href="index.html#contact" class="btn-cta"><i class="fas fa-paper-plane"></i> Discutons de ton projet</a>
+    </div>
+  </main>
+
+  <div class="footer-mini">
+    <span>© <span id="year"></span> LoonTech</span>
+    <span><a href="index.html">Accueil</a> · <a href="blog.html">Blog</a></span>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
