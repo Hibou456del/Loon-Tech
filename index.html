@@ -660,6 +660,24 @@
     @keyframes mascot-dance-up-leg-r { 0%,100% { transform:rotate(-10deg); } 50% { transform:rotate(14deg); } }
     @keyframes mascot-dance-up-head  { 0%,100% { transform:rotate(6deg); } 50% { transform:rotate(-6deg); } }
 
+    /* Danse zigzag — déclenchée par un clic sur un bouton ou une option */
+    .mascot.mascot--zigzag { animation: mascot-zigzag-move .9s ease-in-out; }
+    .mascot.mascot--zigzag .mascot__arm-l  { animation: mascot-dance-down-arm-l .28s ease-in-out infinite; }
+    .mascot.mascot--zigzag .mascot__arm-r  { animation: mascot-dance-down-arm-r .28s ease-in-out infinite; }
+    .mascot.mascot--zigzag .mascot__leg-l  { animation: mascot-dance-down-leg-l .28s ease-in-out infinite; }
+    .mascot.mascot--zigzag .mascot__leg-r  { animation: mascot-dance-down-leg-r .28s ease-in-out infinite; }
+    .mascot.mascot--zigzag .mascot__head-g { animation: mascot-dance-down-head .28s ease-in-out infinite; }
+    @keyframes mascot-zigzag-move {
+      0%   { transform:translate(0,0) rotate(0deg); }
+      12%  { transform:translate(-20px,-6px) rotate(-12deg); }
+      26%  { transform:translate(16px,2px) rotate(12deg); }
+      40%  { transform:translate(-16px,-6px) rotate(-10deg); }
+      54%  { transform:translate(14px,2px) rotate(10deg); }
+      68%  { transform:translate(-10px,-4px) rotate(-6deg); }
+      82%  { transform:translate(6px,1px) rotate(4deg); }
+      100% { transform:translate(0,0) rotate(0deg); }
+    }
+
     @media(max-width:600px) { .mascot { width:50px; bottom:1rem; right:1rem; } }
     @media(prefers-reduced-motion:reduce) { .mascot, .mascot * { animation:none !important; } }
 
@@ -1525,6 +1543,21 @@
       mascotEl.classList.add('mascot--down');
       clearTimeout(mascotStopTimer);
       mascotStopTimer = setTimeout(() => mascotEl.classList.remove('mascot--down'), 900);
+    });
+
+    /* ── Danse zigzag : clic sur n'importe quel bouton ou option de la page ── */
+    let mascotZigzagTimer;
+    const zigzagSelector = 'button, .btn-cta, .btn-outline, .genre-pill, .accordion__btn, .theme-btn, .nav__toggle, .nav__close, .social, .form-submit';
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest(zigzagSelector);
+      if (!trigger || trigger === mascotEl) return;
+      mascotEl.classList.remove('mascot--down', 'mascot--up');
+      mascotEl.classList.remove('mascot--zigzag');
+      // relance l'animation même si elle est déjà en cours
+      void mascotEl.offsetWidth;
+      mascotEl.classList.add('mascot--zigzag');
+      clearTimeout(mascotZigzagTimer);
+      mascotZigzagTimer = setTimeout(() => mascotEl.classList.remove('mascot--zigzag'), 900);
     });
 
     /* ── Loader ── */
