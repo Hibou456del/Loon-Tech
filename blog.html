@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog · LoonTech</title>
+  <meta name="description" content="Articles sur l'IA, la cybersécurité et le développement par l'équipe LoonTech." />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <div class="nav__logo-box"><img src="Logo.jpg" alt="LoonTech" /></div>
+        LoonTech
+      </a>
+      <a href="index.html" class="nav__back"><i class="fas fa-arrow-left"></i> Retour au site</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="eyebrow">Blog</div>
+    <h1 class="page-title">Idées, retours d'expérience &amp; tutoriels</h1>
+    <p class="page-sub">IA, cybersécurité, développement : ce qu'on apprend en construisant des solutions pour nos clients.</p>
+
+    <div class="card-grid">
+      <a href="blog-reverse-engineering-android.html" class="blog-card">
+        <span class="blog-card__tag">CYBERSÉCURITÉ</span>
+        <h3>Reverse engineering Android : les bases pour auditer une application</h3>
+        <p>Comprendre comment fonctionne l'analyse d'une application Android, et pourquoi c'est essentiel avant de la déployer en production.</p>
+        <span class="blog-card__link">Lire l'article <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="blog-ia-generative-pme.html" class="blog-card">
+        <span class="blog-card__tag">INTELLIGENCE ARTIFICIELLE</span>
+        <h3>IA générative pour PME africaines : par où commencer ?</h3>
+        <p>Un guide concret pour identifier les cas d'usage IA les plus rentables quand on dirige une petite ou moyenne entreprise.</p>
+        <span class="blog-card__link">Lire l'article <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="blog-formation-ia-2026.html" class="blog-card">
+        <span class="blog-card__tag">FORMATIONS</span>
+        <h3>Pourquoi former son équipe à l'IA en 2026 n'est plus optionnel</h3>
+        <p>Les compétences IA deviennent un avantage compétitif direct. Voici comment structurer un plan de formation efficace.</p>
+        <span class="blog-card__link">Lire l'article <i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </main>
+
+  <div class="footer-mini">
+    <span>© <span id="year"></span> LoonTech</span>
+    <span><a href="index.html">Accueil</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></span>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
