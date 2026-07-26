@@ -604,6 +604,64 @@
     }
     .media-modal__insta-btn:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(221,42,123,.4); }
     @media(max-width:600px){ .media-modal__head{ padding:1rem; } .media-modal__panel{ padding:1rem; } }
+    @media(hover:none) { .cursor-dot, .cursor-ring { display:none; } * { cursor: auto !important; } }
+
+    /* ─── MASCOTTE DANSANTE — réagit au scroll haut/bas ──────────────── */
+    .mascot {
+      position:fixed; bottom:1.2rem; right:1.2rem; z-index:870;
+      width:66px; height:auto; pointer-events:auto;
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));
+      animation: mascot-idle-bob 2.4s ease-in-out infinite;
+      transition:filter .2s;
+    }
+    .mascot:hover { filter:drop-shadow(0 10px 24px rgba(255,94,26,.5)); }
+    @keyframes mascot-idle-bob { 0%,100% { transform:translateY(0) rotate(0deg); } 50% { transform:translateY(-5px) rotate(-2deg); } }
+
+    .mascot__arm-l, .mascot__arm-r, .mascot__leg-l, .mascot__leg-r, .mascot__head-g {
+      transform-box: fill-box;
+    }
+    .mascot__arm-l { transform-origin:100% 0%; animation: mascot-idle-arm-l 2.4s ease-in-out infinite; }
+    .mascot__arm-r { transform-origin:0% 0%;   animation: mascot-idle-arm-r 2.4s ease-in-out infinite; }
+    .mascot__leg-l { transform-origin:100% 0%; animation: mascot-idle-leg-l 2.4s ease-in-out infinite; }
+    .mascot__leg-r { transform-origin:0% 0%;   animation: mascot-idle-leg-r 2.4s ease-in-out infinite; }
+    .mascot__head-g{ transform-origin:50% 100%;animation: mascot-idle-head 2.4s ease-in-out infinite; }
+
+    @keyframes mascot-idle-arm-l { 0%,100% { transform:rotate(-8deg); } 50% { transform:rotate(8deg); } }
+    @keyframes mascot-idle-arm-r { 0%,100% { transform:rotate(8deg); } 50% { transform:rotate(-8deg); } }
+    @keyframes mascot-idle-leg-l { 0%,100% { transform:rotate(-3deg); } 50% { transform:rotate(3deg); } }
+    @keyframes mascot-idle-leg-r { 0%,100% { transform:rotate(3deg); } 50% { transform:rotate(-3deg); } }
+    @keyframes mascot-idle-head  { 0%,100% { transform:rotate(-3deg); } 50% { transform:rotate(3deg); } }
+
+    /* Danse — on descend la page : mouvement énergique vers le bas */
+    .mascot.mascot--down { animation: mascot-dance-down-body .42s ease-in-out infinite; }
+    .mascot.mascot--down .mascot__arm-l  { animation: mascot-dance-down-arm-l .42s ease-in-out infinite; }
+    .mascot.mascot--down .mascot__arm-r  { animation: mascot-dance-down-arm-r .42s ease-in-out infinite; }
+    .mascot.mascot--down .mascot__leg-l  { animation: mascot-dance-down-leg-l .42s ease-in-out infinite; }
+    .mascot.mascot--down .mascot__leg-r  { animation: mascot-dance-down-leg-r .42s ease-in-out infinite; }
+    .mascot.mascot--down .mascot__head-g { animation: mascot-dance-down-head .42s ease-in-out infinite; }
+    @keyframes mascot-dance-down-body { 0%,100% { transform:translateY(0) rotate(-4deg); } 50% { transform:translateY(7px) rotate(4deg); } }
+    @keyframes mascot-dance-down-arm-l { 0%,100% { transform:rotate(-45deg); } 50% { transform:rotate(25deg); } }
+    @keyframes mascot-dance-down-arm-r { 0%,100% { transform:rotate(45deg); } 50% { transform:rotate(-25deg); } }
+    @keyframes mascot-dance-down-leg-l { 0%,100% { transform:rotate(-22deg); } 50% { transform:rotate(18deg); } }
+    @keyframes mascot-dance-down-leg-r { 0%,100% { transform:rotate(22deg); } 50% { transform:rotate(-18deg); } }
+    @keyframes mascot-dance-down-head  { 0%,100% { transform:rotate(-8deg); } 50% { transform:rotate(8deg); } }
+
+    /* Danse — on remonte la page : mouvement type "robot" vers le haut */
+    .mascot.mascot--up { animation: mascot-dance-up-body .46s ease-in-out infinite; }
+    .mascot.mascot--up .mascot__arm-l  { animation: mascot-dance-up-arm-l .46s ease-in-out infinite; }
+    .mascot.mascot--up .mascot__arm-r  { animation: mascot-dance-up-arm-r .46s ease-in-out infinite; }
+    .mascot.mascot--up .mascot__leg-l  { animation: mascot-dance-up-leg-l .46s ease-in-out infinite; }
+    .mascot.mascot--up .mascot__leg-r  { animation: mascot-dance-up-leg-r .46s ease-in-out infinite; }
+    .mascot.mascot--up .mascot__head-g { animation: mascot-dance-up-head .46s ease-in-out infinite; }
+    @keyframes mascot-dance-up-body { 0%,100% { transform:translateY(0) scale(1) rotate(3deg); } 50% { transform:translateY(-9px) scale(1.05) rotate(-3deg); } }
+    @keyframes mascot-dance-up-arm-l { 0%,100% { transform:rotate(-70deg); } 50% { transform:rotate(-10deg); } }
+    @keyframes mascot-dance-up-arm-r { 0%,100% { transform:rotate(70deg); } 50% { transform:rotate(10deg); } }
+    @keyframes mascot-dance-up-leg-l { 0%,100% { transform:rotate(10deg); } 50% { transform:rotate(-14deg); } }
+    @keyframes mascot-dance-up-leg-r { 0%,100% { transform:rotate(-10deg); } 50% { transform:rotate(14deg); } }
+    @keyframes mascot-dance-up-head  { 0%,100% { transform:rotate(6deg); } 50% { transform:rotate(-6deg); } }
+
+    @media(max-width:600px) { .mascot { width:50px; bottom:1rem; right:1rem; } }
+    @media(prefers-reduced-motion:reduce) { .mascot, .mascot * { animation:none !important; } }
 
     /* ─── LIGHT MODE ──────────────────────────────────── */
     body.light-mode{
@@ -1262,6 +1320,52 @@
     </div>
   </section>
 
+  <!-- ─── MASCOTTE DANSANTE ────────────────────────────── -->
+  <svg id="mascot" class="mascot" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Jambes — pantalon noir -->
+    <g class="mascot__leg-l">
+      <rect x="38" y="96" width="9" height="38" rx="4" fill="#111114" stroke="#2c2c33" stroke-width="1"/>
+      <ellipse cx="42.5" cy="136" rx="6.5" ry="3.4" fill="#ff5e1a"/>
+    </g>
+    <g class="mascot__leg-r">
+      <rect x="53" y="96" width="9" height="38" rx="4" fill="#111114" stroke="#2c2c33" stroke-width="1"/>
+      <ellipse cx="57.5" cy="136" rx="6.5" ry="3.4" fill="#ff5e1a"/>
+    </g>
+    <!-- Bras — manches de la chemise blanche -->
+    <g class="mascot__arm-l">
+      <rect x="18" y="52" width="9" height="34" rx="4.5" fill="#fbfbfc" stroke="#d9d9de" stroke-width="1"/>
+      <rect x="18" y="82" width="9" height="7" rx="3" fill="#ffd7ad"/>
+    </g>
+    <g class="mascot__arm-r">
+      <rect x="73" y="52" width="9" height="34" rx="4.5" fill="#fbfbfc" stroke="#d9d9de" stroke-width="1"/>
+      <rect x="73" y="82" width="9" height="7" rx="3" fill="#ffd7ad"/>
+    </g>
+    <!-- Torse — chemise blanche -->
+    <rect x="32" y="48" width="36" height="52" rx="14" fill="url(#mascotShirtGradient)" stroke="#d9d9de" stroke-width="1.5"/>
+    <path d="M44 48 L50 58 L56 48" fill="none" stroke="#c9c9ce" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50" cy="68" r="1.6" fill="#c9c9ce"/>
+    <circle cx="50" cy="78" r="1.6" fill="#c9c9ce"/>
+    <circle cx="50" cy="88" r="1.6" fill="#c9c9ce"/>
+    <!-- Tête -->
+    <g class="mascot__head-g">
+      <circle cx="50" cy="26" r="20" fill="url(#mascotHeadGradient)"/>
+      <circle cx="42" cy="24" r="3.2" fill="#12060a"/>
+      <circle cx="58" cy="24" r="3.2" fill="#12060a"/>
+      <path d="M42 32 Q50 38 58 32" stroke="#12060a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <rect x="46" y="3" width="8" height="8" rx="2" fill="#ff5e1a"/>
+    </g>
+    <defs>
+      <linearGradient id="mascotShirtGradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="1" stop-color="#e9e9ee"/>
+      </linearGradient>
+      <linearGradient id="mascotHeadGradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffd27a"/>
+        <stop offset="1" stop-color="#ff5e1a"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
   <!-- ─── MODALE MÉDIA ─────────────────────────────────── -->
   <div class="media-modal" id="media-modal" aria-hidden="true">
     <div class="media-modal__box" role="dialog" aria-modal="true" aria-labelledby="media-modal-title">
@@ -1396,6 +1500,31 @@
         const label = card.querySelector('h4, h5')?.textContent?.trim() || topic;
         openMediaModal(topic, label);
       });
+    });
+
+    /* ── Mascotte dansante : réagit au sens du scroll ── */
+    const mascotEl = document.getElementById('mascot');
+    let mascotLastY = window.scrollY;
+    let mascotStopTimer;
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > mascotLastY + 2) {
+        mascotEl.classList.add('mascot--down');
+        mascotEl.classList.remove('mascot--up');
+      } else if (currentY < mascotLastY - 2) {
+        mascotEl.classList.add('mascot--up');
+        mascotEl.classList.remove('mascot--down');
+      }
+      mascotLastY = currentY;
+      clearTimeout(mascotStopTimer);
+      mascotStopTimer = setTimeout(() => {
+        mascotEl.classList.remove('mascot--down', 'mascot--up');
+      }, 450);
+    }, { passive:true });
+    mascotEl.addEventListener('click', () => {
+      mascotEl.classList.add('mascot--down');
+      clearTimeout(mascotStopTimer);
+      mascotStopTimer = setTimeout(() => mascotEl.classList.remove('mascot--down'), 900);
     });
 
     /* ── Loader ── */
