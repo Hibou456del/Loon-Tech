@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reverse engineering Android : les bases · Blog LoonTech</title>
+  <meta name="description" content="Comprendre les fondamentaux du reverse engineering Android pour auditer la sécurité d'une application mobile." />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <div class="nav__logo-box"><img src="Logo.jpg" alt="LoonTech" /></div>
+        LoonTech
+      </a>
+      <a href="blog.html" class="nav__back"><i class="fas fa-arrow-left"></i> Retour au blog</a>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="eyebrow">Cybersécurité · 6 min de lecture</div>
+    <h1 class="page-title">Reverse engineering Android : les bases pour auditer une application</h1>
+    <p class="page-sub">Ce qu'il faut comprendre avant de faire auditer (ou d'auditer soi-même) la sécurité d'une application mobile Android.</p>
+
+    <article>
+      <p>
+        Avant de publier une application Android, la plupart des équipes testent son bon fonctionnement — mais peu vérifient réellement ce qu'un attaquant peut en extraire une fois le fichier APK entre ses mains. C'est là qu'intervient le reverse engineering : la capacité à décompiler et analyser une application pour comprendre son comportement interne.
+      </p>
+
+      <h2>Pourquoi une application Android n'est jamais "vraiment" cachée</h2>
+      <p>
+        Contrairement à une idée reçue, le code d'une application Android n'est pas totalement protégé une fois installée sur un téléphone. Des outils comme les décompilateurs permettent de remonter jusqu'à une version lisible du code source, ou en tout cas suffisamment proche pour en comprendre la logique métier.
+      </p>
+      <p>
+        Cela signifie concrètement que : les clés d'API codées en dur, la logique de validation des paiements, ou les règles de sécurité internes peuvent être exposées si elles ne sont pas correctement protégées côté serveur.
+      </p>
+
+      <h2>Les points qu'un audit vérifie en priorité</h2>
+      <ul>
+        <li><strong>Stockage des secrets</strong> : clés API, tokens, identifiants codés en dur dans l'application.</li>
+        <li><strong>Communication réseau</strong> : les échanges sont-ils correctement chiffrés (certificate pinning, HTTPS strict) ?</li>
+        <li><strong>Logique métier côté client</strong> : les règles critiques (prix, permissions, validations) sont-elles vérifiables/modifiables localement ?</li>
+        <li><strong>Protections anti-tampering</strong> : l'application détecte-t-elle si elle tourne sur un appareil "rooté" ou modifié ?</li>
+        <li><strong>Obfuscation du code</strong> : le code est-il rendu suffisamment difficile à lire pour ralentir un attaquant ?</li>
+      </ul>
+
+      <div class="callout">
+        <strong>À retenir :</strong> le reverse engineering n'est pas réservé aux attaquants. C'est avant tout un outil défensif : la meilleure façon de savoir ce qu'un attaquant pourrait trouver, c'est de le chercher soi-même en premier.
+      </div>
+
+      <h2>Ce que ça change concrètement pour une entreprise</h2>
+      <p>
+        Une application non auditée qui gère des paiements, des données utilisateurs ou des accès sensibles représente un risque direct : fuite de données, fraude, ou atteinte à la réputation en cas d'incident public. Un audit structuré permet d'identifier ces failles avant qu'un tiers malveillant ne les trouve.
+      </p>
+
+      <h2>Notre approche chez LoonTech</h2>
+      <p>
+        Nous menons des audits de sécurité mobile complets : analyse statique du code décompilé, test des communications réseau, et remise d'un rapport priorisé par niveau de risque, avec des recommandations concrètes et applicables par ton équipe technique.
+      </p>
+
+      <p>
+        Tu gères une application mobile et tu n'as jamais fait auditer sa sécurité ?
+        <a class="inline-link" href="index.html#contact">Parlons-en</a>.
+      </p>
+    </article>
+  </main>
+
+  <div class="footer-mini">
+    <span>© <span id="year"></span> LoonTech</span>
+    <span><a href="blog.html">Blog</a> · <a href="index.html">Accueil</a></span>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
